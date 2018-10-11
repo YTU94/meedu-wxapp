@@ -1,21 +1,13 @@
 /**index.wxss**/
-.userinfo {
+.card-container{
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  height: auto;
+  padding: 0 20rpx;
+  box-sizing: border-box;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.card-container .card-item{
+  flex:0 0 50%;
+  box-sizing: border-box;
 }

@@ -1,22 +1,13 @@
 //index.js
 //获取应用实例
 const app = getApp()
-// import course from '../../../utils/api/course'
-// const api = require('../../..//utils/api/server.js')
-import http from '../../../utils/api/server'
-import course from '../../../utils/api/course'
+
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  clickCard(e) {
-    console.log('clickCard', e)
-    wx.navigateTo({
-      url: '../../video/index',
-    })
   },
   //事件处理函数
   bindViewTap: function() {
@@ -30,18 +21,6 @@ Page({
     })
   },
   onLoad: function () {
-    console.log(course)
-    // http.fly('/rest/store/listPagination', {}, {
-    //   method: 'POST'
-    // }).then(res => {
-    //   console.log(res)
-    // })
-    // course.getCourseList({}).then(res => {
-    //   console.log(res)
-    // })
-    course.getCourseList({}).then(res => {
-      console.log(res)
-    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -70,7 +49,6 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log('course', course)
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({

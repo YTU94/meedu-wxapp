@@ -1,9 +1,11 @@
 {
   "pages":[
     "pages/tabBar/index/index",
+    "pages/tabBar/article/index",
+    "pages/tabBar/person/index",
     "pages/video/index",
     "pages/logs/logs",
-    "pages/tabBar/person/index"
+    "pages/login/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -16,8 +18,11 @@
       "pagePath": "pages/tabBar/index/index",
       "text": "首页"
     }, {
+      "pagePath": "pages/tabBar/article/index",
+      "text": "文章"
+    }, {
       "pagePath": "pages/tabBar/person/index",
-      "text": "日志"
+      "text": "我的"
     }]
   }
 }

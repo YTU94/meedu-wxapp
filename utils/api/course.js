@@ -1,11 +1,15 @@
-var Fly = require('flyio/dist/npm/wx')
-var fly = new Fly()
 
-// export default {
-//   getCourseList: function (params) {
-//     debugger
-//     return fly('/rest/store/listPagination', params, {
-//       method: 'POST'
-//     })
-//   }
-// }
+import fly from './server'
+
+export default {
+  getCourseList: function (params) {
+    return fly('/rest/store/listPagination', params, {
+      method: 'POST'
+    })
+  },
+  getCourseList2: function (params) {
+    return fly('/rest/store/listPagination', params, {
+      method: 'POST'
+    })
+  }
+}
