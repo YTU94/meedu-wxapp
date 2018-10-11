@@ -1,7 +1,7 @@
 var Fly = require('./wx')
 var fly = new Fly()
 
-fly.config.baseURL = 'http://47.92.217.9:9090'
+fly.config.baseURL = 'http://meedu.app'
 
 
 // 添加请求拦截器

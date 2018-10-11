@@ -1,10 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-// import course from '../../../utils/api/course'
-// const api = require('../../..//utils/api/server.js')
-import http from '../../../utils/api/server'
 import course from '../../../utils/api/course'
+
 Page({
   data: {
     motto: 'Hello World',
@@ -30,16 +28,7 @@ Page({
     })
   },
   onLoad: function () {
-    console.log(course)
-    // http.fly('/rest/store/listPagination', {}, {
-    //   method: 'POST'
-    // }).then(res => {
-    //   console.log(res)
-    // })
-    // course.getCourseList({}).then(res => {
-    //   console.log(res)
-    // })
-    course.getCourseList({}).then(res => {
+    course.getCourseList({page_size: 10, page: 1}).then(res => {
       console.log(res)
     })
     if (app.globalData.userInfo) {
