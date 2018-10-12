@@ -1,4 +1,0 @@
-<!--index.wxml-->
-<view class="card">
-  <image class="card-img" bindtap="clickCard" src="{{src}}" mode="widthFix"></image>
-</view>

@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "MeEdu",
-  "usingComponents": {
-    "card": "/components/card/index"
-  }
-}
