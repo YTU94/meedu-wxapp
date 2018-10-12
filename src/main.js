@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-
+import fly from './api/index'
+Vue.prototype.$http = fly
 Vue.config.productionTip = false
 App.mpType = 'app'
 

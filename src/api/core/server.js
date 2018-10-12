@@ -1,9 +1,9 @@
 
 var Fly = require('flyio/dist/npm/wx')
 var fly = new Fly()
-const HOST_DEV = 'http://47.92.217.9:9090' // eslint-disable-line
+const HOST_DEV = 'https://1o1.cc' // eslint-disable-line
 const HOST_PROD = 'https://xthapi-prod.isagr.com' // eslint-disable-line
-fly.config.baseURL = HOST_PROD
+fly.config.baseURL = HOST_DEV
 
 // 添加请求拦截器
 fly.interceptors.request.use((request) => {
@@ -24,14 +24,15 @@ fly.interceptors.request.use((request) => {
 fly.interceptors.response.use(
   (response) => {
     // 只将请求结果的data字段返回
-    if (response.data.success) {
+    if (response.status === 200) {
       return response.data
     } else {
       wx.showToast({
-        title: typeof (response.data.message) === 'string' ? response.data.message : '系统出错',
+        title: typeof (response.message) === 'string' ? response.message : '系统出错',
         icon: 'none',
         duration: 1000
       })
+      wx.hideLoading()
       return Promise.reject(response)
     }
   },
@@ -55,7 +56,7 @@ export default function flyio (url, params, config) {
     })
     fly.request(url, params, config).then((response) => {
       wx.hideLoading()
-      if (response.success) {
+      if (response.data) {
         resolve(response)
       } else {
         wx.showToast({

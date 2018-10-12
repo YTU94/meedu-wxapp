@@ -10,19 +10,19 @@ export default {
   },
   // 课程详情
   getCourseInfo: function (params, id) {
-    return fly(`/api/v2/course/${id}`, params, {
+    return fly(`/api/v1/course/${id}`, params, {
       method: 'GET'
     })
   },
   // 课程下的视频列表
   getVideosList: function (params, id) {
-    return fly(`/api/v1/course/${$id}/videos`, params, {
+    return fly(`/api/v1/course/${id}/videos`, params, {
       method: 'GET'
     })
   },
   // 课程评论
   getCourseComments: function (params, id) {
-    return fly(`/api/v2/course/${id}/comments`, params, {
+    return fly(`/api/v1/course/${id}/comments`, params, {
       method: 'GET'
     })
   },

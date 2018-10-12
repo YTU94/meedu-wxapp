@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/tabBar/index/main",
+    "pages/tabBar/course/main",
     "pages/tabBar/article/main",
     "pages/tabBar/person/main",
     "pages/index/main",
-    "pages/logs/main",
-    "pages/counter/main"
+    "pages/video/main",
+    "pages/videoList/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,8 +15,8 @@
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/tabBar/index/main",
-      "text": "首页"
+      "pagePath": "pages/tabBar/course/main",
+      "text": "课程"
     }, {
       "pagePath": "pages/tabBar/article/main",
       "text": "文章"
