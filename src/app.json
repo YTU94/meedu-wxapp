@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/login/main",
     "pages/tabBar/course/main",
     "pages/tabBar/article/main",
     "pages/tabBar/person/main",
     "pages/index/main",
+    "pages/register/main",
     "pages/video/main",
     "pages/videoList/main"
   ],

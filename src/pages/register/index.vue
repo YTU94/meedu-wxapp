@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>注册</p>
     <ul class="container log-list">
       <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
         <card :text="(index + 1) + ' . ' + log"></card>

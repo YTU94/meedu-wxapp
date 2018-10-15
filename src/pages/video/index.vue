@@ -1,8 +1,13 @@
 <template>
-  <div>
-    <video :src="src"   controls ></video>
+  <div class="video">
+    <div class="video-box">
+      <video v-if="videoInfo.url" :src="videoInfo.url"  controls ></video>
+    </div>
+    <p>详情</p>
+    <div>{{videoInfo}}</div>
+    <p>评论</p>
     <ul class="container log-list">
-      <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
+      <li v-for="(log, index) in videosComments" :class="{ red: aa }" :key="index" class="log-item">
         <card :text="(index + 1) + ' . ' + log"></card>
       </li>
     </ul>
@@ -21,7 +26,10 @@ export default {
   data () {
     return {
       src: '',
-      logs: []
+      videosComments: [],
+      videoInfo: {
+        url: ''
+      }
     }
   },
   computed: {
@@ -29,14 +37,48 @@ export default {
       return this.$mp.query.id
     }
   },
+  methods: {
+    init () {
+      this._getVideosInfo({}, this.videoId)
+      this._getVideosUrl({}, this.videoId)
+      this._getVideosComments({}, this.videoId)
+    },
+    // 视频详情
+    _getVideosInfo (data, id) {
+      this.$http.video.getVideosInfo(data, id).then(res => {
+        console.log(res)
+        this.videoInfo = res.data
+      })
+    },
+    // 视频播放地址
+    _getVideosUrl (data, id) {
+      this.$http.video.getVideosUrl(data, id).then(res => {
+        console.log(res)
+        this.videoInfo.url = res.data
+      })
+    },
+    // 视频评论提交
+    _getVideosComments (data, id) {
+      this.$http.video.getVideosComments(data, id).then(res => {
+        console.log(res)
+        this.videosComments = res.data
+      })
+    }
+  },
   created () {
     const logs = (wx.getStorageSync('logs') || [])
     this.logs = logs.map(log => formatTime(new Date(log)))
+  },
+  mounted () {
+    this.init()
   }
 }
 </script>
 
-<style>
+<style lang="less">
+.video{
+  position: relative;
+}
 .log-list {
   display: flex;
   flex-direction: column;

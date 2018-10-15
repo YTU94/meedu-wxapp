@@ -1,13 +1,13 @@
 import article from './article'
 import course from './course'
 import user from './user'
-import videos from './videos'
+import video from './video'
 import vip from './vip'
 
 export default {
   article,
   course,
   user,
-  videos,
+  video,
   vip
 }
