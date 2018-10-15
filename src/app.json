@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/login/main",
     "pages/tabBar/course/main",
+    "pages/login/main",
     "pages/tabBar/article/main",
     "pages/tabBar/person/main",
     "pages/index/main",
@@ -12,7 +12,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "MeEdu",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

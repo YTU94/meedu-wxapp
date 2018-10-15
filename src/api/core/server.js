@@ -8,6 +8,7 @@ fly.config.baseURL = HOST_DEV
 // 添加请求拦截器
 fly.interceptors.request.use((request) => {
   // 给所有请求添加自定义header
+  request.headers['Authorization'] = `Bearer ${wx.getStorageSync('token')}`
   request.headers['X-Tag'] = 'flyio'
   request.headers['third-session'] = wx.getStorageSync('thirdSession') || ''
   // 打印出请求体

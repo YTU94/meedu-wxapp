@@ -1,6 +1,6 @@
 <template>
   <div class="course" @click="clickHandle('test click', $event)">
-    <h1>全部课程</h1>
+    <h1 >全部课程</h1>
     <div class="card-list">
       <div class="card-item" v-for="(course, index) in courseList" :key="index" @click="goVideoList(course)">
         <card :src="course.thumb" :text="course.title" ></card>
