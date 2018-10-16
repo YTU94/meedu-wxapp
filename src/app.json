@@ -1,12 +1,15 @@
 {
   "pages": [
-    "pages/tabBar/course/main",
-    "pages/login/main",
     "pages/tabBar/article/main",
+    "pages/login/main",
+    "pages/tabBar/course/main",
+    "pages/tabBar/article/articleList/main",
+    "pages/tabBar/article/articleInfo/main",
     "pages/tabBar/person/main",
+    
     "pages/index/main",
-    "pages/register/main",
     "pages/video/main",
+    "pages/register/main",
     "pages/videoList/main"
   ],
   "window": {

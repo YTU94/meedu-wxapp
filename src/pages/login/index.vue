@@ -44,13 +44,15 @@ export default {
         scope: '',
         grant_type: 'password',
         client_id: '2',
-        client_serect: 'G8hmzjkkJBl9lPwF45pBgO1AJSM5XolpbPNFR9k7',
+        client_secret: 'G8hmzjkkJBl9lPwF45pBgO1AJSM5XolpbPNFR9k7',
         username: this.form.account || '18119635019',
-        password: this.form.password
+        password: this.form.password || '123123'
       }
       this.$http.user.login(data).then(res => {
-        console.log(res)
-        wx.setStorageSync('token', 'asd')
+        if (res.access_token) wx.setStorageSync('access_token', res.access_token)
+        wx.switchTab({
+          url: '../tabBar/course/main'
+        })
       })
     }
   },

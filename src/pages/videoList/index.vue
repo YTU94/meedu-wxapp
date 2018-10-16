@@ -1,29 +1,54 @@
 <template>
-  <div>
-    <h1>{{courseInfo.title}}</h1>
-    <card :src="courseInfo.thumb"></card>
-    <p v-html="courseInfo.short_description"></p>
-    <p>上线时间： {{courseInfo.published_at}}</p>
-    <!-- video list -->
-    <p>视屏：</p>
-    <ul class="container log-list">
-      <li v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" class="log-item">
-        <!-- <card :text="(index + 1) + ' . ' + item.title"></card> -->
-        {{(index + 1) + ' . ' + item.title}}
-      </li>
-    </ul>
+  <div class="course-info">
+    <!-- course-info -->
+    <div class="info section">
+      <span class="info-tag">免费课程</span>
+      <h1 class="info-title">{{courseInfo.title}}</h1>
+      <card :src="courseInfo.thumb"></card>
+      <p class="info-time">上线时间： {{courseInfo.published_at}} · {{courseInfo.view_num}}观看</p>
+    </div>
 
+    <section class="line"></section>
+    
+    <!-- introduction -->
+    <div class="introduction section ">
+      <label class="section-label">简介</label>
+      <p class="introduction-text" v-html="courseInfo.description"></p>
+    </div>
+    
+    <section class="line"></section>
+
+    <!-- video list -->
+    <div class="video-list section">
+      <label class="section-label">视屏</label>
+      <ul class="list-container">
+        <li class="list-item" v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
+          <img class="video-icon" src="../../assets/img/triangle-icon.png" alt="" mode="widthFix">
+          <div class="video-title">{{(index + 1) + ' . ' + item.title}}</div>
+        </li>
+      </ul>
+    </div>
+
+    <section class="line"></section>
+    
     <!-- comments list -->
-    <p>评论：</p>
-    <ul class="container log-list">
-      <li v-for="(item, index) in courseCommentsList" :class="{ red: aa }" :key="index" @click="goVideo(item)" class="log-item">
-        <span>
-          <img :src="'https://1o1.cc' + item.user.avatar" alt="" mode="widthFix">
-        </span>
-        {{(index + 1) + ' . ' + item.user.nick_name}}: <span v-html="item.content"></span>
-        <p>时间：{{item.created_at}}</p>
-      </li>
-    </ul>
+    <div class="comments-list section">
+      <label class="section-label">评论</label>
+      <ul class="list-container">
+        <li class="list-item" v-for="(item, index) in courseCommentsList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
+          <img class="item-avatar" :src="item.user.avatar" alt="" mode="widthFix">
+          <!-- {{(index + 1) + ' . ' + item.user.nick_name}}: <span v-html="item.content"></span> -->
+          <div class="item-content">
+            <div class="item-content__name">{{item.user.nick_name}}</div>
+            <div class="item-content__time">{{item.created_at}}</div>
+            <div class="item-content__content" v-html="item.content"></div>
+            <div class="item-content__footer">评论：</div>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+    
   </div>
 </template>
 
@@ -64,7 +89,6 @@ export default {
     // 课程详情
     _getCourseInfo (data, id) {
       this.$http.course.getCourseInfo(data, id).then(res => {
-        console.log(res)
         this.courseInfo = res.data
       })
     },
@@ -99,14 +123,151 @@ export default {
 }
 </script>
 
-<style>
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
+<style lang="less">
+@import '../../assets/style/variable.less';
 
-.log-item {
-  margin: 10rpx;
+.line{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: @bg-color;
+}
+.course-info{
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  .section{
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    &-label{
+      font-size: 16px;
+      color: #1A1A1A;
+      line-height: 2.0;
+    }
+  }
+  .info{
+    &-tag{
+      position: relative;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      font-size: 12px;
+      color: #fff;
+      background-color: red;
+      border-radius: 50px;
+      padding: 3px 10px;
+      box-sizing: border-box;
+    }
+    &-title{
+      font-size: 18px;
+    }
+    &-time{
+      font-size: 12px;
+      color: @font-color-gray;
+    }
+  }
+  /*
+  * introduction 简介
+  */
+  .introduction{
+    &-text{
+      font-size: 12px;
+      color: @font-color-gray;
+    }
+  }
+  /*
+  * video list 
+  */
+  .video-list{
+    .list-container{
+      padding: 0 0 0 10px;
+      position: relative;
+      .list-item{
+        display: flex;
+        align-items: center;
+        .video-icon{
+          display: flex;
+          flex: 0 0 auto;
+          width: 16px;
+          height: auto;
+          padding-right: 10px;
+        }
+        .video-title{
+          display: flex;
+          flex: 1;
+          font-size: 13px;
+          line-height: 2.6;
+          border-bottom: 1px solid @border-color;
+        }
+      }
+    }
+  }
+  /*
+  * comments list 
+  */
+  .comments-list{
+    .list-container{
+      .list-item{
+        display: flex;
+        .item-avatar{
+          display: flex;
+          flex: 0 0 auto;
+          width: 40px;
+          height: auto;
+          border-radius: 20px;
+          padding-right: 5px;
+          box-sizing: border-box;
+        }
+        .item-content{
+          display: flex;
+          flex: 1;
+          position: relative;
+          flex-direction: column;
+          &__name{
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            font-size: 14px;
+            color: darkslateblue;
+          }
+          &__time{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 10px;
+            color: @font-color-gray;
+          }
+          &__content{
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            padding: 5px 0;
+            font-size: 12px;
+            color: #1A1A1A;
+          }
+          &__footer{
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            font-size: 12px;
+            border-bottom: 1px solid @border-color;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

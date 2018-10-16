@@ -35,6 +35,7 @@ export default {
       wx.navigateTo({ url })
     },
     goVideoList (course) {
+      console.log('query--------->course.id', course.id)
       wx.navigateTo({
         url: `../../videoList/main?id=${course.id}`
       })

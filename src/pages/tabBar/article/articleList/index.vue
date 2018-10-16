@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul class="container log-list">
-      <li v-for="(item, index) in categoryList" @click="goArticleList(item)" :class="{ red: aa }" :key="index" class="item-item">
-        {{item.name}}
+      <li v-for="(item, index) in articleList" @click="goArticleInfo(item)" :class="{ red: aa }" :key="index" class="item-item">
+        {{item.title}}
       </li>
     </ul>
   </div>
@@ -20,29 +20,27 @@ export default {
   data () {
     return {
       logs: [],
-      categoryList: []
+      articleList: []
+    }
+  },
+  computed: {
+    categoryId () {
+      return this.$mp.query.id
     }
   },
   methods: {
     init () {
-      this._getCategoryList({page_size: 10, page: 1})
+      this._getArticleList({page_size: 10, page: 1}, this.categoryId)
     },
-    goArticleList (e) {
-      console.log('query-------->', e)
+    goArticleInfo (e) {
       wx.navigateTo({
-        url: `./articleList/main?id=${e.id}`
-      })
-    },
-    // 获取文章分类
-    _getCategoryList (data) {
-      this.$http.article.getCategoryList(data).then(res => {
-        this.categoryList = res.data
+        url: `../articleInfo/main?id=${e.id}`
       })
     },
     // 获取文章列表
     _getArticleList (data, id) {
       this.$http.article.getArticleList(data, id).then(res => {
-        this.categoryList = res.data
+        this.articleList = res.data
       })
     }
   },
