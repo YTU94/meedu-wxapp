@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { formatTime } from '@/utils/index'
+// import { formatTime } from '@/utils/index'
 
 export default {
   components: {},
@@ -67,41 +67,22 @@ export default {
     console.log('mounted---------->')
   },
   onShow () {
+    this.init()
     console.log('Onshow---------->')
     // this._getClientCouponList()
     // this._getUserRebateOrderList()
   },
   methods: {
+    init () {
+
+    },
     goOrderList () {
       let orderList = JSON.stringify(this.rebateOrderList)
       wx.navigateTo({
         url: `./orderList/main?orderList=${orderList}`
       })
     },
-    _getClientCouponList () {
-      this.$http.coupon.getClientCouponList({}).then(res => {
-        res.pageList.list.forEach(e => {
-          if (e.hasOwnProperty('couponVo')) {
-            e.couponVo.isUesdName = e.couponVo.isUesd ? '已使用' : '未使用'
-            e.couponVo.eTime = formatTime(e.couponVo.effectTime)
-          }
-        })
-        this.couponList = res.pageList.list
-        this.couponListTotal = res.pageList.count
-      })
-    },
-    _getUserRebateOrderList (data) {
-      this.$http.rebate.getUserRebateOrderList(data).then(res => {
-        res.pageList.list.forEach(e => {
-          if (e.hasOwnProperty('createdTime')) {
-            e.statusName = e.status === 'SUBMITED' ? '已提交' : '已领取'
-            e.createdTimeFormated = formatTime(e.createdTime, true)
-          }
-        })
-        this.rebateOrderList = res.pageList.list
-        this.rebateOrderTotal = res.pageList.count
-      })
-    }
+    _getUserInfo (data) {}
   }
 }
 </script>

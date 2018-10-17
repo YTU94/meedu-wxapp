@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/tabBar/article/main",
     "pages/login/main",
+    "pages/tabBar/article/main",
     "pages/tabBar/course/main",
     "pages/tabBar/article/articleList/main",
     "pages/tabBar/article/articleInfo/main",

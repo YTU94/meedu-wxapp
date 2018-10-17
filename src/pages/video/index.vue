@@ -59,7 +59,7 @@ export default {
         {name: '列表', index: 0, value: 'name'},
         {name: '评价', index: 0, value: 'name'}
       ],
-      playUrl: [{url: '1'}],
+      playUrl: [{url: '1'}, {url: '1'}],
       // video
       videosComments: [],
       videoInfo: {}

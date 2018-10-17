@@ -2,7 +2,7 @@
   <div>
     <ul class="container log-list">
       <li v-for="(item, index) in articleList" @click="goArticleInfo(item)" :class="{ red: aa }" :key="index" class="item-item">
-        {{item.title}}
+        {{index + 1}}. {{item.title}}
       </li>
     </ul>
   </div>
