@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <ul class="container log-list">
-      <li v-for="(item, index) in categoryList" @click="goArticleList(item)" :class="{ red: aa }" :key="index" class="item-item">
-        {{item.name}}
+  <div class="article">
+    <h1>所有分类</h1>
+    <ul class="container">
+      <li v-for="(item, index) in categoryList" @click="goArticleList(item)" :style="{'background': colorList[parseInt(Math.random() * 10)]}" :class="{ red: aa }" :key="index" class="list-item">
+        {{index + 1}}. {{item.name}} {{r}}
       </li>
     </ul>
   </div>
@@ -20,7 +21,13 @@ export default {
   data () {
     return {
       logs: [],
+      colorList: ['red', 'blue', 'yellow', 'pink'],
       categoryList: []
+    }
+  },
+  computed: {
+    r () {
+      return parseInt(Math.random() * 10)
     }
   },
   methods: {
@@ -58,14 +65,23 @@ export default {
 }
 </script>
 
-<style>
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
-
-.log-item {
-  margin: 10rpx;
+<style lang="less">
+.article{
+  padding: 0 20px;
+  box-sizing: border-box;
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 40rpx 40rpx 40rpx 0;
+    justify-content: flex-start;
+    .list-item{
+      display: flex;
+      width: 100%;
+      flex: 1;
+      text-align: left;
+      line-height: 2.0;
+      
+    }
+  }
 }
 </style>

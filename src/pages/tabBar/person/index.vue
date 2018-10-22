@@ -4,10 +4,12 @@
       <div class="user-msg-card">
         <div class="top">
           <div class="organ-name">
-            <open-data type="userNickName"></open-data>
+            <div v-if="userInfo.nick_name">{{userInfo.nick_name}}</div>
+            <open-data v-else type="userNickName"></open-data>
           </div>
           <div class="avatar">
-            <open-data class="avavtao-img" type="userAvatarUrl"></open-data>
+            <img v-if="userInfo.avatar" class="avavtao-img" :src="userInfo.avatar" alt="" mode="widthFix">
+            <open-data v-else class="avavtao-img" type="userAvatarUrl"></open-data>
           </div>
         </div>
       </div>
@@ -15,18 +17,11 @@
     <div class="user">
       <ul class="info">
         <li class="info-item">余额<span class="info-item-content">{{userInformation.name || ' '}}</span></li>
-        <li class="info-item">我的<span class="info-item-content">{{userInformation.phone || ' '}}</span></li>
-        <li class="info-item" @click="showCouponModel = true">
-          我的课程
-          <span class="info-item-content">{{couponListTotal}}</span>
-        </li>
-        <li class="info-item" @click="goOrderList">
-          我的视屏
-          <span class="info-item-content">{{rebateOrderTotal}}</span>
-        </li>
+        <li class="info-item">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
+        <li class="info-item" @click="toMyCourse">我的课程</li>
         <li class="info-item" @click="goOrderList">
           我的订单
-          <span class="info-item-content">{{rebateOrderTotal}}</span>
+          <!-- <span class="info-item-content">{{rebateOrderTotal}}</span> -->
         </li>
       </ul>
     </div>
@@ -42,12 +37,7 @@ export default {
   components: {},
   data () {
     return {
-      userInfo: {
-        isOrgan: false,
-        isRealname: false,
-        avatar: '',
-        name: ''
-      },
+      userInfo: '',
       userInformation: {
         name: '',
         idno: '',
@@ -74,15 +64,24 @@ export default {
   },
   methods: {
     init () {
-
+      this._getUserInfo()
     },
-    goOrderList () {
-      let orderList = JSON.stringify(this.rebateOrderList)
-      wx.navigateTo({
-        url: `./orderList/main?orderList=${orderList}`
+    toMyCourse () {
+      // const type = 'my'
+      wx.switchTab({
+        url: '../course/main'
       })
     },
-    _getUserInfo (data) {}
+    goOrderList () {
+      wx.navigateTo({
+        url: `./orderList/main`
+      })
+    },
+    _getUserInfo (data) {
+      this.$http.user.getUserInfo().then(res => {
+        this.userInfo = res.data
+      })
+    }
   }
 }
 </script>

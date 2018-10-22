@@ -35,14 +35,14 @@
     <div class="comments-list section">
       <label class="section-label">评论</label>
       <ul class="list-container">
-        <li class="list-item" v-for="(item, index) in courseCommentsList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
+        <li class="list-item" v-for="(item, index) in courseCommentsList" :class="{ red: aa }" :key="index" @click="goComment(item)" >
           <img class="item-avatar" :src="item.user.avatar" alt="" mode="widthFix">
           <!-- {{(index + 1) + ' . ' + item.user.nick_name}}: <span v-html="item.content"></span> -->
           <div class="item-content">
             <div class="item-content__name">{{item.user.nick_name}}</div>
             <div class="item-content__time">{{item.created_at}}</div>
             <div class="item-content__content" v-html="item.content"></div>
-            <div class="item-content__footer">评论：</div>
+            <div class="item-content__footer"></div>
 
           </div>
         </li>
@@ -85,6 +85,11 @@ export default {
         url: `../video/main?id=${video.id}`
       })
       console.log('参数', video.id)
+    },
+    goComment (item) {
+      wx.navigateTo({
+        url: `../video/main?id=${video.id}`
+      })
     },
     // 课程详情
     _getCourseInfo (data, id) {

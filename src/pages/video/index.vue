@@ -132,7 +132,8 @@ export default {
     left: 0;
     width: 100%;
     height: auto;
-    border-bottom: 1px solid #999;
+    // border-bottom: 1px solid #999;
+    box-shadow: 0px 2px 4px rgba(1, 1, 1, .3);
     justify-content: center;
     &-item{
       display: flex;

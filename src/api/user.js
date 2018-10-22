@@ -18,5 +18,17 @@ export default {
     return fly('/api/v1/member/profile', params, {
       method: 'GET'
     })
+  },
+  // 获取我的课程列表
+  getUserCourseList: function (params) {
+    return fly('/api/v1/member/courses', params, {
+      method: 'GET'
+    })
+  },
+  // 获取我的订单
+  getUserOrder: function (params) {
+    return fly('/api/v1/member/orders', params, {
+      method: 'GET'
+    })
   }
 }
