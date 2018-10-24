@@ -9,13 +9,20 @@
       <span class="tabBar-item" :class="{'tabBar-item-active': activeIndex === index}" v-for="(item, index) in tabBarList" :key="index" @click="activeIndex = index">{{item.name}}</span>
     </div>
     <!-- content -->
-    <swiper :current="activeIndex" class="info-content" @change="swiperChange">
-        <swiper-item >
-          <div v-show="activeIndex === 0" class="introduction">
-            <p class="introduction-title">{{videoInfo.title}}</p>
-            <p class="introduction-description" v-html="videoInfo.description"></p>
-            <p class="introduction-viewNum">播放次数：{{videoInfo.view_num}}</p>
-          </div>
+    <swiper :current="activeIndex" class="info-content" @change="swiperChange" :style="{'height': swiperHeight * 2 + 'rpx'}">
+        <swiper-item :style="{'hieght': swiperHieght * 2 + 'rpx'}" style="overflow: auto;">
+          <scroll-view scroll-y :style="{'hieght': swiperHieght * 2 + 'rpx'}">
+            <div v-show="activeIndex === 0" class="introduction">
+              <p class="introduction-title">
+                <span class="introduction-title__name">{{videoInfo.title}}</span>
+                <span class="introduction-title__num">播放次数：{{videoInfo.view_num}}</span>
+              </p>
+              <p class="introduction-lable">简介</p>
+              <p class="introduction-description" v-html="videoInfo.short_description"></p>            
+              <p class="introduction-lable">详细介绍</p>
+              <p class="introduction-description" v-html="videoInfo.description"></p>
+            </div>
+          </scroll-view>
         </swiper-item>
         <swiper-item>
           <p>李彪</p>
@@ -62,13 +69,21 @@ export default {
       playUrl: [{url: '1'}, {url: '1'}],
       // video
       videosComments: [],
-      videoInfo: {}
+      videoInfo: {},
+      swiperHeight: ''
     }
   },
   computed: {
     videoId () {
       return this.$mp.query.id
     }
+    // swiperHieght () {
+    //   const height = wx.getSystemInfoSync().windowHeight
+    //   return height - 225
+    // }
+  },
+  onReady () {
+    this.swiperHeight = wx.getSystemInfoSync().windowHeight - 265
   },
   methods: {
     init () {
@@ -104,7 +119,7 @@ export default {
     this.logs = logs.map(log => formatTime(new Date(log)))
   },
   mounted () {
-    this.init()
+    // this.init()
   }
 }
 </script>
@@ -123,7 +138,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 450rpx;
   }
   .tabBar{
     display: flex;
@@ -131,7 +146,8 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 40px;
+    line-height: 40px;
     // border-bottom: 1px solid #999;
     box-shadow: 0px 2px 4px rgba(1, 1, 1, .3);
     justify-content: center;
@@ -152,19 +168,35 @@ export default {
     position: relative;
     .introduction{
       position: relative;
+      width: 100%;
+      height: auto;
       padding: 20px;
       box-sizing: border-box;
       &-title{
+        display: flex;
+        padding: 0 0 20px;
+        border-bottom: 1px solid @border-color;
+        &__name{
+          flex: 1;
+          font-size: 16px;
+          color: #1A1A1A;
+        }
+        &__num{
+          flex: 0 0 auto;
+          font-size: 10px;
+          color: @font-color-gray;
+        }
+      }
+      &-lable{
         font-size: 16px;
         color: #1A1A1A;
+        padding: 10px 0;
       }
-      &-description{
+      &-description, &-short_description{
         font-size: 13px;
         color: #777777;
-      }
-      &-viewNum{
-        font-size: 10px;
-        color: @font-color-gray;
+        padding-left: 20px;
+        box-sizing: border-box;
       }
     }
     .comments-list{

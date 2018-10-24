@@ -88,7 +88,7 @@ export default {
     },
     goComment (item) {
       wx.navigateTo({
-        url: `../video/main?id=${video.id}`
+        url: `../video/main?id=${item.id}`
       })
     },
     // 课程详情
