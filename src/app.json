@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/login/main",    
     "pages/tabBar/article/main",
-    "pages/login/main",
     "pages/tabBar/course/main",
     "pages/tabBar/article/articleList/main",
     "pages/tabBar/article/articleInfo/main",
@@ -10,8 +10,8 @@
     
     "pages/index/main",
     "pages/video/main",
-    "pages/register/main",
     "pages/vipList/main",
+    "pages/register/main",
     "pages/comment/main",
     "pages/videoList/main"
   ],

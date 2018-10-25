@@ -3,6 +3,9 @@
     <!-- video -->
     <div class="video-box">
       <video style="width: 100%;" v-if="playUrl && playUrl.length > 0" :src="playUrl[1].url"  controls objectFit="contain"></video>
+      <div v-else class="">
+        <h3>当前视频无法观看</h3>
+      </div>
     </div>
     <!-- tabBar -->
     <div class="tabBar">
@@ -18,10 +21,11 @@
           </div>
         </swiper-item>
         <swiper-item>
-          <p>李彪</p>
-          <ul class="comments log-list">
-            <li v-for="(item, index) in videosComments" :class="{ red: aa }" :key="index" class="log-item">
-              {{item}}
+          <p>列表</p>
+          <ul class="video-List">
+            <li v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" class="list-item">
+              <img class="video-icon" src="../../assets/img/triangle-icon.png" alt="" mode="widthFix">
+              <div class="video-title">{{(index + 1) + ' . ' + item.title}}</div>
             </li>
           </ul>
         </swiper-item>
@@ -54,6 +58,7 @@ export default {
     return {
       src: '',
       activeIndex: 0,
+      courseVideoList: [],
       tabBarList: [
         {name: '详情', index: 0, value: 'name'},
         {name: '列表', index: 0, value: 'name'},
@@ -72,9 +77,11 @@ export default {
   },
   methods: {
     init () {
-      this._getVideosInfo({}, this.videoId)
-      this._getVideosUrl({}, this.videoId)
-      this._getVideosComments({}, this.videoId)
+      this.courseVideoList = this.$mp.query.courseVideoList
+      const videoId = this.$mp.query.id
+      this._getVideosInfo({}, videoId)
+      this._getVideosUrl({}, videoId)
+      this._getVideosComments({}, videoId)
     },
     swiperChange (e) {
       this.activeIndex = e.mp.detail.current
@@ -133,7 +140,7 @@ export default {
     width: 100%;
     height: auto;
     // border-bottom: 1px solid #999;
-    box-shadow: 0px 2px 4px rgba(1, 1, 1, .3);
+    box-shadow: 0 2rpx 8rpx 0 rgba(0, 0, 0, 0.1);
     justify-content: center;
     &-item{
       display: flex;
@@ -144,7 +151,7 @@ export default {
       justify-content: center;
     }
     &-item-active{
-      border-bottom: 2px solid red;
+      border-bottom: 3px solid red;
       color: red;
     }
   }
@@ -165,6 +172,29 @@ export default {
       &-viewNum{
         font-size: 10px;
         color: @font-color-gray;
+      }
+    }
+    .video-list{
+      position: relative;
+      padding: 0 0 0 10px;
+      box-sizing: border-box;
+      .list-item{
+        display: flex;
+        align-items: center;
+        .video-icon{
+          display: flex;
+          flex: 0 0 auto;
+          width: 16px;
+          height: auto;
+          padding-right: 10px;
+        }
+        .video-title{
+          display: flex;
+          flex: 1;
+          font-size: 13px;
+          line-height: 2.6;
+          border-bottom: 1px solid @border-color;
+        }
       }
     }
     .comments-list{

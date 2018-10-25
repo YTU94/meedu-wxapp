@@ -76,19 +76,23 @@ export default {
   },
   methods: {
     init () {
-      this._getCourseInfo({}, this.courseId)
-      this._getVideosList({}, this.courseId)
-      this._getCourseComments({}, this.courseId)
+      const courseId = this.$mp.query.id
+      console.log('init this.courseId', courseId)
+      this._getCourseInfo({}, courseId)
+      this._getVideosList({}, courseId)
+      this._getCourseComments({}, courseId)
     },
     goVideo (video) {
       wx.navigateTo({
-        url: `../video/main?id=${video.id}`
+        url: `../video/main?id=${video.id}&courseVideoList=${this.courseVideoList}`
       })
       console.log('参数', video.id)
     },
     goComment (item) {
+      const comment = JSON.stringify(item)
+      console.log('参数 comment', item, comment)
       wx.navigateTo({
-        url: `../video/main?id=${video.id}`
+        url: `../comment/main?comment=${comment}&id=${this.courseId}`
       })
     },
     // 课程详情
@@ -124,7 +128,8 @@ export default {
   },
   mounted () {
     this.init()
-  }
+  },
+  onHide () {}
 }
 </script>
 

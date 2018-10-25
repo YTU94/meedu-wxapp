@@ -28,8 +28,8 @@ export default {
       isPassword: true,
       logs: [],
       form: {
-        account: '',
-        password: ''
+        account: '18119635019',
+        password: '123123'
       }
     }
   },
@@ -39,6 +39,7 @@ export default {
         url: '../register/main'
       })
     },
+    ckeckLogin () {},
     login () {
       const data = {
         scope: '',
@@ -49,6 +50,9 @@ export default {
         password: this.form.password || '123123'
       }
       this.$http.user.login(data).then(res => {
+        if (res.expires_in) {
+          console.log(new Date())
+        }
         if (res.access_token) wx.setStorageSync('access_token', res.access_token)
         wx.switchTab({
           url: '../tabBar/course/main'
@@ -57,6 +61,11 @@ export default {
     }
   },
   created () {
+    if (wx.getStorageSync('access_token')) {
+      wx.switchTab({
+        url: '../tabBar/course/main'
+      })
+    }
     const logs = (wx.getStorageSync('logs') || [])
     this.logs = logs.map(log => formatTime(new Date(log)))
   }

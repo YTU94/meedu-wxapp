@@ -16,6 +16,10 @@
     </div>
     <div class="user">
       <ul class="info">
+        <li class="info-item">我的会员
+          <span class="info-item-content" v-if="userInfo.role && userInfo.role.length > 0">{{userInfo.role || ' '}}</span>
+          <span class="info-item-content" @click="bugVip">购买会员</span>
+        </li>
         <li class="info-item">余额<span class="info-item-content">{{userInformation.name || ' '}}</span></li>
         <li class="info-item">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
         <li class="info-item" @click="toMyCourse">我的课程</li>
@@ -70,6 +74,12 @@ export default {
       // const type = 'my'
       wx.switchTab({
         url: '../course/main'
+      })
+    },
+    // 去购买会员
+    bugVip () {
+      wx.navigateTo({
+        url: '../../vipList/main'
       })
     },
     goOrderList () {
