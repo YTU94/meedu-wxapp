@@ -20,7 +20,7 @@
 
 
 ## API
-- [API接口](docs/api/v1/README.md)
+- API接口: [https://github.com/Qsnh/meedu/tree/master/docs/api/v1]
 
 
 ## 使用
@@ -45,4 +45,4 @@ yarn build --report
 /* npm run build --report */
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
