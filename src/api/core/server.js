@@ -26,7 +26,7 @@ fly.interceptors.response.use(
   (response) => {
     console.log('login', response)
     // 只将请求结果的data字段返回
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 201) {
       return response.data
     } else {
       wx.hideLoading()

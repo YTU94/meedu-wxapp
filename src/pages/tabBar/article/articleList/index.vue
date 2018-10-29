@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <ul class="container log-list">
-      <li v-for="(item, index) in articleList" @click="goArticleInfo(item)" :class="{ red: aa }" :key="index" class="item-item">
+  <div class="article-list">
+    <p>文章列表</p>
+    <ul class="article-list-ul">
+      <li class="list-item" v-for="(item, index) in articleList" @click="goArticleInfo(item)" :class="{ red: aa }" :key="index" >
         {{index + 1}}. {{item.title}}
       </li>
     </ul>
@@ -56,14 +57,32 @@ export default {
 }
 </script>
 
-<style>
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+<style lang="less">
+@import '../../../../assets/style/variable';
+
+.article-list {
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  p{
+    font-size: 16px;
+  }
+  .article-list-ul{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    padding: 20px 0;
+    .list-item{
+      flex: 1;
+      width: 100%;
+      line-height: 2.0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 1px solid @border-color;            
+    }
+  }
 }
 
-.log-item {
-  margin: 10rpx;
-}
+
 </style>

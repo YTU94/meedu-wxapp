@@ -28,25 +28,28 @@
           </scroll-view>
         </swiper-item>
         <swiper-item>
-          <p>列表</p>
-          <ul class="video-List">
-            <li v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" class="list-item">
-              <img class="video-icon" src="../../assets/img/triangle-icon.png" alt="" mode="widthFix">
+          <!-- video list -->
+          <ul class="list-container">
+            <li class="list-item" v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
+              <div class="video-icon">
+                <img class="video-icon__img" src="../../assets/img/triangle-icon.png" alt="" mode="widthFix">
+              </div>
               <div class="video-title">{{(index + 1) + ' . ' + item.title}}</div>
             </li>
           </ul>
         </swiper-item>
         <swiper-item>
-          <ul class="comments-list">
+          <ul class="comments-list" v-if="videosComments && videosComments.length > 0">
             <li class="list-item" v-for="(item, index) in videosComments" :class="{ red: aa }" :key="index" >
               <img class="item-avatar" v-if="item.user" :src="item.user.avatar" alt="" mode="widthFix">
               <div class="item-content">
                 <div class="item-content__name" v-if="item.user">{{item.user.nick_name}}</div>
-                <div class="item-content__time">{{item.created_at}}</div>
+                <div class="item-content__time">{{item.created_format}}</div>
                 <div class="item-content__content" v-html="item.content"></div>
               </div>
             </li>
           </ul>
+          <p style="text-align: center;padding: 25px 0;">~暂无评价~</p>
         </swiper-item>
     </swiper>
   </div>
@@ -71,17 +74,18 @@ export default {
         {name: '列表', index: 0, value: 'name'},
         {name: '评价', index: 0, value: 'name'}
       ],
-      playUrl: [{url: '1'}, {url: '1'}],
+      playUrl: [{url: '1'}, {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'}],
       // video
+      videoId: '',
       videosComments: [],
       videoInfo: {},
       swiperHeight: ''
     }
   },
   computed: {
-    videoId () {
-      return this.$mp.query.id
-    }
+    // videoId () {
+    //   return this.$mp.query.id
+    // }
     // swiperHieght () {
     //   const height = wx.getSystemInfoSync().windowHeight
     //   return height - 225
@@ -92,10 +96,11 @@ export default {
   },
   methods: {
     init () {
-      this.courseVideoList = this.$mp.query.courseVideoList
+      console.log('courseVideoList', this.$mp.query, this.courseVideoList)
+      this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList)
       const videoId = this.$mp.query.id
       this._getVideosInfo({}, videoId)
-      this._getVideosUrl({}, videoId)
+      // this._getVideosUrl({}, videoId)
       this._getVideosComments({}, videoId)
     },
     swiperChange (e) {
@@ -115,9 +120,16 @@ export default {
       })
     },
     // 视频评论提交
-    _getVideosComments (data, id) {
+    _getVideosComments (data, id, merge) {
       this.$http.video.getVideosComments(data, id).then(res => {
-        this.videosComments = res.data
+        res.data.forEach(e => {
+          e.created_format = formatTime(e.created_at)
+        })
+        if (merge) {
+          this.videosComments = this.videosComments.concat(res.data)
+        } else {
+          this.videosComments = res.data
+        }
       })
     }
   },
@@ -126,7 +138,8 @@ export default {
     this.logs = logs.map(log => formatTime(new Date(log)))
   },
   mounted () {
-    // this.init()
+    this.videoId = this.$mp.query.id
+    this.init()
   }
 }
 </script>
@@ -173,6 +186,7 @@ export default {
   }
   .info-content{
     position: relative;
+    // 详情
     .introduction{
       position: relative;
       width: 100%;
@@ -206,19 +220,31 @@ export default {
         box-sizing: border-box;
       }
     }
-    .video-list{
-      position: relative;
+    // 列表
+    .list-container{
       padding: 0 0 0 10px;
-      box-sizing: border-box;
+      position: relative;
       .list-item{
         display: flex;
         align-items: center;
         .video-icon{
           display: flex;
           flex: 0 0 auto;
-          width: 16px;
-          height: auto;
-          padding-right: 10px;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #787878;
+          align-items: center;
+          justify-content: center;
+          border-radius: 20px;
+          margin-right: 10px;
+          transform: rotate(-90deg);
+          &__img{
+            flex: 0 0 auto;
+            width: 14px;
+            height: auto;
+            position: relative;
+            top: 2px;
+          }
         }
         .video-title{
           display: flex;
@@ -229,6 +255,7 @@ export default {
         }
       }
     }
+    // 评价
     .comments-list{
       padding: 20px;
       box-sizing: border-box;

@@ -66,8 +66,10 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../../assets/style/variable';
 .article{
   padding: 0 20px;
+  font-size: 16px;
   box-sizing: border-box;
   .container {
     display: flex;
@@ -80,7 +82,7 @@ export default {
       flex: 1;
       text-align: left;
       line-height: 2.0;
-      
+      border-bottom: 1px solid @border-color;      
     }
   }
 }

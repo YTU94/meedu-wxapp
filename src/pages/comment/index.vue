@@ -2,11 +2,11 @@
   <div class="comment">
     <!-- comments list -->
     <div class="comments-list section">
-      <ul class="list-container">
+      <ul class="list-container" v-if="curCommentsList && curCommentsList.length > 0">
         <li class="list-item" v-for="(item, index) in curCommentsList" :class="{ red: aa }" :key="index">
-          <img class="item-avatar" :src="item.user.avatar" alt="" mode="widthFix">
+          <img class="item-avatar" v-if="item.user" :src="item.user.avatar" alt="" mode="widthFix">
           <div class="item-content">
-            <div class="item-content__name">{{item.user.nick_name}}</div>
+            <div class="item-content__name" v-if="item.user">{{item.user.nick_name}}</div>
             <div class="item-content__time">{{item.created_at}}</div>
             <div class="item-content__content" v-html="item.content"></div>
             <div class="item-content__footer"></div>
@@ -17,19 +17,19 @@
     <!-- 评论 -->
     <label class="section-label">评论</label>
     <div class="input-line">
-      <img class="input-line__avatar" :src="comment.user.avatar" alt="" mode="widthFix">
+      <!-- <img class="input-line__avatar" v-if="comment.user" :src="comment.user.avatar" alt="" mode="widthFix"> -->
       <!-- <div class="input-line__input" @click="goComment">快来写下你的评论吧~</div> -->
-      <input class="input-line__realInput" v-model="commentContent" @confirm="submit" placeholder="快来写下你的评论吧~" type="text">
+      <input class="input-line__realInput" v-model="commentContent" confirm-type="done" placeholder="快来写下你的评论吧~" type="text">
     </div>
-    <!-- comments list -->
-    <p>{{commentContent}}</p>
+    <!-- 提交 -->
+    <button class="submit-btn" @click="submit">提交</button>
     <!-- comments list -->
     <div class="comments-list section">
-      <ul class="list-container">
+      <ul class="list-container" v-if="callbackCommentsList && callbackCommentsList.length > 0">
         <li class="list-item" v-for="(item, index) in callbackCommentsList" :class="{ red: aa }" :key="index" @click="goComment(item)" >
-          <img class="item-avatar" :src="item.user.avatar" alt="" mode="widthFix">
+          <img class="item-avatar" v-if="item.user" :src="item.user.avatar" alt="" mode="widthFix">
           <div class="item-content">
-            <div class="item-content__name">{{item.user.nick_name}}</div>
+            <div class="item-content__name" v-if="item.user">{{item.user.nick_name}}</div>
             <div class="item-content__time">{{item.created_at}}</div>
             <div class="item-content__content" v-html="item.content"></div>
             <div class="item-content__footer"></div>
@@ -52,19 +52,18 @@ export default {
 
   data () {
     return {
+      courseId: '',
       logs: [],
       articleList: [],
       inputFocus: false,
       commentContent: '',
+      curCommentsList: [],
       callbackCommentsList: []
     }
   },
   computed: {
     Id () {
       return this.$mp.query.id
-    },
-    curCommentsList () {
-      return [JSON.parse(this.$mp.query.comment)]
     }
   },
   methods: {
@@ -75,10 +74,14 @@ export default {
     goComment () {
       this.inputFocus = !this.inputFocus
     },
+    inputBlur () {
+      console.log('inputBlur请输入评论')
+    },
     // 提交评论
     submit () {
+      console.log('submit请输入评论')
       if (this.commentContent) {
-        this._submitComments(this.commentContent, this.Id)
+        this._submitComments(this.commentContent, this.courseId)
       } else {
         wx.showToast({
           title: '请输入评论',
@@ -87,8 +90,8 @@ export default {
       }
     },
     _submitComments (content, id) {
-      this.$http.video.submitComments({content}, id).then(res => {
-        this.callbackCommentsList = res.data
+      this.$http.course.submitComments({content}, id).then(res => {
+        this.callbackCommentsList = this.callbackCommentsList.concat(res.data)
       })
     }
   },
@@ -99,6 +102,10 @@ export default {
   },
   mounted () {
     this.init()
+    this.courseId = this.$mp.query.id
+    if (this.$mp.query.comment) {
+      this.curCommentsList = [JSON.parse(this.$mp.query.comment)]
+    }
   }
 
 }
@@ -178,6 +185,12 @@ export default {
   */
   .section-label{
     padding: 15px 0;
+  }
+  .submit-btn{
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 30rpx 0; 
   }
   /*
   * input line 

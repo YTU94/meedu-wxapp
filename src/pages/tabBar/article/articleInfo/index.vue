@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <p v-html="articleInfo.content"></p>
+  <div class="article-info">
+    <p>内容：</p>
+    <p class="article-info-p" v-html="articleInfo.content"></p>
   </div>
 </template>
 
@@ -47,14 +48,18 @@ export default {
 }
 </script>
 
-<style>
-.log-list {
+<style lang="less">
+.article-info{
   display: flex;
   flex-direction: column;
   padding: 40rpx;
+  p{
+    font-size: 16px;
+  }
+  .article-info-p{
+    font-size: 14px;
+    color: #777;
+  }
 }
 
-.log-item {
-  margin: 10rpx;
-}
 </style>

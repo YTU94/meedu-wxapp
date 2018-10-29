@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/login/main",    
-    "pages/tabBar/article/main",
     "pages/tabBar/course/main",
+    "pages/tabBar/article/main",
     "pages/tabBar/article/articleList/main",
     "pages/tabBar/article/articleInfo/main",
     "pages/tabBar/person/main",
     "pages/tabBar/person/orderList/main",
+    "pages/tabBar/person/courseList/main",
     
-    "pages/index/main",
     "pages/video/main",
     "pages/vipList/main",
     "pages/register/main",
@@ -23,12 +23,18 @@
   },
   "tabBar": {
     "list": [{
+      "iconPath": "./static/img/course-default.png",
+      "selectedIconPath": "./static/img/course-active.png",
       "pagePath": "pages/tabBar/course/main",
       "text": "课程"
     }, {
+      "iconPath": "./static/img/article-default.png",
+      "selectedIconPath": "./static/img/article-active.png",
       "pagePath": "pages/tabBar/article/main",
       "text": "文章"
     }, {
+      "iconPath": "./static/img/personal-default.png",
+      "selectedIconPath": "./static/img/personal-active.png",
       "pagePath": "pages/tabBar/person/main",
       "text": "我的"
     }]

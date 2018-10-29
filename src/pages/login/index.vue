@@ -46,8 +46,8 @@ export default {
         grant_type: 'password',
         client_id: '2',
         client_secret: 'G8hmzjkkJBl9lPwF45pBgO1AJSM5XolpbPNFR9k7',
-        username: this.form.account || '18119635019',
-        password: this.form.password || '123123'
+        username: this.form.account || '',
+        password: this.form.password || ''
       }
       this.$http.user.login(data).then(res => {
         if (res.expires_in) {

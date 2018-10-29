@@ -9,8 +9,8 @@
       <block v-for="(item, index) in swiperList" :key="index">
         <swiper-item>
             <div class="for-padding" @click="goToInfo(item.id)">
-              <img v-if="item.imgUrl" :src="item.imgUrl" class="slide-image" mode="widthFix"/>
-              <span v-if="item.msg" class="slide-msg">{{item.msg}}</span>
+              <img v-if="item.thumb" :src="item.thumb" class="slide-image" mode="widthFix"/>
+              <!-- <span v-if="item.title" class="slide-msg">{{item.title}}</span> -->
             </div>
         </swiper-item>
       </block>
@@ -22,7 +22,8 @@ export default {
   props: {
     swiperList: {
       type: Array
-    }
+    },
+    key: String
   },
   data () {
     return {
@@ -51,7 +52,7 @@ export default {
       position: relative;
       top: 0;
       left: 0;
-      padding: 0 30px;
+      padding: 0 20px;
       width:100%;
       height: auto;
       box-sizing: border-box;
@@ -67,7 +68,7 @@ export default {
       }
       .slide-msg{
         display: inline-block;
-        position: absolute;
+        // position: absolute;
         bottom: 30px;
         right: 30px;
         font-size: 28px;
