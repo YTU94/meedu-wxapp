@@ -46,4 +46,4 @@ yarn build --report
 ```
 
 
-欢迎star.
+欢迎使用，star，pr.
