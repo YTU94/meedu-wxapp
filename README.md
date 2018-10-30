@@ -1,14 +1,14 @@
-<p align="center"><img src="static/img/meedu.png"/></p>
+<p align="center"><img src="static/img/meedu.png" width="300" height="300"/></p>
 
 <p align="center">
 <a href="https://travis-ci.org/Qsnh/meedu"><img src="https://travis-ci.org/Qsnh/meedu.svg?branch=master" alt="Build Status"></a>
 <a href="https://packagist.org/packages/Qsnh/meedu"><img src="https://poser.pugx.org/qsnh/meedu/license" alt="License"></a>
 </p>
 
-> A Mpvue project for meEdu
+> A Mpvue wxApp for meEdu
 
 ## 简介
-在在校教员火热的年代，meedu在线点播教育系统横空出世，随后为了市场的推动，meEdu同套微信小程序跟风而至，meEdu提供了了在线观看课程视频，提交评论，以及文章的观看，同步meEdu的课程信息和个人信息。
+在在校教育火热的年代，meedu在线点播教育系统横空出世，随后为了市场的推动，meEdu同套微信小程序跟风而至，meEdu提供了了在线观看课程视频，提交评论，以及文章的观看，同步meEdu的课程信息和个人信息。
 
 ## 功能
 
@@ -18,7 +18,35 @@
 - [x] vip模块
 - [x] 课程评论互动
 
-
+## 结构
+- api
+  * core
+    + server.js // http封装
+  * article.js // 文章接口
+  * course.js // 课程接口
+- assets
+  * img // 图片
+  * style // 样式
+- components // 组件部分
+  * card/vue
+  * courseCard.vue
+  * swiper-banner.vue
+- pages
+  * comment // 评论详情
+  * login // 登录
+  * register // 注册
+  * tabBar
+    - article // 课程
+    - course // 文章
+    - person // 个人
+  * video // 视屏播放
+  * videoList // 视屏列表
+  * vipList // vip列表
+- utils
+  * index.js // 工具类函数
+- app.json
+- App.vue
+- main.js
 ## API
 - API接口: [https://github.com/Qsnh/meedu/tree/master/docs/api/v1]
 
@@ -45,5 +73,14 @@ yarn build --report
 /* npm run build --report */
 ```
 
+### 💖💖 If you find this project helpful, maybe you can buy me a coffee. 💖💖
+<p>
+  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-30-42.png" width="200" height="200"/>
+  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-31-33.png" width="200" height="200"/>
+</p>
 
-欢迎使用，star，pr.
+## License
+[MIT](http://opensource.org/licenses/MIT)
+
+
+欢迎star.
