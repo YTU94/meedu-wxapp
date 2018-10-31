@@ -15,7 +15,7 @@
     <br>
     <br>
     <br>
-    <p class="login-text" @click="goRegister">已有meedu账号？立即登陆</p>
+    <p class="login-text" @click="goLogin">已有meedu账号？立即登陆</p>
     <!-- <p></p> -->
   </div>
 </template>
@@ -40,24 +40,29 @@ export default {
     }
   },
   methods: {
-    goRegister () {
+    goLogin () {
       wx.navigateTo({
-        url: '../register/main'
+        url: '../login/main'
       })
     },
     login () {
-      const data = {
-        scope: '',
-        grant_type: 'password',
-        client_id: '2',
-        client_serect: 'G8hmzjkkJBl9lPwF45pBgO1AJSM5XolpbPNFR9k7',
-        username: this.form.account || '18119635019',
-        password: this.form.password
-      }
-      this.$http.user.login(data).then(res => {
-        console.log(res)
-        wx.setStorageSync('token', 'asd')
+      wx.showToast({
+        title: '暂不支持',
+        icon: 'none',
+        duration: 2000
       })
+      // const data = {
+      //   scope: '',
+      //   grant_type: 'password',
+      //   client_id: '2',
+      //   client_serect: 'G8hmzjkkJBl9lPwF45pBgO1AJSM5XolpbPNFR9k7',
+      //   username: this.form.account || '18119635019',
+      //   password: this.form.password
+      // }
+      // this.$http.user.login(data).then(res => {
+      //   console.log(res)
+      //   wx.setStorageSync('token', 'asd')
+      // })
     }
   },
   created () {
