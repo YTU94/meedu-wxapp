@@ -49,6 +49,10 @@
 - app.json
 - App.vue
 - main.js
+
+## API
+<p align="center"><img src="gif/1.gif" width="375" height="750"/></p>
+
 ## API
 - API接口: [https://github.com/Qsnh/meedu/tree/master/docs/api/v1]
 
