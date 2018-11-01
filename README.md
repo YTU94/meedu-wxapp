@@ -6,6 +6,7 @@
 </p>
 
 > A Mpvue wxApp for meEdu
+-------------
  [meEdu](https://github.com/Qsnh/meedu):基于Laravel开发的在线点播系统
 
 ## 简介
