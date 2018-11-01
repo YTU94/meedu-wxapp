@@ -39,6 +39,12 @@ fly.interceptors.response.use(
     }
   },
   (error) => {
+    wx.hideLoading()
+    wx.showToast({
+      title: '未知错误',
+      icon: 'none',
+      mask: true
+    })
     console.log(error)
     // 发生网络错误后会走到这里
     return Promise.reject(error)
