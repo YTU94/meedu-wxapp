@@ -22,6 +22,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#d81e06",
     "list": [{
       "iconPath": "./static/img/course-default.png",
       "selectedIconPath": "./static/img/course-active.png",

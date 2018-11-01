@@ -11,7 +11,7 @@
 	"miniprogramRoot": "dist/",
 	"compileType": "miniprogram",
 	"appid": "wxb66d7c09f8195be0",
-	"projectname": "meedu",
+	"projectname": "meedu1.0",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -68,23 +68,23 @@ export default {
   data () {
     return {
       logs: [],
+      courseId: '',
       courseInfo: '',
       courseVideoList: [],
       courseCommentsList: []
     }
   },
-  computed: {
-    courseId () {
-      return this.$mp.query.id
-    }
-  },
+  // computed: {
+  //   courseId () {
+  //     return this.$mp.query.id
+  //   }
+  // },
   methods: {
     init () {
-      const courseId = this.$mp.query.id
-      console.log('init this.courseId', courseId)
-      this._getCourseInfo({}, courseId)
-      this._getVideosList({}, courseId)
-      this._getCourseComments({}, courseId)
+      console.log('init this.courseId', this.courseId)
+      this._getCourseInfo({}, this.courseId)
+      this._getVideosList({}, this.courseId)
+      this._getCourseComments({}, this.courseId)
     },
     goVideo (video) {
       wx.navigateTo({
@@ -136,6 +136,7 @@ export default {
     this.logs = logs.map(log => formatTime(new Date(log)))
   },
   mounted () {
+    this.courseId = this.$mp.query.id
     this.init()
   },
   onHide () {}

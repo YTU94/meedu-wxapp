@@ -10,6 +10,7 @@
     <button class="btn" @click="login">登录</button>
     <p class="login-text">登陆/注册即视为同意<span style="color: #8ECEF4;">meEdu协议</span></p>
     <p class="login-text" @click="goRegister">没有meedu账号？立即注册</p>
+    <p class="login-text" @click="toIndex">快捷体验</p>
     <!-- <p></p> -->
   </div>
 </template>
@@ -28,12 +29,17 @@ export default {
       isPassword: true,
       logs: [],
       form: {
-        account: '18119635019',
-        password: '123123'
+        account: '',
+        password: ''
       }
     }
   },
   methods: {
+    toIndex () {
+      wx.switchTab({
+        url: '../tabBar/course/main'
+      })
+    },
     goRegister () {
       wx.navigateTo({
         url: '../register/main'
@@ -54,6 +60,11 @@ export default {
           console.log(new Date())
         }
         if (res.access_token) wx.setStorageSync('access_token', res.access_token)
+        wx.switchTab({
+          url: '../tabBar/course/main'
+        })
+      }).catch(err => {
+        console.log(err)
         wx.switchTab({
           url: '../tabBar/course/main'
         })

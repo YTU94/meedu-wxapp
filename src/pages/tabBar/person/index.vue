@@ -4,11 +4,11 @@
       <div class="user-msg-card">
         <div class="top">
           <div class="organ-name">
-            <div v-if="userInfo.nick_name">{{userInfo.nick_name}}</div>
+            <div v-if="userInfo">{{userInfo.nick_name}}</div>
             <open-data v-else type="userNickName"></open-data>
           </div>
           <div class="avatar">
-            <img v-if="userInfo.avatar" class="avavtao-img" :src="userInfo.avatar" alt="" mode="widthFix">
+            <img v-if="userInfo" class="avavtao-img" :src="userInfo.avatar" alt="" mode="widthFix">
             <open-data v-else class="avavtao-img" type="userAvatarUrl"></open-data>
           </div>
         </div>
@@ -17,11 +17,11 @@
     <div class="user">
       <ul class="info">
         <li class="info-item">我的会员
-          <span class="info-item-content" v-if="userInfo.role && userInfo.role.length > 0">{{userInfo.role || ' '}}</span>
+          <span class="info-item-content" v-if="usrInfo && userInfo.role && userInfo.role.length > 0">{{userInfo.role || ' '}}</span>
           <span class="info-item-content" @click="bugVip">购买会员</span>
         </li>
         <li class="info-item">余额<span class="info-item-content">{{userInformation.name || 0}}元</span></li>
-        <li class="info-item">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
+        <li class="info-item" v-if="userInfo">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
         <li class="info-item" @click="toMyCourse">
           我的课程<span class="info-item-content">></span>
         </li>
