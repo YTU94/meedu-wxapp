@@ -74,7 +74,11 @@ export default {
         {name: '列表', index: 0, value: 'name'},
         {name: '评价', index: 0, value: 'name'}
       ],
-      playUrl: [{url: '1'}, {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'}],
+      playUrl: [
+        {url: '1'},
+        {url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D'}
+        // {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'}
+      ],
       // video
       videoId: '',
       videosComments: [],
@@ -92,7 +96,20 @@ export default {
     // }
   },
   onReady () {
+    const that = this
     this.swiperHeight = wx.getSystemInfoSync().windowHeight - 265
+    wx.downloadFile({
+      url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D', // 仅为示例，并非真实的资源
+      success (res) {
+        that.playUrl[1].url = res.tempFilePath
+        // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+        if (res.statusCode === 200) {
+          wx.playVoice({
+            filePath: res.tempFilePath
+          })
+        }
+      }
+    })
   },
   methods: {
     init () {
