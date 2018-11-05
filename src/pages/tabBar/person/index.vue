@@ -72,6 +72,7 @@ export default {
     init () {
       this._getUserInfo()
     },
+    // 我的课程
     toMyCourse () {
       // const type = 'my'
       wx.navigateTo({
@@ -84,6 +85,7 @@ export default {
         url: '../../vipList/main'
       })
     },
+    // 我的订单
     goOrderList () {
       wx.navigateTo({
         url: `./orderList/main`

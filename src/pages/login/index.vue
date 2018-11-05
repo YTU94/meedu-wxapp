@@ -64,10 +64,7 @@ export default {
           url: '../tabBar/course/main'
         })
       }).catch(err => {
-        console.log(err)
-        wx.switchTab({
-          url: '../tabBar/course/main'
-        })
+        console.log('catch err', err)
       })
     }
   },

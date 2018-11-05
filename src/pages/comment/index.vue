@@ -15,7 +15,7 @@
       </ul>
     </div>
     <!-- 评论 -->
-    <label class="section-label">评论</label>
+    <div class="section-label">评论</div>
     <div class="input-line">
       <!-- <img class="input-line__avatar" v-if="comment.user" :src="comment.user.avatar" alt="" mode="widthFix"> -->
       <!-- <div class="input-line__input" @click="goComment">快来写下你的评论吧~</div> -->
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { formatTime } from '@/utils/index'
+// import { formatTime } from '@/utils/index'
 import card from '@/components/card'
 
 export default {
@@ -53,7 +53,6 @@ export default {
   data () {
     return {
       courseId: '',
-      logs: [],
       articleList: [],
       inputFocus: false,
       commentContent: '',
@@ -61,15 +60,8 @@ export default {
       callbackCommentsList: []
     }
   },
-  computed: {
-    Id () {
-      return this.$mp.query.id
-    }
-  },
   methods: {
-    init () {
-      // this._getVipList({page_size: 10, page: 1})
-    },
+    init () {},
     // 去评论
     goComment () {
       this.inputFocus = !this.inputFocus
@@ -96,10 +88,7 @@ export default {
     }
   },
 
-  created () {
-    const logs = (wx.getStorageSync('logs') || [])
-    this.logs = logs.map(log => formatTime(new Date(log)))
-  },
+  created () {},
   mounted () {
     this.init()
     this.courseId = this.$mp.query.id
@@ -185,6 +174,7 @@ export default {
   */
   .section-label{
     padding: 15px 0;
+    box-sizing: border-box;
   }
   .submit-btn{
     position: relative;
@@ -207,24 +197,19 @@ export default {
       padding-right: 10px;
       box-sizing: border-box;
     }
-    &__input{
-      flex: 1;
-      font-size: 13px;
-      padding-left: 10px;
-      background: @border-color;
-      color: @font-color-gray;
-      border-radius: 20px;
-      line-height: 1.8;
-    }
     &__realInput{
       flex: 1;
       font-size: 13px;
-      padding-left: 10px;
+      padding: 5px 10px;
       background: @border-color;
       color: @font-color-gray;
       border-radius: 20px;
       line-height: 1.8;
     }
+  }
+  // submit btn
+  .submit-btn{
+    font-size: 16px;
   }
 }
 </style>

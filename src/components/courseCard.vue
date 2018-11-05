@@ -2,7 +2,6 @@
   <div class="course-card"  @click="goVideoList(course)">
     <div class="card-img">
       <img :src="course.thumb" alt="" >
-
     </div>
     <div class="card-info">
       <div class="card-info__name">
@@ -23,11 +22,18 @@ export default {
       type: Object,
       default: () => {}
     }
+  },
+  methods: {
+    goVideoList () {
+      this.$emit('goVideoList', this.course)
+    }
   }
 }
 </script>
 
 <style lang="less">
+@import '../assets/style/variable';
+
 .course-card{
   display: flex;
   width: 100%;

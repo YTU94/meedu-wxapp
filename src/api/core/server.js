@@ -9,7 +9,6 @@ fly.config.baseURL = HOST_DEV
 fly.interceptors.request.use((request) => {
   // 给所有请求添加自定义header
   request.headers['Authorization'] = `Bearer ${wx.getStorageSync('access_token')}`
-  request.headers['X-Tag'] = 'flyio'
   request.headers['third-session'] = wx.getStorageSync('thirdSession') || ''
   // 打印出请求体
   console.log(request.body)
@@ -24,7 +23,7 @@ fly.interceptors.request.use((request) => {
 // 添加响应拦截器，响应拦截器会在then/catch处理之前执行
 fly.interceptors.response.use(
   (response) => {
-    console.log('login', response)
+    console.log('response', response)
     // 只将请求结果的data字段返回
     if (response.status === 200 || response.status === 201) {
       return response.data
@@ -39,6 +38,7 @@ fly.interceptors.response.use(
     }
   },
   (error) => {
+    console.log('error', error)
     wx.hideLoading()
     wx.showToast({
       title: '未知错误',
@@ -50,11 +50,6 @@ fly.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
-// fly.interceptors.request.use((config, promise) => {
-//   config.headers['X-Tag'] = 'flyio'
-//   return config
-// })
 
 export default function flyio (url, params, config) {
   return new Promise((resolve, reject) => {
@@ -76,7 +71,8 @@ export default function flyio (url, params, config) {
         })
       }
     }, (err) => {
-      reject(err)
+      console.log(err, 'err')
+      reject(err.response)
     })
   })
 }
