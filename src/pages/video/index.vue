@@ -13,22 +13,23 @@
     </div>
     <!-- content -->
     <swiper :current="activeIndex" class="info-content" @change="swiperChange" :style="{'height': swiperHeight * 2 + 'rpx'}">
-        <swiper-item :style="{'hieght': swiperHieght * 2 + 'rpx'}" style="overflow: auto;">
-          <scroll-view scroll-y :style="{'hieght': swiperHieght * 2 + 'rpx'}">
-            <div v-show="activeIndex === 0" class="introduction">
-              <p class="introduction-title">
-                <span class="introduction-title__name">{{videoInfo.title}}</span>
-                <span class="introduction-title__num">播放次数：{{videoInfo.view_num}}</span>
-              </p>
-              <p class="introduction-lable">简介</p>
-              <p class="introduction-description" v-html="videoInfo.short_description"></p>            
-              <p class="introduction-lable">详细介绍</p>
-              <p class="introduction-description" v-html="videoInfo.description"></p>
-            </div>
-          </scroll-view>
-        </swiper-item>
-        <swiper-item>
-          <!-- video list -->
+      <swiper-item>
+        <scroll-view scroll-y :style="{'height': swiperHeight * 2 + 'rpx'}">
+          <div class="introduction">
+            <p class="introduction-title">
+              <span class="introduction-title__name">{{videoInfo.title}}</span>
+              <span class="introduction-title__num">播放次数：{{videoInfo.view_num}}</span>
+            </p>
+            <p class="introduction-lable">简介</p>
+            <p class="introduction-description" v-html="videoInfo.short_description"></p>            
+            <p class="introduction-lable">详细介绍</p>
+            <p class="introduction-description" v-html="videoInfo.description"></p>
+          </div>
+        </scroll-view>
+      </swiper-item>
+      <!-- video list -->
+      <swiper-item>
+        <scroll-view  scroll-y :style="{'height': swiperHeight * 2 + 'rpx'}">
           <ul class="list-container">
             <li class="list-item" v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
               <div class="video-icon">
@@ -37,8 +38,11 @@
               <div class="video-title">{{(index + 1) + ' . ' + item.title}}</div>
             </li>
           </ul>
-        </swiper-item>
-        <swiper-item>
+        </scroll-view>
+      </swiper-item>
+      <!-- comments list -->
+      <swiper-item>
+        <scroll-view  scroll-y :style="{'height': swiperHeight * 2 + 'rpx'}">
           <ul class="comments-list" v-if="videosComments && videosComments.length > 0">
             <li class="list-item" v-for="(item, index) in videosComments" :class="{ red: aa }" :key="index" >
               <img class="item-avatar" v-if="item.user" :src="item.user.avatar" alt="" mode="widthFix">
@@ -49,8 +53,9 @@
               </div>
             </li>
           </ul>
-          <p style="text-align: center;padding: 25px 0;">~暂无评价~</p>
-        </swiper-item>
+          <p v-else style="text-align: center;padding: 25px 0;">~暂无评价~</p>
+        </scroll-view>
+      </swiper-item>
     </swiper>
   </div>
 </template>
@@ -83,21 +88,21 @@ export default {
       videoId: '',
       videosComments: [],
       videoInfo: {},
-      swiperHeight: ''
+      swiperHeight: wx.getSystemInfoSync().windowHeight - 265
     }
   },
   computed: {
     // videoId () {
     //   return this.$mp.query.id
     // }
-    // swiperHieght () {
+    // swiperHeight () {
     //   const height = wx.getSystemInfoSync().windowHeight
     //   return height - 225
     // }
   },
   onReady () {
     // const that = this
-    this.swiperHeight = wx.getSystemInfoSync().windowHeight - 265
+    // this.swiperHeight = wx.getSystemInfoSync().windowHeight - 265
     // wx.downloadFile({
     //   url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D', // 仅为示例，并非真实的资源
     //   success (res) {

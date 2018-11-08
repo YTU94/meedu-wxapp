@@ -122,7 +122,7 @@ export default {
     _getCourseComments (data, id, merge) {
       this.$http.course.getCourseComments(data, id).then(res => {
         res.data.forEach(e => {
-          e.created_format = formatTime(e.created_at)
+          e.created_format = formatTime(e.created_at, true)
         })
         if (merge) {
           this.courseCommentsList = this.courseCommentsList.concat(res.data)

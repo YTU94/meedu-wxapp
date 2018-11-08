@@ -23,14 +23,14 @@
     </div>
     <!-- 提交 -->
     <button class="submit-btn" @click="submit">提交</button>
-    <!-- comments list -->
+    <!-- 回调 comments list -->
     <div class="comments-list section">
       <ul class="list-container" v-if="callbackCommentsList && callbackCommentsList.length > 0">
-        <li class="list-item" v-for="(item, index) in callbackCommentsList" :class="{ red: aa }" :key="index" @click="goComment(item)" >
+        <li class="list-item" v-for="(item, index) in callbackCommentsList"  :key="index">
           <img class="item-avatar" v-if="item.user" :src="item.user.avatar" alt="" mode="widthFix">
           <div class="item-content">
             <div class="item-content__name" v-if="item.user">{{item.user.nick_name}}</div>
-            <div class="item-content__time">{{item.created_at}}</div>
+            <div class="item-content__time">{{item.created_format}}</div>
             <div class="item-content__content" v-html="item.content"></div>
             <div class="item-content__footer"></div>
           </div>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-// import { formatTime } from '@/utils/index'
+import { formatTime } from '@/utils/index'
 import card from '@/components/card'
 
 export default {
@@ -77,13 +77,18 @@ export default {
       } else {
         wx.showToast({
           title: '请输入评论',
+          icon: 'none',
           mask: true
         })
       }
     },
     _submitComments (content, id) {
       this.$http.course.submitComments({content}, id).then(res => {
+        res.data.forEach(e => {
+          e.created_format = formatTime(e.created_at, true)
+        })
         this.callbackCommentsList = this.callbackCommentsList.concat(res.data)
+        console.log('callbackCommentsList', res.data, this.callbackCommentsList)
       })
     }
   },

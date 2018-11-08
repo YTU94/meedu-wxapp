@@ -27,6 +27,10 @@ fly.interceptors.response.use(
     // 只将请求结果的data字段返回
     if (response.status === 200 || response.status === 201) {
       return response.data
+    } else if (response.status === 302) {
+      wx.redirectTo({
+        url: '/pages/login/main'
+      })
     } else {
       wx.hideLoading()
       wx.showToast({
