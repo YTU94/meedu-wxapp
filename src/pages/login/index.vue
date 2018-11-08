@@ -8,10 +8,9 @@
       <input  v-model="form.password" placeholder-class="input-holder" :password="isPassword" placeholder="请输入您的密码"/>
     </view>
     <button class="btn" @click="login">登录</button>
+    <button class="btn btn-primary" @click="toIndex">游客登录</button>
     <p class="login-text">登陆/注册即视为同意<span style="color: #8ECEF4;">meEdu协议</span></p>
-    <p class="login-text" @click="goRegister">没有meedu账号？立即注册</p>
-    <p class="login-text" @click="toIndex">快捷体验</p>
-    <!-- <p></p> -->
+    <!-- <p class="login-text" @click="goRegister">没有meedu账号？立即注册</p> -->
   </div>
 </template>
 
@@ -55,6 +54,22 @@ export default {
         username: this.form.account || '',
         password: this.form.password || ''
       }
+      if (!this.form.account) {
+        wx.showToast({
+          title: '账号不能为空',
+          icon: 'none',
+          mask: true
+        })
+        return false
+      }
+      if (!this.form.password) {
+        wx.showToast({
+          title: '密码不能为空',
+          icon: 'none',
+          mask: true
+        })
+        return false
+      }
       this.$http.user.login(data).then(res => {
         if (res.expires_in) {
           console.log(new Date())
@@ -65,6 +80,9 @@ export default {
         })
       }).catch(err => {
         console.log('catch err', err)
+        wx.switchTab({
+          url: '../tabBar/course/main'
+        })
       })
     }
   },
@@ -111,6 +129,10 @@ export default {
     color: #fff;
     background: #373737;
     margin:10px 0 20px;
+  }
+  .btn-primary{
+    color: #373737;
+    background: #fff;
   }
   .login-text{
     line-height: 2.0;

@@ -12,6 +12,7 @@
 	"compileType": "miniprogram",
 	"appid": "wxb66d7c09f8195be0",
 	"projectname": "meedu1.0",
+	"libVersion": "2.4.0",
 	"condition": {
 		"search": {
 			"current": -1,
