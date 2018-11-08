@@ -95,8 +95,9 @@ export default {
     goComment (item) {
       const comment = JSON.stringify(item)
       console.log('参数 comment', item, comment)
+      wx.setStorageSync('curCourseComent', item)
       wx.navigateTo({
-        url: `../comment/main?comment=${comment}&id=${this.courseId}`
+        url: `../comment/main?id=${this.courseId}`
       })
     },
     // 课程详情
@@ -220,20 +221,20 @@ export default {
         .video-icon{
           display: flex;
           flex: 0 0 auto;
-          width: 20px;
-          height: 20px;
+          width: 32rpx;
+          height: 32rpx;
           border: 1px solid #787878;
           align-items: center;
           justify-content: center;
-          border-radius: 20px;
+          border-radius: 32rpx;
           margin-right: 10px;
           transform: rotate(-90deg);
           &__img{
             flex: 0 0 auto;
-            width: 14px;
+            width:20rpx;
             height: auto;
             position: relative;
-            top: 2px;
+            top: 3rpx;
           }
         }
         .video-title{

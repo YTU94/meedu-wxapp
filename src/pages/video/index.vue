@@ -76,8 +76,8 @@ export default {
       ],
       playUrl: [
         {url: '1'},
-        {url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D'}
-        // {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'}
+        // {url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D'}
+        {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'}
       ],
       // video
       videoId: '',
@@ -96,20 +96,20 @@ export default {
     // }
   },
   onReady () {
-    const that = this
+    // const that = this
     this.swiperHeight = wx.getSystemInfoSync().windowHeight - 265
-    wx.downloadFile({
-      url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D', // 仅为示例，并非真实的资源
-      success (res) {
-        that.playUrl[1].url = res.tempFilePath
-        // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
-        if (res.statusCode === 200) {
-          wx.playVoice({
-            filePath: res.tempFilePath
-          })
-        }
-      }
-    })
+    // wx.downloadFile({
+    //   url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D', // 仅为示例，并非真实的资源
+    //   success (res) {
+    //     that.playUrl[1].url = res.tempFilePath
+    //     // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+    //     if (res.statusCode === 200) {
+    //       wx.playVoice({
+    //         filePath: res.tempFilePath
+    //       })
+    //     }
+    //   }
+    // })
   },
   methods: {
     init () {
@@ -185,13 +185,11 @@ export default {
     width: 100%;
     height: 40px;
     line-height: 40px;
-    // border-bottom: 1px solid #999;
     box-shadow: 0 2rpx 8rpx 0 rgba(0, 0, 0, 0.1);
     justify-content: center;
     &-item{
       display: flex;
       flex: 1;
-      line-height: 2;
       font-size: 14px;
       color: #777777;
       justify-content: center;
@@ -247,20 +245,20 @@ export default {
         .video-icon{
           display: flex;
           flex: 0 0 auto;
-          width: 20px;
-          height: 20px;
+          width: 32rpx;
+          height: 32rpx;
           border: 1px solid #787878;
           align-items: center;
           justify-content: center;
-          border-radius: 20px;
+          border-radius: 32rpx;
           margin-right: 10px;
           transform: rotate(-90deg);
           &__img{
             flex: 0 0 auto;
-            width: 14px;
+            width: 20rpx;
             height: auto;
             position: relative;
-            top: 2px;
+            top: 3rpx;
           }
         }
         .video-title{

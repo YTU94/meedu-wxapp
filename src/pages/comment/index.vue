@@ -7,7 +7,7 @@
           <img class="item-avatar" v-if="item.user" :src="item.user.avatar" alt="" mode="widthFix">
           <div class="item-content">
             <div class="item-content__name" v-if="item.user">{{item.user.nick_name}}</div>
-            <div class="item-content__time">{{item.created_at}}</div>
+            <div class="item-content__time">{{item.created_format}}</div>
             <div class="item-content__content" v-html="item.content"></div>
             <div class="item-content__footer"></div>
           </div>
@@ -92,9 +92,7 @@ export default {
   mounted () {
     this.init()
     this.courseId = this.$mp.query.id
-    if (this.$mp.query.comment) {
-      this.curCommentsList = [JSON.parse(this.$mp.query.comment)]
-    }
+    this.curCommentsList[0] = wx.getStorageSync('curCourseComent')
   }
 
 }
