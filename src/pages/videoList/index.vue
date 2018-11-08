@@ -2,7 +2,7 @@
   <div class="course-info">
     <!-- course-info -->
     <div class="info section">
-      <span class="info-tag" v-if="courseInfo.charge">{{courseInfo.charge}}元</span>
+      <span class="info-tag" v-if="courseInfo.charge">收费课程</span>
       <span class="info-tag" v-else>免费课程</span>
       <h1 class="info-title">{{courseInfo.title}}</h1>
       <!-- <card :src="courseInfo.thumb"></card> -->
