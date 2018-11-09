@@ -1,5 +1,4 @@
-<p align="center"><img src="static/img/meedu.png" width="300" height="300"/></p>
-
+<p align="center"><img src="static/img/xc.png" width="100%" height="auto"/></p>
 <p align="center">
 <a href="https://travis-ci.org/Qsnh/meedu"><img src="https://travis-ci.org/Qsnh/meedu.svg?branch=master" alt="Build Status"></a>
 <a href="https://packagist.org/packages/Qsnh/meedu"><img src="https://poser.pugx.org/qsnh/meedu/license" alt="License"></a>
@@ -24,7 +23,7 @@
 - [ ] 课程搜索功能
 - [ ] 直播功能
 
-<p align="center"><img src="static/img/xc.png" width="100%" height="auto"/></p>
+
 
 ## 结构
 - api
