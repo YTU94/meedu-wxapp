@@ -65,12 +65,12 @@
 <p align="center"><img src="gif/3.gif" width="375" height="750"/></p>
 
 ## API
-- API接口: [https://github.com/Qsnh/meedu/tree/master/docs/api/v1]
+- API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1
 
 
 ## 使用
 
->推荐使用yarn
+>推荐使用yarn (请先安装好node, [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
 
 ``` bash
 # install dependencies
