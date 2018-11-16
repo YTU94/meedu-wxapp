@@ -93,6 +93,7 @@ export default {
       console.log('参数', video.id)
     },
     goComment (item) {
+      // TODO: 后续改动mixins
       const comment = JSON.stringify(item)
       console.log('参数 comment', item, comment)
       wx.setStorageSync('curCourseComent', item)

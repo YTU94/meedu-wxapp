@@ -5,12 +5,16 @@
       indicator-active-color="#fff"
       :autoplay="autoplay" 
       :interval="interval" 
-      :duration="duration">
+      :duration="duration"
+      :circular="true"
+      @change="change"
+      previous-margin="15px"
+      next-margin	="15px">
       <block v-for="(item, index) in swiperList" :key="index">
         <swiper-item>
             <div class="for-padding" @click="goToInfo(item.id)">
-              <img v-if="item.thumb" :src="item.thumb" class="slide-image" mode="widthFix"/>
-              <!-- <span v-if="item.title" class="slide-msg">{{item.title}}</span> -->
+              <img v-if="item.thumb" :class="{'active': activeIndex === index}"  :src="item.thumb" class="slide-image"/>
+              <!-- <span v-if="item.title" class="slide-msg">{{item.title}}</span> :mode="activeIndex === index ? 'widthFix' : ''" -->
             </div>
         </swiper-item>
       </block>
@@ -27,18 +31,23 @@ export default {
   },
   data () {
     return {
+      activeIndex: 0,
       // imgUrls: [
       //   'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       //   'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
       //   'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
       // ],
       indicatorDots: false,
-      autoplay: true,
+      autoplay: false,
       interval: 5000,
       duration: 1000
     }
   },
   methods: {
+    change (e) {
+      console.log(e.mp.detail.current)
+      this.activeIndex = e.mp.detail.current
+    },
     goToInfo (id) {
       this.$emit('navigateTo', id)
     }
@@ -52,19 +61,23 @@ export default {
       position: relative;
       top: 0;
       left: 0;
-      padding: 0 20px;
+      padding: 0 5px;
       width:100%;
       height: auto;
       box-sizing: border-box;
       .slide-image{
         position: relative;
-        top: 0;
+        top: 30rpx;
         left: 0;
         display: block;
         width: 100%;
-        height: auto;
+        height: 240rpx;
         border-radius: 10px;
         box-sizing: border-box;
+      }
+      .active{
+        height: 300rpx;
+        top: 0;
       }
       .slide-msg{
         display: inline-block;

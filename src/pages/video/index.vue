@@ -44,7 +44,7 @@
       <swiper-item>
         <scroll-view  scroll-y :style="{'height': swiperHeight * 2 + 'rpx'}">
           <ul class="comments-list" v-if="videosComments && videosComments.length > 0">
-            <li class="list-item" v-for="(item, index) in videosComments" :class="{ red: aa }" :key="index" >
+            <li class="list-item" v-for="(item, index) in videosComments" :class="{ red: aa }" :key="index" @click="goComment(item)">
               <img class="item-avatar" v-if="item.user" :src="item.user.avatar" alt="" mode="widthFix">
               <div class="item-content">
                 <div class="item-content__name" v-if="item.user">{{item.user.nick_name}}</div>
@@ -127,6 +127,14 @@ export default {
     },
     swiperChange (e) {
       this.activeIndex = e.mp.detail.current
+    },
+    // 跳去评论
+    goComment (item) {
+      // TODO: 后续改动mixins
+      wx.setStorageSync('curCourseComent', item)
+      wx.navigateTo({
+        url: `../comment/main?id=${this.courseId}`
+      })
     },
     // 视频详情
     _getVideosInfo (data, id) {
