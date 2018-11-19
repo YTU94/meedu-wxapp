@@ -100,6 +100,5 @@ yarn build --report
 ## License
 [MIT](http://opensource.org/licenses/MIT)
 
-
-欢迎star.
-交流群：QQ：771930341
+### 交流群
+<img src="https://camo.githubusercontent.com/5741c3484e319b694f54d09816a485fb08c848c0/68747470733a2f2f73312e617831782e636f6d2f323031382f30392f32392f696c725776742e6a7067" width="350" height="auto" alt='' />
