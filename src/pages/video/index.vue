@@ -55,7 +55,9 @@
           </ul>
           <p v-else style="text-align: center;padding: 25px 0;">~暂无评价~</p>
         </scroll-view>
+        <div class="btn-submit" for="" @click="goComment('', true)">留言</div>
       </swiper-item>
+      <!-- operation -->
     </swiper>
   </div>
 </template>
@@ -128,12 +130,16 @@ export default {
     swiperChange (e) {
       this.activeIndex = e.mp.detail.current
     },
+    // 切换视屏
+    goVideo () {
+      // TODO: 视屏切换
+    },
     // 跳去评论
-    goComment (item) {
+    goComment (item, retirect) {
       // TODO: 后续改动mixins
-      wx.setStorageSync('curCourseComent', item)
+      if (item) wx.setStorageSync('curCourseComent', item)
       wx.navigateTo({
-        url: `../comment/main?id=${this.courseId}`
+        url: `../comment/main?id=${this.courseId}&type=video`
       })
     },
     // 视频详情
@@ -335,15 +341,23 @@ export default {
       }
     }
   }
+  .btn-submit{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 14px;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align:center;
+    border-radius: 22.5px;
+    background: rgba(20, 181, 253, 1);
+    box-shadow: 0 1px 2px rgba(20, 181, 253, .7);
+    z-index: 1;
+    opacity: .86;
+  }
+}
 
-}
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
-
-.log-item {
-  margin: 10rpx;
-}
 </style>

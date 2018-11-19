@@ -51,6 +51,7 @@ export default {
 
   data () {
     return {
+      type: '',
       courseId: '',
       articleList: [],
       inputFocus: false,
@@ -68,7 +69,7 @@ export default {
     submit () {
       console.log('submit请输入评论')
       if (this.commentContent) {
-        this._submitComments(this.commentContent, this.courseId)
+        this._submitComments(this.commentContent, this.courseId, this.type)
       } else {
         wx.showToast({
           title: '请输入评论',
@@ -77,8 +78,8 @@ export default {
         })
       }
     },
-    _submitComments (content, id) {
-      this.$http.course.submitComments({content}, id).then(res => {
+    _submitComments (content, id, type) {
+      this.$http[type].submitComments({content}, id).then(res => {
         res.data.forEach(e => {
           e.created_format = formatTime(e.created_at, true)
         })
@@ -91,6 +92,7 @@ export default {
   created () {},
   mounted () {
     this.init()
+    this.type = this.$mp.query.type || 'course'
     this.courseId = this.$mp.query.id
     this.curCommentsList[0] = wx.getStorageSync('curCourseComent')
   }
