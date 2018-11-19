@@ -5,7 +5,7 @@
       <input  v-model="form.account" placeholder-class="input-holder" placeholder="请输入您的账号"/>
     </view>
     <view class="section">
-      <input  v-model="form.password" placeholder-class="input-holder" :password="isPassword" placeholder="请输入您的密码"/>
+      <input type="password" v-model="form.password" placeholder-class="input-holder" :password="isPassword" placeholder="请输入您的密码"/>
     </view>
     <button class="btn" @click="login">登录</button>
     <button class="btn btn-primary" @click="toIndex">游客登录</button>

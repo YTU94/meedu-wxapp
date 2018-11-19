@@ -18,7 +18,6 @@
     <div class="section-label">评论</div>
     <div class="input-line">
       <!-- <img class="input-line__avatar" v-if="comment.user" :src="comment.user.avatar" alt="" mode="widthFix"> -->
-      <!-- <div class="input-line__input" @click="goComment">快来写下你的评论吧~</div> -->
       <input class="input-line__realInput" v-model="commentContent" confirm-type="done" placeholder="快来写下你的评论吧~" type="text">
     </div>
     <!-- 提交 -->
@@ -62,10 +61,6 @@ export default {
   },
   methods: {
     init () {},
-    // 去评论
-    goComment () {
-      this.inputFocus = !this.inputFocus
-    },
     inputBlur () {
       console.log('inputBlur请输入评论')
     },

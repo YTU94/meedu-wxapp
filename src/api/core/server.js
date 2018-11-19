@@ -4,10 +4,11 @@ var fly = new Fly()
 const HOST_DEV = 'https://1o1.cc' // eslint-disable-line
 const HOST_PROD = 'https://xthapi-prod.isagr.com' // eslint-disable-line
 fly.config.baseURL = HOST_DEV
-
+// fly.config.header['content-type'] = 'application/json'
 // 添加请求拦截器
 fly.interceptors.request.use((request) => {
   // 给所有请求添加自定义header
+  request.headers['content-type'] = 'application/json'
   request.headers['Authorization'] = `Bearer ${wx.getStorageSync('access_token')}`
   request.headers['third-session'] = wx.getStorageSync('thirdSession') || ''
   // 打印出请求体

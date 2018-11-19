@@ -38,6 +38,7 @@
     <!-- comments list -->
     <div class="comments-list section">
       <label class="section-label">评论</label>
+      <label class="section-submit" for="" @click="goComment('', true)">留言</label>
       <ul class="list-container">
         <li class="list-item" v-for="(item, index) in courseCommentsList" :class="{ red: aa }" :key="index" @click="goComment(item)" >
           <img class="item-avatar" :src="item.user.avatar" alt="" mode="widthFix">
@@ -92,11 +93,11 @@ export default {
       })
       console.log('参数', video.id)
     },
-    goComment (item) {
+    goComment (item, redirect) {
       // TODO: 后续改动mixins
-      const comment = JSON.stringify(item)
-      console.log('参数 comment', item, comment)
-      wx.setStorageSync('curCourseComent', item)
+      // const comment = JSON.stringify(item)
+      // console.log('参数 comment', item, comment)
+      if (item) wx.setStorageSync('curCourseComent', item)
       wx.navigateTo({
         url: `../comment/main?id=${this.courseId}`
       })
@@ -252,7 +253,17 @@ export default {
   * comments list 
   */
   .comments-list{
+    .section-submit{
+      float: right;
+      font-size: 13px;
+      // border: 1px solid 
+      color: #fff;
+      background: linear-gradient(to left top,rgb(234, 124, 62), rgb(173, 26, 139));
+      border-radius: 20px;
+      padding: 5px 10px;
+    }
     .list-container{
+      margin-top: 10px;
       .list-item{
         display: flex;
         .item-avatar{
