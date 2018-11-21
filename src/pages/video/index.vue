@@ -124,7 +124,7 @@ export default {
       this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList)
       const videoId = this.$mp.query.id
       this._getVideosInfo({}, videoId)
-      // this._getVideosUrl({}, videoId)
+      this._getVideosUrl({}, videoId)
       this._getVideosComments({}, videoId)
     },
     swiperChange (e) {
