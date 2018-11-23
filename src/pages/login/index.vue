@@ -46,11 +46,12 @@ export default {
     },
     ckeckLogin () {},
     login () {
+      console.log(process.env)
       const data = {
         scope: '',
         grant_type: 'password',
-        client_id: '2',
-        client_secret: 'G8hmzjkkJBl9lPwF45pBgO1AJSM5XolpbPNFR9k7',
+        client_id: process.env.client_id,
+        client_secret: process.env.client_secret,
         username: this.form.account || '',
         password: this.form.password || ''
       }

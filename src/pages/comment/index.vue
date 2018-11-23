@@ -95,8 +95,13 @@ export default {
     this.type = this.$mp.query.type || 'course'
     this.courseId = this.$mp.query.id
     this.curCommentsList[0] = wx.getStorageSync('curCourseComent')
+  },
+  onHide () {
+    wx.removeStorageSync('curCourseComent')
+  },
+  onUnload () {
+    wx.removeStorageSync('curCourseComent')
   }
-
 }
 </script>
 
