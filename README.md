@@ -18,12 +18,12 @@
 - [x] 个人信息模块
 - [x] vip模块
 - [x] 课程评论互动
+- [x] 视屏评论互动
 
 ## 规划
-- [ ] 视屏评论互动
 - [ ] 课程搜索功能
 - [ ] 直播功能
-
+- [ ] 分享功能
 
 
 ## 结构
@@ -68,6 +68,15 @@
 ## API
 - API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1
 
+## 配置
+
+([meEdu](https://github.com/Qsnh/meedu)需要配置client_id, client_secret)
+
+参数 | 值 | 位置 
+------------- | ------------- | -----------
+API | 接口地址url | /config/dev.dnv.js&&prod.env.js
+client_id | *** | /config/dev.dnv.js&&prod.env.js
+client_secret | *** | /config/dev.dnv.js&&prod.env.js
 
 ## 使用
 
