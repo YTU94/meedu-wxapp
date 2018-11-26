@@ -16,6 +16,7 @@
     "pages/videoList/main"
   ],
   "window": {
+    "withShareTicket": true,
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "MeEdu",

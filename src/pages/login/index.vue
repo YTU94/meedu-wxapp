@@ -95,6 +95,16 @@ export default {
     }
     const logs = (wx.getStorageSync('logs') || [])
     this.logs = logs.map(log => formatTime(new Date(log)))
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: 'meedu',
+      path: 'pages/login/main'
+    }
   }
 }
 </script>
