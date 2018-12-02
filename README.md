@@ -57,13 +57,9 @@
 - main.js
 
 ## 预览
-<p align="center"><img src="gif/2.gif" width="375" height="750"/></p>  
+<p align="center"><img src="gif/2.gif" width="375" height="750"/>  <img src="gif/1.gif" width="375" height="750"/></p>  
+<p align="center"><img src="gif/4.gif" width="375" height="750"/>  <img src="gif/3.gif" width="375" height="750"/></p>  
 
-<p align="center"><img src="gif/1.gif" width="375" height="750"/></p>  
-
-<p align="center"><img src="gif/4.gif" width="375" height="750"/></p>  
-
-<p align="center"><img src="gif/3.gif" width="375" height="750"/></p>
 
 ## API
 - API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1
@@ -109,5 +105,5 @@ yarn build --report
 ## License
 [MIT](http://opensource.org/licenses/MIT)
 
-### 交流群
-<img src="https://camo.githubusercontent.com/5741c3484e319b694f54d09816a485fb08c848c0/68747470733a2f2f73312e617831782e636f6d2f323031382f30392f32392f696c725776742e6a7067" width="350" height="auto" alt='' />
+## 交流群
+<img src="https://camo.githubusercontent.com/5741c3484e319b694f54d09816a485fb08c848c0/68747470733a2f2f73312e617831782e636f6d2f323031382f30392f32392f696c725776742e6a7067" width="275" height="auto" alt='' />
