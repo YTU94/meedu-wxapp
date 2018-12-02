@@ -20,7 +20,7 @@
           <span class="info-item-content" v-if="usrInfo && userInfo.role && userInfo.role.length > 0">{{userInfo.role || ' '}}</span>
           <span class="info-item-content" @click="bugVip">会员列表</span>
         </li>
-        <li class="info-item">余额<span class="info-item-content">{{userInformation.name || 0}}元</span></li>
+        <li class="info-item">余额<span class="info-item-content">{{userInformation.name || 0}}币</span></li>
         <li class="info-item" v-if="userInfo">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
         <li class="info-item" @click="toMyCourse">
           我的课程<span class="info-item-content">></span>

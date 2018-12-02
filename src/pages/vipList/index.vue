@@ -5,7 +5,7 @@
         <div class="item-name"> {{item.name}}</div>
         <div class="item-content">
           <span class="item-content__price">
-            {{item.charge}}元
+            {{item.charge}}币
             <span class="item-content__date">/ {{item.expire_days}}天</span>
           </span>
           <!-- <button class="item-content__btn" @click="buy(item)">订阅</button> -->
