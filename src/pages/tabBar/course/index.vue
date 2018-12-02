@@ -1,34 +1,25 @@
 <template>
   <div class="course" @click="clickHandle('test click', $event)">
+    <div class="search-input" @click="goSearchCoure">请输入课程名称</div>
     <swiper-banner :swiperList="courseList" :key="imgKey"></swiper-banner>
     <h1 class="couse-title">课程推荐</h1>
     <div class="card-list">
-      <div class="card-item" v-for="(course, index) in courseList" :key="index" @click="goVideoList(course)">
-        <!-- <card :src="course.thumb" :text="course.title" ></card> -->
-        <div class="card-img">
-          <img :src="course.thumb" alt="" >
-
-        </div>
-        <div class="card-info">
-          <div class="card-info__name">
-            {{course.title}}
-            <div class="card-info__desc" v-html="course.short_description"></div>
-          </div>
-          
-          <div class="card-info__oth" v-if="course.charge">收费课程</div>
-          <div class="card-info__oth" v-else>免费课程</div>
-        </div>
+      <div class="" v-if="courseList && courseList.length > 0">
+        <course-card  v-for="(item, index) in courseList" :key="index" @goVideoList="goVideoList" :course="item"></course-card>
       </div>
+      <div v-else class="none">~暂无课程~</div>
     </div>
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
+import courseCard from '@/components/courseCard.vue'
 import swiperBanner from '@/components/swiper-banner'
 export default {
   components: {
     card,
+    courseCard,
     swiperBanner
   },
   data () {
@@ -55,9 +46,8 @@ export default {
         this._getCourseList({page: 1, pageSize: 10})
       }
     },
-    bindViewTap () {
-      const url = '../logs/main'
-      wx.navigateTo({ url })
+    goSearchCoure () {
+      wx.navigateTo({ url: '../../searchCourse/main' })
     },
     goVideoList (course) {
       console.log('query--------->course.id', course.id)
@@ -128,6 +118,22 @@ export default {
 @import '../../../assets/style/variable';
 .course{
   position: relative;
+  .search-input{
+    position: relative;
+    width: auto;
+    height: 70rpx;
+    line-height: 70rpx;
+    top: 0;
+    left: 0;
+    padding: 0 20rpx;
+    margin: 20rpx 40rpx;
+    box-sizing: border-box;
+    border-radius: 35rpx;
+    border: 1px solid #ccc;
+    font-size: 26rpx;
+    text-align: center;
+    color: #808080;
+  }
   .couse-title{
     // text-align: center;
     font-size: 17px;

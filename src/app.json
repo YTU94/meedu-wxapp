@@ -13,6 +13,7 @@
     "pages/vipList/main",
     "pages/register/main",
     "pages/comment/main",
+    "pages/searchCourse/main",
     "pages/videoList/main"
   ],
   "window": {
