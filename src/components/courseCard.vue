@@ -1,7 +1,7 @@
 <template>
   <div class="course-card"  @click="goVideoList(course)">
     <div class="card-img">
-      <img :src="course.thumb" alt="" >
+      <img :src="course.thumb" alt="" mode="">
     </div>
     <div class="card-info">
       <div class="card-info__name">

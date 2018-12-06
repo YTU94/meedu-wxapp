@@ -4,6 +4,7 @@ function formatNumber (n) {
 }
 
 export function formatTime (v, shortType) {
+  v = v * 1000
   const date = new Date(parseInt(v))
   const year = date.getFullYear()
   const month = date.getMonth() + 1
