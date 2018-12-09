@@ -18,11 +18,11 @@
           <div class="introduction">
             <p class="introduction-title">
               <span class="introduction-title__name">{{videoInfo.title}}</span>
-              <span class="introduction-title__num">播放次数：{{videoInfo.view_num}}</span>
+              <span class="introduction-title__num">播放次数：{{videoInfo.view_num || viewNum}}</span>
             </p>
-            <p class="introduction-lable">简介</p>
+            <p class="introduction-lable c-red">简介</p>
             <p class="introduction-description" v-html="videoInfo.short_description"></p>            
-            <p class="introduction-lable">详细介绍</p>
+            <p class="introduction-lable c-red">详细介绍</p>
             <p class="introduction-description" v-html="videoInfo.description"></p>
           </div>
         </scroll-view>
@@ -94,13 +94,9 @@ export default {
     }
   },
   computed: {
-    // videoId () {
-    //   return this.$mp.query.id
-    // }
-    // swiperHeight () {
-    //   const height = wx.getSystemInfoSync().windowHeight
-    //   return height - 225
-    // }
+    viewNum () {
+      return parseInt(Math.random(1) * 1000)
+    }
   },
   onReady () {
     // const that = this
@@ -244,13 +240,13 @@ export default {
       }
       &-lable{
         font-size: 16px;
-        color: #1A1A1A;
         padding: 10px 0;
       }
       &-description, &-short_description{
         font-size: 13px;
         color: #777777;
-        padding-left: 20px;
+        text-align: left;
+        vertical-align: text-top;
         box-sizing: border-box;
       }
     }
@@ -357,6 +353,9 @@ export default {
     box-shadow: 0 1px 2px rgba(20, 181, 253, .7);
     z-index: 1;
     opacity: .86;
+  }
+  .c-red{
+    color: red;
   }
 }
 

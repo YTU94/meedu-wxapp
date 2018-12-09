@@ -28,8 +28,8 @@ export default {
       isPassword: true,
       logs: [],
       form: {
-        account: '',
-        password: ''
+        account: '18119635019',
+        password: '123123'
       }
     }
   },
@@ -88,13 +88,16 @@ export default {
     }
   },
   created () {
+    const logs = (wx.getStorageSync('logs') || [])
+    this.logs = logs.map(log => formatTime(new Date(log)))
+  },
+  onReady () {
+    console.log('------>login ready')
     if (wx.getStorageSync('access_token')) {
       wx.switchTab({
         url: '../tabBar/course/main'
       })
     }
-    const logs = (wx.getStorageSync('logs') || [])
-    this.logs = logs.map(log => formatTime(new Date(log)))
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {

@@ -94,7 +94,7 @@ export default {
     this.init()
     this.type = this.$mp.query.type || 'course'
     this.courseId = this.$mp.query.id
-    this.curCommentsList[0] = wx.getStorageSync('curCourseComent')
+    if (wx.getStorageSync('curCourseComent')) this.curCommentsList[0] = wx.getStorageSync('curCourseComent')
   },
   onHide () {
     wx.removeStorageSync('curCourseComent')
@@ -185,7 +185,10 @@ export default {
     position: relative;
     top: 0;
     left: 0;
-    margin: 30rpx 0; 
+    margin: 30rpx 0;
+    color: #ffffff;
+    background: linear-gradient(to left top,rgb(234, 124, 62), rgb(173, 26, 139));
+    opacity: .85;
   }
   /*
   * input line 

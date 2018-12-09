@@ -6,8 +6,8 @@
       <span class="info-tag" v-else>免费课程</span>
       <h1 class="info-title">{{courseInfo.title}}</h1>
       <!-- <card :src="courseInfo.thumb"></card> -->
-      <img class="info-img" :src="courseInfo.thumb" alt="" mode="widthFix">
-      <p class="info-time">上线时间： {{courseInfo.published_format}} · 观看：{{courseInfo.view_num || 0}}</p>
+      <img class="info-img" :src="courseInfo.thumb" alt="" mode="">
+      <p class="info-time">上线时间： {{courseInfo.published_format}} · 观看：{{courseInfo.view_num || viewNum}}</p>
     </div>
 
     <section class="line"></section>
@@ -42,7 +42,6 @@
       <ul class="list-container">
         <li class="list-item" v-for="(item, index) in courseCommentsList" :class="{ red: aa }" :key="index" @click="goComment(item)" >
           <img class="item-avatar" :src="item.user.avatar" alt="" mode="widthFix">
-          <!-- {{(index + 1) + ' . ' + item.user.nick_name}}: <span v-html="item.content"></span> -->
           <div class="item-content">
             <div class="item-content__name">{{item.user.nick_name}}</div>
             <div class="item-content__time">{{item.created_format}}</div>
@@ -75,11 +74,11 @@ export default {
       courseCommentsList: []
     }
   },
-  // computed: {
-  //   courseId () {
-  //     return this.$mp.query.id
-  //   }
-  // },
+  computed: {
+    viewNum () {
+      return parseInt(Math.random(1) * 1000)
+    }
+  },
   methods: {
     init () {
       console.log('init this.courseId', this.courseId)
@@ -193,7 +192,7 @@ export default {
     }
     &-img{
       width: 100%;
-      height: auto;
+      height: 360rpx;
       border-radius: 10rpx;
     }
     &-time{
@@ -258,7 +257,7 @@ export default {
       font-size: 13px;
       // border: 1px solid 
       color: #fff;
-      background: linear-gradient(to left top,rgb(234, 124, 62), rgb(173, 26, 139));
+      background: rgb(234, 124, 62);
       border-radius: 20px;
       padding: 5px 10px;
     }

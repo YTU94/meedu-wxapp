@@ -1,6 +1,9 @@
 <template>
   <div class="person">
     <div class="header">
+      <div class="bg-img">
+        <img src="../../../assets/img/person-bg.png" alt="" mode="center">
+      </div>
       <div class="user-msg-card">
         <div class="top">
           <div class="organ-name">
@@ -23,10 +26,14 @@
         <li class="info-item">余额<span class="info-item-content">{{userInformation.name || 0}}币</span></li>
         <li class="info-item" v-if="userInfo">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
         <li class="info-item" @click="toMyCourse">
-          我的课程<span class="info-item-content">></span>
+          我的课程<span class="info-item-content">
+            <img class="turn-right-icon" src="../../../assets/img/turn-right-b.png" alt="" mode="widthFix">
+          </span>
         </li>
         <li class="info-item" @click="goOrderList">
-          我的订单<span class="info-item-content">></span>
+          我的订单<span class="info-item-content">
+            <img class="turn-right-icon" src="../../../assets/img/turn-right-b.png" alt="" mode="widthFix">
+          </span>
           <!-- <span class="info-item-content">{{rebateOrderTotal}}</span> -->
         </li>
       </ul>
@@ -104,17 +111,28 @@ export default {
 .person{
   position: relative;
   .header{
-    position: relative;;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: auto;
-    padding: 20px 20px 10px;
+    padding: 20px 20px;
     box-sizing: border-box;
-    // background-color: @bg-color;
+    .bg-img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(3px) brightness(90%) opacity(.8);
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
     .user-msg-card{
       width: 100%;
-      height: auto;
+      height: 121px;
       position: relative;
       top: 0;
       left: 0;
@@ -122,7 +140,6 @@ export default {
       box-sizing: border-box;
       box-shadow:0px 1px 4px 0px rgba(0,0,0,0.1);
       border-radius: 4px;
-      height: 121px;
       background: #555060;
       .top{
         display: flex;
@@ -187,6 +204,11 @@ export default {
       float: right;
       font-size: 28rpx;
       color: @font-color-gray;
+      .turn-right-icon{
+        display: inline-block;
+        width:28rpx;
+        height: auto;
+      }
     }
     // &:last-child{
     //   border-bottom:0rpx;
