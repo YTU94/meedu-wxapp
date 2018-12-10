@@ -96,6 +96,8 @@ export default {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
   },
+  beforeMount () {
+  },
   onShow () {
     this.init()
   },

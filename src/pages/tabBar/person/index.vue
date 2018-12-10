@@ -39,6 +39,7 @@
       </ul>
     </div>
 
+    <button class="lagout-btn" @click="lagout">退出登陆</button>
 
   </div>
 </template>
@@ -96,6 +97,18 @@ export default {
     goOrderList () {
       wx.navigateTo({
         url: `./orderList/main`
+      })
+    },
+    // 退出登录
+    lagout () {
+      try {
+        wx.clearStorageSync()
+      } catch (e) {
+        // Do something when catch error
+        console.log(e)
+      }
+      wx.reLaunch({
+        url: '../../login/main'
       })
     },
     _getUserInfo (data) {
@@ -183,6 +196,15 @@ export default {
     align-items: center;
     width: 100%;
     justify-content: space-between;
+  }
+
+  .lagout-btn{
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 40rpx;
+    color: #373737;
+    background: #fff;
   }
 }
 

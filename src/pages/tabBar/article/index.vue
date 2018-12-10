@@ -6,6 +6,11 @@
         {{index + 1}}. {{item.name}} {{r}}
       </li>
     </ul>
+    <ul class="container">
+      <li v-for="(item, index) in blogList"  :key="index" class="list-item">
+        {{index + 1}}. {{item.post_title}}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -21,6 +26,7 @@ export default {
   data () {
     return {
       logs: [],
+      blogList: null,
       colorList: ['red', 'blue', 'yellow', 'pink'],
       categoryList: []
     }
@@ -53,7 +59,17 @@ export default {
       })
     }
   },
-
+  onShow () {
+    const that = this
+    wx.request({
+      url: 'http://localhost:3000/all',
+      method: 'GET',
+      success (res) {
+        console.log('------<', res)
+        that.blogList = res.data.data
+      }
+    })
+  },
   created () {
     const logs = (wx.getStorageSync('logs') || [])
     this.logs = logs.map(log => formatTime(new Date(log)))

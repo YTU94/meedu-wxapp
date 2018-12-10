@@ -28,8 +28,8 @@ export default {
       isPassword: true,
       logs: [],
       form: {
-        account: '18119635019',
-        password: '123123'
+        account: '',
+        password: ''
       }
     }
   },

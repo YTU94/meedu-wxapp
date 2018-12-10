@@ -2,14 +2,14 @@
   <div class="video-info">
     <!-- video -->
     <div class="video-box">
-      <video style="width: 100%;" v-if="playUrl && playUrl.length > 0" :src="playUrl[1].url"  controls objectFit="contain"></video>
+      <video style="width: 100%;" v-if="playUrl && playUrl.length > 0" :src="playUrl[0].url"  controls objectFit="contain"></video>
       <div v-else class="">
         <h3>当前视频无法观看</h3>
       </div>
     </div>
     <!-- tabBar -->
     <div class="tabBar">
-      <span class="tabBar-item" :class="{'tabBar-item-active': activeIndex === index}" v-for="(item, index) in tabBarList" :key="index" @click="activeIndex = index">{{item.name}}</span>
+      <span class="tabBar-item" :class="{'tabBar-item-active': activeIndex === index}" v-for="(item, index) in tabBarList" :key="index" @click="activeIndex = index">{{item.name}} {{activeIndex}}</span>
     </div>
     <!-- content -->
     <swiper :current="activeIndex" class="info-content" @change="swiperChange" :style="{'height': swiperHeight * 2 + 'rpx'}">
@@ -82,9 +82,8 @@ export default {
         {name: '评价', index: 0, value: 'name'}
       ],
       playUrl: [
-        {url: '1'},
-        // {url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D'}
-        {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'}
+        {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'},
+        {url: ''}
       ],
       // video
       videoId: '',
@@ -124,6 +123,7 @@ export default {
       this._getVideosComments({}, videoId)
     },
     swiperChange (e) {
+      console.log('e ----- >', e)
       this.activeIndex = e.mp.detail.current
     },
     // 切换视屏
@@ -149,6 +149,13 @@ export default {
       this.$http.video.getVideosUrl(data, id).then(res => {
         console.log('_getVideosUrl', res)
         this.playUrl = res
+      }).catch((err) => {
+        console.log(err)
+        wx.showToast({
+          title: '未知错误',
+          icon: 'node',
+          mask: true
+        })
       })
     },
     // 视频评论提交
