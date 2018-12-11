@@ -56,6 +56,10 @@
 - App.vue
 - main.js
 
+## API
+- API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1 (php)
+- [后端API](https://github.com/YTU94/back-end)：由nodejs使用express框架和mysql的提供的后端服务（开发中）
+
 ## 预览
 <p align="center"><img src="gif/2.gif" width="375" height="750"/> &nbsp; <img src="gif/1.gif" width="375" height="750"/></p>  
 
@@ -63,10 +67,6 @@
 
 <p align="center"><img src="gif/4.gif" width="375" height="750"/> &nbsp; <img src="gif/3.gif" width="375" height="750"/></p>  
 
-
-## API
-- API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1 (php)
-- [后端API](https://github.com/YTU94/back-end)：由nodejs使用express框架和mysql的提供的后端服务（开发中）
 ## 配置
 
 ([meEdu](https://github.com/Qsnh/meedu)需要配置client_id, client_secret)
