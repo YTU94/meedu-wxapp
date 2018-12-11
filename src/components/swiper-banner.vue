@@ -57,13 +57,14 @@ export default {
 
 <style lang="less">
   .swiper-comp{
+    height: 330rpx;
     .for-padding{
       position: relative;
       top: 0;
       left: 0;
-      padding: 0 5px;
+      padding: 10rpx;
       width:100%;
-      height: auto;
+      height: 320rpx;
       box-sizing: border-box;
       .slide-image{
         position: relative;
@@ -74,6 +75,7 @@ export default {
         height: 240rpx;
         border-radius: 10px;
         box-sizing: border-box;
+        box-shadow: 0rpx 2rpx 6rpx rgba(0, 0, 0, 0.1);
       }
       .active{
         height: 300rpx;

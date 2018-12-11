@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login" v-show="isHidden">
     <p class="login-title">MeEdu Login</p>
     <view class="section">
       <input  v-model="form.account" placeholder-class="input-holder" placeholder="请输入您的账号"/>
@@ -22,9 +22,9 @@ export default {
   components: {
     card
   },
-
   data () {
     return {
+      isHidden: false,
       isPassword: true,
       logs: [],
       form: {
@@ -91,13 +91,24 @@ export default {
     const logs = (wx.getStorageSync('logs') || [])
     this.logs = logs.map(log => formatTime(new Date(log)))
   },
-  onReady () {
-    console.log('------>login ready')
+  onShow () {
+    console.log('------>login show')
     if (wx.getStorageSync('access_token')) {
       wx.switchTab({
         url: '../tabBar/course/main'
       })
+    } else {
+      this.isHidden = true
     }
+  },
+  onReady () {
+    console.log('------>login ready')
+  },
+  OnHide () {
+    this.isHidden = false
+  },
+  onUnload () {
+    this.isHidden = false
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {

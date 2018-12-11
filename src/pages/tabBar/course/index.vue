@@ -7,7 +7,7 @@
       <div class="" v-if="courseList && courseList.length > 0">
         <course-card  v-for="(item, index) in courseList" :key="index" @goVideoList="goVideoList" :course="item"></course-card>
       </div>
-      <div v-else class="none">~暂无课程~</div>
+      <div v-else class="none"> — 暂无课程 — </div>
     </div>
   </div>
 </template>
@@ -25,7 +25,6 @@ export default {
   data () {
     return {
       imgKey: 'thumb',
-      motto: 'Hello World',
       userInfo: {},
       courseList: [],
       pageSize: 10
@@ -39,12 +38,7 @@ export default {
   },
   methods: {
     init () {
-      console.log('query---------->', this.$mp.query)
-      if (this.courseType === 'my') {
-        this._getMyCourseList({page: 1, pageSize: 10})
-      } else {
-        this._getCourseList({page: 1, pageSize: 10})
-      }
+      this._getCourseList({page: 1, pageSize: 10})
     },
     goSearchCoure () {
       wx.navigateTo({ url: '../../searchCourse/main' })
@@ -72,21 +66,10 @@ export default {
     },
     _getCourseList (data, merge) {
       this.$http.course.getCourseList(data).then(res => {
-        console.log(res)
-        if (merge) {
-          this.courseList = this.courseList.concat(res.data)
+        if (res.data.length > 0) {
+          this.courseList = merge ? this.courseList.concat(res.data) : res.data
         } else {
-          this.courseList = res.data
-        }
-      })
-    },
-    _getMyCourseList (data, merge) {
-      this.$http.user.getUserCourseList(data).then(res => {
-        console.log(res)
-        if (merge) {
-          this.courseList = this.courseList.concat(res.data)
-        } else {
-          this.courseList = res.data
+          this.noCourse = true
         }
       })
     }
