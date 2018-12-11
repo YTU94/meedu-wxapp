@@ -65,8 +65,8 @@
 
 
 ## API
-- API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1
-
+- API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1 (php)
+- [后端API](https://github.com/YTU94/back-end)：由nodejs使用express框架和mysql的提供的后端服务（开发中）
 ## 配置
 
 ([meEdu](https://github.com/Qsnh/meedu)需要配置client_id, client_secret)
