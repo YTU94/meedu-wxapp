@@ -43,6 +43,7 @@ export default {
       width: 240rpx;
       height: 80px;
       border-radius: 10rpx;
+      box-shadow: 0rpx 4rpx 10rpx rgba(0, 0, 0, 0.1);
     }
   }
   .card-info{

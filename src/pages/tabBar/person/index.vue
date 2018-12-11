@@ -27,12 +27,12 @@
         <li class="info-item" v-if="userInfo">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
         <li class="info-item" @click="toMyCourse">
           我的课程<span class="info-item-content">
-            <img class="turn-right-icon" src="../../../assets/img/turn-right-b.png" alt="" mode="widthFix">
+            <img class="turn-right-icon" src="../../../assets/img/turn-right-d.png" alt="" mode="widthFix">
           </span>
         </li>
         <li class="info-item" @click="goOrderList">
           我的订单<span class="info-item-content">
-            <img class="turn-right-icon" src="../../../assets/img/turn-right-b.png" alt="" mode="widthFix">
+            <img class="turn-right-icon" src="../../../assets/img/turn-right-d.png" alt="" mode="widthFix">
           </span>
           <!-- <span class="info-item-content">{{rebateOrderTotal}}</span> -->
         </li>

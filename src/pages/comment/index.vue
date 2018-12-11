@@ -187,7 +187,8 @@ export default {
     left: 0;
     margin: 30rpx 0;
     color: #ffffff;
-    background: linear-gradient(to left top,rgb(234, 124, 62), rgb(173, 26, 139));
+    // background: linear-gradient(to left top,rgb(234, 124, 62), rgb(173, 26, 139));
+    background: rgb(242, 13, 13);
     opacity: .85;
   }
   /*

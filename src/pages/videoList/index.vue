@@ -194,6 +194,8 @@ export default {
       width: 100%;
       height: 360rpx;
       border-radius: 10rpx;
+      box-shadow: 0rpx 4rpx 10rpx rgba(0, 0, 0, 0.1);
+      margin: 10rpx 0;
     }
     &-time{
       font-size: 12px;
