@@ -1,0 +1,10 @@
+<import src="/components/slots" /><template name="43b3c8ec">
+  <view class="_div data-v-64e34042 card"><template name="default"></template>
+    <view class="_div data-v-64e34042 img-box">
+      <image class="_img data-v-64e34042 card-img" src="{{imgUrl}}" alt mode="widthFix"></image>
+    </view>
+    <view class="_p data-v-64e34042 card-text">
+      {{text}}
+    </view> <template data="{{...$root[$k], $root}}" is="{{$slotdefault || 'default'}}"></template>
+  </view>
+</template>

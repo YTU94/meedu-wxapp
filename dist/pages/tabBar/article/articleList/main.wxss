@@ -1,0 +1,30 @@
+@import "../../../../common/vendor.wxss";
+
+.textOverflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.article-list {
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+.article-list ._p {
+  font-size: 32rpx;
+}
+.article-list .article-list-ul {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  padding: 40rpx 0;
+}
+.article-list .article-list-ul .list-item {
+  flex: 1;
+  width: 100%;
+  line-height: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2rpx solid #eee;
+}

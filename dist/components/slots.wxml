@@ -1,0 +1,4 @@
+<import src="/components/card.vue.wxml" />
+<import src="/components/courseCard.vue.wxml" />
+<import src="/components/swiper-banner.vue.wxml" />
+<import src="/components/courseCard.vue.wxml" />

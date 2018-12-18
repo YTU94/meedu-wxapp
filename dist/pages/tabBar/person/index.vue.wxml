@@ -1,0 +1,34 @@
+<template name="08db4bb2">
+  <view class="_div data-v-845571d2 person">
+    <view class="_div data-v-845571d2 header">
+      <view class="_div data-v-845571d2 bg-img">
+        <image src="/assets/img/person-bg.png" alt mode="center" class="_img data-v-845571d2"></image>
+      </view>
+      <view class="_div data-v-845571d2 user-msg-card">
+        <view class="_div data-v-845571d2 top">
+          <view class="_div data-v-845571d2 organ-name">
+            <view wx:if="{{userInfo}}" class="_div data-v-845571d2">{{userInfo.nick_name}}</view>
+            <open-data wx:else type="userNickName" class="_open-data data-v-845571d2"></open-data>
+          </view>
+          <view class="_div data-v-845571d2 avatar">
+            <image wx:if="{{userInfo}}" class="_img data-v-845571d2 avavtao-img" src="{{userInfo.avatar}}" alt mode="widthFix"></image>
+            <open-data wx:else class="_open-data data-v-845571d2 avavtao-img" type="userAvatarUrl"></open-data>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-845571d2 user">
+      <view class="_ul data-v-845571d2 info">
+        <view class="_li data-v-845571d2 info-item">我的会员 <label class="_span data-v-845571d2 info-item-content" wx:if="{{usrInfo && userInfo.role && userInfo.role.length > 0}}">{{userInfo.role || ' '}}</label> <label class="_span data-v-845571d2 info-item-content" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">会员列表</label></view>
+        <view class="_li data-v-845571d2 info-item">余额<label class="_span data-v-845571d2 info-item-content">{{userInformation.name || 0}}币</label></view>
+        <view class="_li data-v-845571d2 info-item" wx:if="{{userInfo}}">手机号<label class="_span data-v-845571d2 info-item-content">{{userInfo.mobile || ' '}}</label></view>
+        <view class="_li data-v-845571d2 info-item" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"> 我的课程<label class="_span data-v-845571d2 info-item-content">
+            <image class="_img data-v-845571d2 turn-right-icon" src="/assets/img/turn-right-d.png" alt mode="widthFix"></image>
+          </label></view>
+        <view class="_li data-v-845571d2 info-item" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> 我的订单<label class="_span data-v-845571d2 info-item-content">
+            <image class="_img data-v-845571d2 turn-right-icon" src="/assets/img/turn-right-d.png" alt mode="widthFix"></image>
+          </label></view>
+      </view>
+    </view> <button class="_button data-v-845571d2 lagout-btn" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">退出登陆</button>
+  </view>
+</template>

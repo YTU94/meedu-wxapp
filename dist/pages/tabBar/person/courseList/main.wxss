@@ -1,0 +1,10 @@
+@import "../../../../common/vendor.wxss";
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.course-list .none {
+  text-align: center;
+}

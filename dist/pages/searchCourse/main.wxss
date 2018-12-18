@@ -1,0 +1,71 @@
+@import "../../common/vendor.wxss";
+
+.search-course {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.search-course .serach-box {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.search-course .serach-box .search-input {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 60rpx;
+  margin-right: 100rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 60rpx;
+  color: #808080;
+  font-size: 28rpx;
+  text-align: center;
+}
+.search-course .serach-box .search-cancel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #808080;
+  font-size: 28rpx;
+}
+.search-course .hot-search {
+  position: relative;
+  top: 40rpx;
+  left: 0;
+}
+.search-course .hot-search .title {
+  font-size: 32rpx;
+  color: #333333;
+}
+.search-course .hot-search .search-hot-tag {
+  display: inline-block;
+  float: left;
+  padding: 10rpx 20rpx;
+  margin: 30rpx 30rpx 0 0;
+  border: 2rpx solid #ccc;
+  border-radius: 5rpx;
+  color: #808080;
+  white-space: wrap;
+  font-size: 24rpx;
+}
+.search-course .course-list {
+  position: relative;
+  top: 80rpx;
+  left: 0;
+}
+.search-course .course-list .title {
+  font-size: 32rpx;
+  color: #333333;
+  margin-bottom: 30rpx;
+}
+.search-course .none {
+  text-align: center;
+}

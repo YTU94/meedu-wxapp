@@ -1,0 +1,14 @@
+@import "../../../../common/vendor.wxss";
+
+.article-info {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.article-info ._p {
+  font-size: 32rpx;
+}
+.article-info .article-info-p {
+  font-size: 28rpx;
+  color: #777;
+}

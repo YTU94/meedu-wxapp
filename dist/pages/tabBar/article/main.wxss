@@ -1,0 +1,26 @@
+@import "../../../common/vendor.wxss";
+
+.textOverflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.article {
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+.article .container {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx 40rpx 40rpx 0;
+  justify-content: flex-start;
+}
+.article .container .list-item {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  text-align: left;
+  line-height: 2;
+  border-bottom: 2rpx solid #eee;
+}

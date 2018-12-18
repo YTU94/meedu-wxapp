@@ -1,0 +1,112 @@
+@import "../../../common/vendor.wxss";
+
+.textOverflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.course {
+  position: relative;
+}
+.course .search-input {
+  position: relative;
+  width: auto;
+  height: 70rpx;
+  line-height: 70rpx;
+  top: 0;
+  left: 0;
+  padding: 0 20rpx;
+  margin: 20rpx 40rpx;
+  box-sizing: border-box;
+  border-radius: 35rpx;
+  border: 2rpx solid #ccc;
+  font-size: 26rpx;
+  text-align: center;
+  color: #808080;
+}
+.course .couse-title {
+  font-size: 34rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.course .card-list {
+  display: flex;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.course .card-list .card-item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+.course .card-list .card-item .card-img {
+  flex: 0 0 auto;
+}
+.course .card-list .card-item .card-img ._img {
+  width: 240rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+}
+.course .card-list .card-item .card-info {
+  display: flex;
+  flex: 1;
+  padding-left: 20rpx;
+  margin-bottom: -10rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #eee;
+}
+.course .card-list .card-item .card-info__name {
+  font-size: 32rpx;
+}
+.course .card-list .card-item .card-info__desc {
+  font-size: 24rpx;
+  color: #808080;
+}
+.course .card-list .card-item .card-info__oth {
+  font-size: 24rpx;
+  color: #ff9900;
+  margin-bottom: 20rpx;
+}
+.counter {
+  display: inline-block;
+  margin: 20rpx auto;
+  padding: 10rpx 20rpx;
+  color: blue;
+  border: 2rpx solid blue;
+}
+.swiper-comp {
+  height: 330rpx;
+}
+.swiper-comp .for-padding {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 10rpx;
+  width: 100%;
+  height: 320rpx;
+  box-sizing: border-box;
+}
+.swiper-comp .for-padding .slide-image {
+  position: relative;
+  top: 30rpx;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 240rpx;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  box-shadow: 0rpx 2rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+.swiper-comp .for-padding .active {
+  height: 300rpx;
+  top: 0;
+}
+.swiper-comp .for-padding .slide-msg {
+  display: inline-block;
+  bottom: 60rpx;
+  right: 60rpx;
+  font-size: 56rpx;
+}

@@ -1,0 +1,15 @@
+<template name="048a3f27">
+  <view class="_div data-v-115c5dfd course-card" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-115c5dfd card-img">
+      <image src="{{course.thumb}}" alt mode class="_img data-v-115c5dfd"></image>
+    </view>
+    <view class="_div data-v-115c5dfd card-info">
+      <view class="_div data-v-115c5dfd card-info__name">
+        {{course.title}}
+        <rich-text class="_div data-v-115c5dfd card-info__desc" nodes="{{course.short_description}}"></rich-text>
+      </view>
+      <view class="_div data-v-115c5dfd card-info__oth" wx:if="{{course.charge}}">币{{course.charge}}</view>
+      <view class="_div data-v-115c5dfd card-info__oth" wx:else>免费课程</view>
+    </view>
+  </view>
+</template>

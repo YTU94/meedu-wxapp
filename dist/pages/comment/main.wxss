@@ -1,0 +1,106 @@
+@import "../../common/vendor.wxss";
+
+.textOverflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.comment {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.comment .comments-list .list-container .list-item {
+  display: flex;
+}
+.comment .comments-list .list-container .list-item .item-avatar {
+  display: flex;
+  flex: 0 0 auto;
+  width: 80rpx;
+  height: auto;
+  border-radius: 40rpx;
+  padding-right: 10rpx;
+  box-sizing: border-box;
+}
+.comment .comments-list .list-container .list-item .item-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+  flex-direction: column;
+}
+.comment .comments-list .list-container .list-item .item-content__name {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  font-size: 28rpx;
+  color: darkslateblue;
+}
+.comment .comments-list .list-container .list-item .item-content__time {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20rpx;
+  color: #808080;
+}
+.comment .comments-list .list-container .list-item .item-content__content {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 10rpx 0;
+  font-size: 24rpx;
+  color: #1A1A1A;
+}
+.comment .comments-list .list-container .list-item .item-content__footer {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  font-size: 24rpx;
+  border-bottom: 2rpx solid #eee;
+  margin-bottom: 30rpx;
+}
+.comment .section-label {
+  padding: 30rpx 0;
+  box-sizing: border-box;
+}
+.comment .submit-btn {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 30rpx 0;
+  color: #ffffff;
+  background: #f20d0d;
+  opacity: 0.85;
+}
+.comment .input-line {
+  display: flex;
+  align-items: center;
+}
+.comment .input-line__avatar {
+  display: flex;
+  flex: 0 0 auto;
+  width: 80rpx;
+  height: auto;
+  border-radius: 40rpx;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+}
+.comment .input-line__realInput {
+  flex: 1;
+  font-size: 26rpx;
+  padding: 10rpx 20rpx;
+  background: #eee;
+  color: #808080;
+  border-radius: 40rpx;
+  line-height: 1.8;
+}
+.comment .submit-btn {
+  font-size: 32rpx;
+}
