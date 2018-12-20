@@ -138,7 +138,7 @@ if (false) {(function () {
           mask: true
         });
       }
-      this._getCourseList({ page_size: 10, page: 1, keywords: this.keywords });
+      this._getCourseList({ page_size: 10, page: 1, keywords: v });
     },
     cancel: function cancel() {
       wx.navigateBack({ delta: 1 });

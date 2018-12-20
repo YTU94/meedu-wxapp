@@ -51,7 +51,7 @@ export default {
           mask: true
         }))
       }
-      this._getCourseList({page_size: 10, page: 1, keywords: this.keywords})
+      this._getCourseList({page_size: 10, page: 1, keywords: v})
     },
     cancel () {
       wx.navigateBack({ delta: 1 })
