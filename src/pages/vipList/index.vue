@@ -8,23 +8,19 @@
             {{item.charge}}币
             <span class="item-content__date">/ {{item.expire_days}}天</span>
           </span>
-          <!-- <button class="item-content__btn" @click="buy(item)">订阅</button> -->
+          <button class="item-content__btn" @click="buy(item)">订阅</button>
         </div>
         <div class="item-description">{{item.description[0]}}</div>
       </li>
     </ul>
+    <p class="footer-msg">— 据相关的规定，ios不支持购买 —</p>
   </div>
 </template>
 
 <script>
-import { formatTime } from '@/utils/index'
-import card from '@/components/card'
 
 export default {
-  components: {
-    card
-  },
-
+  components: {},
   data () {
     return {
       logs: [],
@@ -40,18 +36,15 @@ export default {
     init () {
       this._getVipList({page_size: 10, page: 1})
     },
-    // 买会员
+    // 订阅会员
     buy (item) {
-      // this.$http.vip.buyVip({}, item.id).then(res => {
-      //   console.log(res)
-      // })
       wx.showToast({
-        title: '请先去PC端购买',
+        title: '请先去PC端订阅',
         icon: 'none',
         mask: true
       })
     },
-    // 获取文章列表
+    // 获取vip列表
     _getVipList (data) {
       this.$http.vip.getVipList(data).then(res => {
         this.articleList = res.data
@@ -59,10 +52,7 @@ export default {
     }
   },
 
-  created () {
-    const logs = (wx.getStorageSync('logs') || [])
-    this.logs = logs.map(log => formatTime(new Date(log)))
-  },
+  created () {},
   mounted () {
     this.init()
   }
@@ -113,14 +103,18 @@ export default {
         }
         &__btn{
           flex: 0 0 auto;
-          font-size: 14px;
-          background: linear-gradient(to left top,red, rgb(111, 0, 255));
-          border-top-right-radius: 30px;
-          border-bottom-right-radius: 30px;
+          font-size: 32rpx;
+          background: transparent;
+          opacity: 0.9;
+          // background: linear-gradient(to left top,red, rgb(111, 0, 255));
+          // border-top-right-radius: 30px;
+          // border-bottom-right-radius: 30px;
           color: #fff;
-          padding:5px 20px;
+          // padding:5px 20px;
           line-height: 2.0;
-          border: none;
+          &::after{
+            border: none;
+          }
         }
       }
       .item-description{
@@ -129,6 +123,11 @@ export default {
         color: #ffe5db; 
       }
     }
+  }
+  .footer-msg{
+    color: @font-color-gray;
+    font-size: 24rpx;
+    text-align: center;
   }
 }
 

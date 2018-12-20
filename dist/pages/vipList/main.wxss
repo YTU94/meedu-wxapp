@@ -47,17 +47,22 @@
 }
 .vip-list .container .list-item .item-content__btn {
   flex: 0 0 auto;
-  font-size: 28rpx;
-  background: linear-gradient(to left top, red, #6f00ff);
-  border-top-right-radius: 60rpx;
-  border-bottom-right-radius: 60rpx;
+  font-size: 32rpx;
+  background: transparent;
+  opacity: 0.9;
   color: #fff;
-  padding: 10rpx 40rpx;
   line-height: 2;
+}
+.vip-list .container .list-item .item-content__btn::after {
   border: none;
 }
 .vip-list .container .list-item .item-description {
   width: 100%;
   font-size: 24rpx;
   color: #ffe5db;
+}
+.vip-list .footer-msg {
+  color: #808080;
+  font-size: 24rpx;
+  text-align: center;
 }

@@ -83,8 +83,6 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_index__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_card__ = __webpack_require__(3);
 //
 //
 //
@@ -103,15 +101,11 @@ if (false) {(function () {
 //
 //
 //
-
-
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  components: {
-    card: __WEBPACK_IMPORTED_MODULE_1__components_card__["a" /* default */]
-  },
-
+  components: {},
   data: function data() {
     return {
       logs: [],
@@ -129,19 +123,16 @@ if (false) {(function () {
       this._getVipList({ page_size: 10, page: 1 });
     },
 
-    // 买会员
+    // 订阅会员
     buy: function buy(item) {
-      // this.$http.vip.buyVip({}, item.id).then(res => {
-      //   console.log(res)
-      // })
       wx.showToast({
-        title: '请先去PC端购买',
+        title: '请先去PC端订阅',
         icon: 'none',
         mask: true
       });
     },
 
-    // 获取文章列表
+    // 获取vip列表
     _getVipList: function _getVipList(data) {
       var _this = this;
 
@@ -151,12 +142,7 @@ if (false) {(function () {
     }
   },
 
-  created: function created() {
-    var logs = wx.getStorageSync('logs') || [];
-    this.logs = logs.map(function (log) {
-      return Object(__WEBPACK_IMPORTED_MODULE_0__utils_index__["a" /* formatTime */])(new Date(log));
-    });
-  },
+  created: function created() {},
   mounted: function mounted() {
     this.init();
   }
@@ -188,10 +174,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "item-content__price"
     }, [_vm._v("\n          " + _vm._s(item.charge) + "币\n          "), _c('span', {
       staticClass: "item-content__date"
-    }, [_vm._v("/ " + _vm._s(item.expire_days) + "天")])])]), _vm._v(" "), _c('div', {
+    }, [_vm._v("/ " + _vm._s(item.expire_days) + "天")])]), _vm._v(" "), _c('button', {
+      staticClass: "item-content__btn",
+      attrs: {
+        "eventid": '0-' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.buy(item)
+        }
+      }
+    }, [_vm._v("订阅")])], 1), _vm._v(" "), _c('div', {
       staticClass: "item-description"
     }, [_vm._v(_vm._s(item.description[0]))])])
-  }))], 1)
+  })), _vm._v(" "), _c('p', {
+    staticClass: "footer-msg"
+  }, [_vm._v("— 据相关的规定，ios不支持购买 —")])], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
