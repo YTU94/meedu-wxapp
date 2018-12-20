@@ -20,12 +20,14 @@
 - [x] 课程评论互动
 - [x] 视屏评论互动
 - [X] 课程搜索功能
+- [X] 退出功能
+- [X] 首页转发分享
 
 ## 规划
-- [ ] 直播功能
-- [ ] 分享功能
+- [ ] 分享功能（微信关闭了分享回调就以转发实现了）
 - [ ] 文章优化
- 
+- [ ] 评论优化
+
 ## 结构
 - api
   * core
@@ -43,6 +45,7 @@
   * comment // 评论详情
   * login // 登录
   * register // 注册
+  * searchCourse // 课程搜索
   * tabBar
     - article // 课程
     - course // 文章
@@ -61,11 +64,11 @@
 - [后端API](https://github.com/YTU94/back-end)：由nodejs使用express框架和mysql的提供的后端服务（开发中）
 
 ## 预览
-<p align="center"><img src="gif/2.gif" width="375" height="750"/> &nbsp; <img src="gif/1.gif" width="375" height="750"/></p>  
+<p align="center"><img src="gif/1.gif" width="375" height="750"/> &nbsp; <img src="gif/2.gif" width="375" height="750"/></p>  
 
 ***
 
-<p align="center"><img src="gif/4.gif" width="375" height="750"/> &nbsp; <img src="gif/3.gif" width="375" height="750"/></p>  
+<p align="center"><img src="gif/3.gif" width="375" height="750"/> &nbsp; <img src="gif/4.gif" width="375" height="750"/></p>  
 
 ## 配置
 
