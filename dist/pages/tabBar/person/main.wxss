@@ -16,6 +16,7 @@
   height: auto;
   padding: 40rpx 40rpx;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .person .header .bg-img {
   position: absolute;

@@ -131,6 +131,7 @@ export default {
     height: auto;
     padding: 20px 20px;
     box-sizing: border-box;
+    overflow: hidden;
     .bg-img{
       position: absolute;
       top: 0;
