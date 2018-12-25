@@ -215,7 +215,7 @@ export default {
     position: relative;
     top: 0;
     left: 0;
-    margin: 0 40rpx;
+    margin: 0 40rpx 74rpx;
     color: #373737;
     background: #fff;
   }
