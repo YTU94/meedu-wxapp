@@ -75,11 +75,12 @@
 
 ([meEdu](https://github.com/Qsnh/meedu)需要配置client_id, client_secret)
 
-参数 | 值 | 位置 
-------------- | ------------- | -----------
-API | 接口地址url | /config/dev.dnv.js&&prod.env.js
-client_id | *** | /config/dev.dnv.js&&prod.env.js
-client_secret | *** | /config/dev.dnv.js&&prod.env.js
+参数 | 值 | 位置 | 介绍
+------------- | ------------- | ----------- | --------
+API | 接口地址url | /config/dev.dnv.js&&prod.env.js | 接口地址
+zan_path | *** | /config/dev.dnv.js&&prod.env.js | 给赞小程序的路径[给赞关联文档](https://mp.weixin.qq.com/s/3sTlnkHNUoAyDTmOHZ8emQ)
+client_id | *** | /config/dev.dnv.js&&prod.env.js | meedue专用
+client_secret | *** | /config/dev.dnv.js&&prod.env.js | meedue专用
 
 ## 使用
 
