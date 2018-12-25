@@ -36,6 +36,7 @@
           </span>
           <!-- <span class="info-item-content">{{rebateOrderTotal}}</span> -->
         </li>
+        <li class="info-item" @click="appreciate">赞赏<span class="info-item-content"><img class="turn-right-icon" src="../../../assets/img/turn-right-d.png" alt="" mode="widthFix"></span></li>
       </ul>
     </div>
 
@@ -109,6 +110,17 @@ export default {
       }
       wx.reLaunch({
         url: '../../login/main'
+      })
+    },
+    // 打开给赞小程序
+    appreciate () {
+      wx.navigateToMiniProgram({
+        appId: 'wx18a2ac992306a5a4',
+        path: 'pages/apps/largess/detail?accountId=5686224',
+        envVersion: 'release',
+        success (res) {
+          // 打开成功
+        }
       })
     },
     _getUserInfo (data) {

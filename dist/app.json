@@ -42,5 +42,6 @@
       "pagePath": "pages/tabBar/person/main",
       "text": "我的"
     }]
-  }
+  },
+  "navigateToMiniProgramAppIdList": ["wx18a2ac992306a5a4"]
 }

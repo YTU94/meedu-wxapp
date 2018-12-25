@@ -28,7 +28,10 @@
         <view class="_li data-v-845571d2 info-item" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> 我的订单<label class="_span data-v-845571d2 info-item-content">
             <image class="_img data-v-845571d2 turn-right-icon" src="/assets/img/turn-right-d.png" alt mode="widthFix"></image>
           </label></view>
+        <view class="_li data-v-845571d2 info-item" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">赞赏<label class="_span data-v-845571d2 info-item-content">
+            <image class="_img data-v-845571d2 turn-right-icon" src="/assets/img/turn-right-d.png" alt mode="widthFix"></image>
+          </label></view>
       </view>
-    </view> <button class="_button data-v-845571d2 lagout-btn" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">退出登陆</button>
+    </view> <button class="_button data-v-845571d2 lagout-btn" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">退出登陆</button>
   </view>
 </template>

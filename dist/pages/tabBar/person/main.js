@@ -129,6 +129,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 // import { formatTime } from '@/utils/index'
 
@@ -199,6 +200,18 @@ if (false) {(function () {
       }
       wx.reLaunch({
         url: '../../login/main'
+      });
+    },
+
+    // 打开给赞小程序
+    appreciate: function appreciate() {
+      wx.navigateToMiniProgram({
+        appId: 'wx18a2ac992306a5a4',
+        path: 'pages/apps/largess/detail?accountId=5686224',
+        envVersion: 'release',
+        success: function success(res) {
+          // 打开成功
+        }
       });
     },
     _getUserInfo: function _getUserInfo(data) {
@@ -306,10 +319,27 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "alt": "",
       "mode": "widthFix"
     }
+  })])]), _vm._v(" "), _c('li', {
+    staticClass: "info-item",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": _vm.appreciate
+    }
+  }, [_vm._v("赞赏"), _c('span', {
+    staticClass: "info-item-content"
+  }, [_c('img', {
+    staticClass: "turn-right-icon",
+    attrs: {
+      "src": "../../../assets/img/turn-right-d.png",
+      "alt": "",
+      "mode": "widthFix"
+    }
   })])])], 1)], 1), _vm._v(" "), _c('button', {
     staticClass: "lagout-btn",
     attrs: {
-      "eventid": '3'
+      "eventid": '4'
     },
     on: {
       "click": _vm.lagout
