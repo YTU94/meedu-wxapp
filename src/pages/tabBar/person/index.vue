@@ -116,7 +116,7 @@ export default {
     appreciate () {
       wx.navigateToMiniProgram({
         appId: 'wx18a2ac992306a5a4',
-        path: 'pages/apps/largess/detail?accountId=5686224',
+        path: process.env.zan_path,
         envVersion: 'release',
         success (res) {
           // 打开成功
