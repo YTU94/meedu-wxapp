@@ -207,7 +207,7 @@ if (false) {(function () {
     appreciate: function appreciate() {
       wx.navigateToMiniProgram({
         appId: 'wx18a2ac992306a5a4',
-        path: Object({"NODE_ENV":"development","API":"https://58hualong.com","client_id":"4","client_secret":"ySVIM8phjzVO5XdEZWNXyMHwjo5n23MmpVfi2Xs9"}).zan_path,
+        path: "pages/apps/largess/detail?accountId=5686224",
         envVersion: 'release',
         success: function success(res) {
           // 打开成功

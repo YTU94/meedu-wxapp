@@ -134,7 +134,7 @@ if (false) {(function () {
     },
     ckeckLogin: function ckeckLogin() {},
     login: function login() {
-      console.log(Object({"NODE_ENV":"development","API":"https://58hualong.com","client_id":"4","client_secret":"ySVIM8phjzVO5XdEZWNXyMHwjo5n23MmpVfi2Xs9"}));
+      console.log(Object({"NODE_ENV":"development","API":"https://58hualong.com","zan_path":"pages/apps/largess/detail?accountId=5686224","client_id":"4","client_secret":"ySVIM8phjzVO5XdEZWNXyMHwjo5n23MmpVfi2Xs9"}));
       var data = {
         scope: '',
         grant_type: 'password',
