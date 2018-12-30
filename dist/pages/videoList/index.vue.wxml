@@ -1,4 +1,4 @@
-<template name="0679ecad">
+<template name="7519e919">
   <view class="_div data-v-368227ca course-info">
     <view class="_div data-v-368227ca info section"><label class="_span data-v-368227ca info-tag" wx:if="{{courseInfo.charge}}">收费课程</label><label class="_span data-v-368227ca info-tag" wx:else>免费课程</label>
       <view class="_h1 data-v-368227ca info-title">{{courseInfo.title}}</view>

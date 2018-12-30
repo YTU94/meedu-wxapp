@@ -1,4 +1,4 @@
-<import src="/components/slots" /><template name="43b3c8ec">
+<import src="/components/slots" /><template name="37748658">
   <view class="_div data-v-64e34042 card"><template name="default"></template>
     <view class="_div data-v-64e34042 img-box">
       <image class="_img data-v-64e34042 card-img" src="{{imgUrl}}" alt mode="widthFix"></image>

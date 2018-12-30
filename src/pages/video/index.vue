@@ -3,9 +3,7 @@
     <!-- video -->
     <div class="video-box">
       <video style="width: 100%;" v-if="playUrl && playUrl.length > 0" :src="playUrl[0].url"  controls objectFit="contain"></video>
-      <div v-else class="">
-        <h3>当前视频无法观看</h3>
-      </div>
+      <div v-else class="video-box_null">当前视频无法观看</div>
     </div>
     <!-- tabBar -->
     <div class="tabBar">
@@ -114,21 +112,18 @@ export default {
     // })
   },
   methods: {
-    init () {
-      console.log('courseVideoList', this.$mp.query, this.courseVideoList)
-      this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList)
-      const videoId = this.$mp.query.id
+    init (videoId) {
       this._getVideosInfo({}, videoId)
-      this._getVideosUrl({}, videoId)
+      // this._getVideosUrl({}, videoId)
       this._getVideosComments({}, videoId)
     },
     swiperChange (e) {
-      console.log('e ----- >', e)
       this.activeIndex = e.mp.detail.current
     },
     // 切换视屏
-    goVideo () {
-      // TODO: 视屏切换
+    goVideo (video) {
+      // 视屏切换
+      this.init(video.id)
     },
     // 跳去评论
     goComment (item, retirect) {
@@ -148,12 +143,16 @@ export default {
     _getVideosUrl (data, id) {
       this.$http.video.getVideosUrl(data, id).then(res => {
         console.log('_getVideosUrl', res)
-        this.playUrl = res
+        if (res && res.length > 0) {
+          this.playUrl = res
+        } else {
+          this.playUrl = []
+        }
       }).catch((err) => {
-        console.log(err)
+        console.log('没拿到ur, err', err)
         wx.showToast({
           title: '未知错误',
-          icon: 'node',
+          icon: 'none',
           mask: true
         })
       })
@@ -178,7 +177,8 @@ export default {
   },
   mounted () {
     this.videoId = this.$mp.query.id
-    this.init()
+    this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList)
+    this.init(this.videoId)
   }
 }
 </script>
@@ -198,6 +198,13 @@ export default {
     left: 0;
     width: 100%;
     height: 450rpx;
+    &_null{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: @font-color-gray;
+    }
   }
   .tabBar{
     display: flex;

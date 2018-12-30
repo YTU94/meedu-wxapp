@@ -147,8 +147,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
 
 
 
@@ -196,22 +194,19 @@ if (false) {(function () {
   },
 
   methods: {
-    init: function init() {
-      console.log('courseVideoList', this.$mp.query, this.courseVideoList);
-      this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList);
-      var videoId = this.$mp.query.id;
+    init: function init(videoId) {
       this._getVideosInfo({}, videoId);
-      this._getVideosUrl({}, videoId);
+      // this._getVideosUrl({}, videoId)
       this._getVideosComments({}, videoId);
     },
     swiperChange: function swiperChange(e) {
-      console.log('e ----- >', e);
       this.activeIndex = e.mp.detail.current;
     },
 
     // 切换视屏
-    goVideo: function goVideo() {
-      // TODO: 视屏切换
+    goVideo: function goVideo(video) {
+      // 视屏切换
+      this.init(video.id);
     },
 
     // 跳去评论
@@ -238,12 +233,16 @@ if (false) {(function () {
 
       this.$http.video.getVideosUrl(data, id).then(function (res) {
         console.log('_getVideosUrl', res);
-        _this2.playUrl = res;
+        if (res && res.length > 0) {
+          _this2.playUrl = res;
+        } else {
+          _this2.playUrl = [];
+        }
       }).catch(function (err) {
-        console.log(err);
+        console.log('没拿到ur, err', err);
         wx.showToast({
           title: '未知错误',
-          icon: 'node',
+          icon: 'none',
           mask: true
         });
       });
@@ -273,7 +272,8 @@ if (false) {(function () {
   },
   mounted: function mounted() {
     this.videoId = this.$mp.query.id;
-    this.init();
+    this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList);
+    this.init(this.videoId);
   }
 });
 
@@ -297,7 +297,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "controls": "",
       "objectFit": "contain"
     }
-  }) : _c('div', {}, [_c('h3', [_vm._v("当前视频无法观看")])], 1)]), _vm._v(" "), _c('div', {
+  }) : _c('div', {
+    staticClass: "video-box_null"
+  }, [_vm._v("当前视频无法观看")])]), _vm._v(" "), _c('div', {
     staticClass: "tabBar"
   }, _vm._l((_vm.tabBarList), function(item, index) {
     return _c('span', {

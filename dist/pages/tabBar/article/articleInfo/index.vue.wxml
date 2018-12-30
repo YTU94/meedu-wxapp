@@ -1,4 +1,4 @@
-<template name="32e20830">
+<template name="31f1e4fc">
   <view class="_div data-v-09a5d4ff article-info">
     <view class="_p data-v-09a5d4ff">内容：</view>
     <rich-text class="_p data-v-09a5d4ff article-info-p" nodes="{{articleInfo.content}}"></rich-text>

@@ -3,7 +3,7 @@
     <h1>所有分类</h1>
     <ul class="container">
       <li v-for="(item, index) in categoryList" @click="goArticleList(item)" :style="{'background': colorList[parseInt(Math.random() * 10)]}" :class="{ red: aa }" :key="index" class="list-item">
-        {{index + 1}}. {{item.name}} {{r}}
+        {{index + 1}}. {{item.name}}
       </li>
     </ul>
     <ul class="container">
@@ -49,7 +49,10 @@ export default {
     // 获取文章分类
     _getCategoryList (data) {
       this.$http.article.getCategoryList(data).then(res => {
-        this.categoryList = res.data
+        if (res.data && res.data.llength > 0) {
+          this.categoryList = res.data
+        }
+        this.categoryList = [{name: '分类1'}]
       })
     },
     // 获取文章列表

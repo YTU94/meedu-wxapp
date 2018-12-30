@@ -140,7 +140,10 @@ if (false) {(function () {
       var _this = this;
 
       this.$http.article.getCategoryList(data).then(function (res) {
-        _this.categoryList = res.data;
+        if (res.data && res.data.llength > 0) {
+          _this.categoryList = res.data;
+        }
+        _this.categoryList = [{ name: '分类1' }];
       });
     },
 
@@ -204,7 +207,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.goArticleList(item)
         }
       }
-    }, [_vm._v("\n      " + _vm._s(index + 1) + ". " + _vm._s(item.name) + " " + _vm._s(_vm.r) + "\n    ")])
+    }, [_vm._v("\n      " + _vm._s(index + 1) + ". " + _vm._s(item.name) + "\n    ")])
   })), _vm._v(" "), _c('ul', {
     staticClass: "container"
   }, _vm._l((_vm.blogList), function(item, index) {

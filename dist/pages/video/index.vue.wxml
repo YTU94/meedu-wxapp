@@ -1,9 +1,7 @@
-<template name="3ab535ef">
+<template name="413c485b">
   <view class="_div data-v-628ab90c video-info">
     <view class="_div data-v-628ab90c video-box"><video style="width: 100%;" wx:if="{{playUrl && playUrl.length > 0}}" src="{{playUrl[0].url}}" controls objectFit="contain" class="_video data-v-628ab90c"></video>
-      <view wx:else class="_div data-v-628ab90c">
-        <view class="_h3 data-v-628ab90c">当前视频无法观看</view>
-      </view>
+      <view wx:else class="_div data-v-628ab90c video-box_null">当前视频无法观看</view>
     </view>
     <view class="_div data-v-628ab90c tabBar"><label class="_span data-v-628ab90c tabBar-item {{[activeIndex === index ? 'tabBar-item-active' : '']}}" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{tabBarList}}" wx:for-index="index" wx:for-item="item">{{item.name}}</label></view>
     <swiper current="{{activeIndex}}" class="_swiper data-v-628ab90c info-content" bindchange="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" style=" {{('height:' + (swiperHeight * 2 + 'rpx') + ';')}}">

@@ -1,4 +1,4 @@
-<template name="048a3f27">
+<template name="732a3b93">
   <view class="_div data-v-115c5dfd course-card" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
     <view class="_div data-v-115c5dfd card-img">
       <image src="{{course.thumb}}" alt mode class="_img data-v-115c5dfd"></image>

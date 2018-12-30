@@ -1,11 +1,11 @@
-<import src="/components/courseCard.vue.wxml" /><template name="7194e14b">
+<import src="/components/courseCard.vue.wxml" /><template name="05570542">
   <view class="_div data-v-08e99170 search-course">
     <view class="_div data-v-08e99170 serach-box"><input type="text" class="_input data-v-08e99170 search-input" value="{{keywords}}" bindinput="handleProxy" bindconfirm="handleProxy" placeholder="请输入搜索内容" data-eventid="{{'0'}}" data-comkey="{{$k}}" /> <label class="_span data-v-08e99170 search-cancel" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">取消</label></view>
     <view class="_div data-v-08e99170 hot-search">
       <view class="_p data-v-08e99170 title">热门搜索</view> <label class="_span data-v-08e99170 search-hot-tag" bindtap="handleProxy" wx:key="index" key="{{index}}" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{hots}}" wx:for-index="index" wx:for-item="item">{{item}}</label>
     </view>
     <view class="_div data-v-08e99170 course-list" wx:if="{{courseList && courseList.length > 0}}">
-      <view class="_p data-v-08e99170 title">相关课程</view> <template wx:key="index" bindgoVideoList="handleProxy" data-eventid="{{'3-'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0-'+index], $root}}" is="048a3f27" wx:for="{{courseList}}" wx:for-index="index" wx:for-item="item"></template>
+      <view class="_p data-v-08e99170 title">相关课程</view> <template wx:key="index" bindgoVideoList="handleProxy" data-eventid="{{'3-'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0-'+index], $root}}" is="732a3b93" wx:for="{{courseList}}" wx:for-index="index" wx:for-item="item"></template>
     </view>
   </view>
 </template>

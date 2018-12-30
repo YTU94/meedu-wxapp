@@ -1,4 +1,4 @@
-<template name="610b290b">
+<template name="0183ef1f">
   <view class="_div data-v-366191f0 login">
     <view class="_p data-v-366191f0 login-title">MeEdu Register</view>
     <view class="_view data-v-366191f0 section"><input value="{{form.account}}" bindinput="handleProxy" placeholder-class="input-holder" placeholder="请输入您的账号" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-366191f0" /></view>

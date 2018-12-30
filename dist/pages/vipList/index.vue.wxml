@@ -1,4 +1,4 @@
-<template name="b6efe362">
+<template name="259435bb">
   <view class="_div data-v-d34b2528 vip-list">
     <view class="_ul data-v-d34b2528 container">
       <view wx:key="index" key="{{index}}" class="_li data-v-d34b2528 list-item {{[aa ? 'red' : '']}}" wx:for="{{articleList}}" wx:for-index="index" wx:for-item="item">
