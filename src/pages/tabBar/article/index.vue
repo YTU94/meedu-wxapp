@@ -3,7 +3,12 @@
     <h1>所有分类</h1>
     <ul class="container">
       <li v-for="(item, index) in categoryList" @click="goArticleList(item)" :style="{'background': colorList[parseInt(Math.random() * 10)]}" :class="{ red: aa }" :key="index" class="list-item">
-        {{index + 1}}. {{item.name}}
+        <img :src="item.avatar" alt="" class="cate_avatar" mode="widthFix">
+        <div class="cate_content">
+          <div class="cate_content_name">{{item.name}}</div>
+          <div class="cate_content_info">{{item.info}}</div>
+          <div class="cate_content_other">共{{item.num}}篇文章</div>
+        </div>
       </li>
     </ul>
     <ul class="container">
@@ -52,7 +57,7 @@ export default {
         if (res.data && res.data.llength > 0) {
           this.categoryList = res.data
         }
-        this.categoryList = [{name: '分类1'}]
+        this.categoryList = [{name: '分类one', avatar: 'https://pic3.zhimg.com/v2-783e841e0c5290281b6aaf86e055d543_xl.jpg', info: '分类简介-------', num: '56'}]
       })
     },
     // 获取文章列表
@@ -101,7 +106,34 @@ export default {
       flex: 1;
       text-align: left;
       line-height: 2.0;
-      border-bottom: 1px solid @border-color;      
+      padding-bottom: 26rpx;
+      border-bottom: 1px solid @border-color;
+      .cate_avatar{
+        display: inline-block;
+        flex: 0 0 auto;
+        width: 140rpx;
+        height: 140rpx;
+      }
+      .cate_content{
+        flex: 1;
+        padding: 0 40rpx;
+        box-sizing: border-box;
+        overflow: hidden;
+        &_name{
+          color: #111;
+          font-size: 36rpx;
+          line-height: 1;
+        }
+        &_info{
+          color: @font-color-gray;
+          font-size: 26rpx;
+          margin-top: 10rpx;
+        }
+        &_other{
+          color: @font-color-gray;
+          font-size: 24rpx;
+        }
+      }
     }
   }
 }

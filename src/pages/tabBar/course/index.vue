@@ -3,7 +3,7 @@
     <div class="search-input" @click="goSearchCoure">请输入课程名称</div>
     <swiper-banner :swiperList="courseList" :key="imgKey"></swiper-banner>
     <h1 class="couse-title">课程推荐</h1>
-    <div class="card-list">
+    <div class="card-list" v-if="hasMounted">
       <div class="" v-if="courseList && courseList.length > 0">
         <course-card  v-for="(item, index) in courseList" :key="index" @goVideoList="goVideoList" :course="item"></course-card>
       </div>
@@ -27,7 +27,8 @@ export default {
       imgKey: 'thumb',
       userInfo: {},
       courseList: [],
-      pageSize: 10
+      pageSize: 10,
+      hasMounted: false
     }
   },
 
@@ -66,6 +67,7 @@ export default {
     },
     _getCourseList (data, merge) {
       this.$http.course.getCourseList(data).then(res => {
+        this.hasMounted = true
         if (res.data.length > 0) {
           this.courseList = merge ? this.courseList.concat(res.data) : res.data
         } else {

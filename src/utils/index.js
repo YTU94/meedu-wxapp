@@ -3,6 +3,14 @@ function formatNumber (n) {
   return str[1] ? str : `0${str}`
 }
 
+/**
+ *
+ *
+ * @export
+ * @param {*} v
+ * @param {*} shortType
+ * @returns
+ */
 export function formatTime (v, shortType) {
   v = v * 1000
   const date = new Date(parseInt(v))

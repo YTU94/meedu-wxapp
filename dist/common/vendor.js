@@ -5820,6 +5820,14 @@ function formatNumber(n) {
   return str[1] ? str : '0' + str;
 }
 
+/**
+ *
+ *
+ * @export
+ * @param {*} v
+ * @param {*} shortType
+ * @returns
+ */
 function formatTime(v, shortType) {
   v = v * 1000;
   var date = new Date(parseInt(v));

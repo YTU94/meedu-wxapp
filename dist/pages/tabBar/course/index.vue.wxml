@@ -3,7 +3,7 @@
   <view class="_div data-v-65d1cc5d course" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
     <view class="_div data-v-65d1cc5d search-input" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">请输入课程名称</view> <template data="{{...$root[$kk+'0'], $root}}" is="5e492cee"></template>
     <view class="_h1 data-v-65d1cc5d couse-title">课程推荐</view>
-    <view class="_div data-v-65d1cc5d card-list">
+    <view class="_div data-v-65d1cc5d card-list" wx:if="{{hasMounted}}">
       <view class="_div data-v-65d1cc5d" wx:if="{{courseList && courseList.length > 0}}"><template wx:key="index" bindgoVideoList="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1-'+index], $root}}" is="732a3b93" wx:for="{{courseList}}" wx:for-index="index" wx:for-item="item"></template></view>
       <view wx:else class="_div data-v-65d1cc5d none"> — 暂无课程 — </view>
     </view>

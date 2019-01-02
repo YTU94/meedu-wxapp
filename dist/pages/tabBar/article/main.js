@@ -101,6 +101,11 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -143,7 +148,7 @@ if (false) {(function () {
         if (res.data && res.data.llength > 0) {
           _this.categoryList = res.data;
         }
-        _this.categoryList = [{ name: '分类1' }];
+        _this.categoryList = [{ name: '分类one', avatar: 'https://pic3.zhimg.com/v2-783e841e0c5290281b6aaf86e055d543_xl.jpg', info: '分类简介-------', num: '56' }];
       });
     },
 
@@ -207,7 +212,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.goArticleList(item)
         }
       }
-    }, [_vm._v("\n      " + _vm._s(index + 1) + ". " + _vm._s(item.name) + "\n    ")])
+    }, [_c('img', {
+      staticClass: "cate_avatar",
+      attrs: {
+        "src": item.avatar,
+        "alt": "",
+        "mode": "widthFix"
+      }
+    }), _vm._v(" "), _c('div', {
+      staticClass: "cate_content"
+    }, [_c('div', {
+      staticClass: "cate_content_name"
+    }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('div', {
+      staticClass: "cate_content_info"
+    }, [_vm._v(_vm._s(item.info))]), _vm._v(" "), _c('div', {
+      staticClass: "cate_content_other"
+    }, [_vm._v("共" + _vm._s(item.num) + "篇文章")])])])
   })), _vm._v(" "), _c('ul', {
     staticClass: "container"
   }, _vm._l((_vm.blogList), function(item, index) {

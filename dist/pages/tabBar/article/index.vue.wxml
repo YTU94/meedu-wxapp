@@ -3,7 +3,12 @@
     <view class="_h1 data-v-427caa8a">所有分类</view>
     <view class="_ul data-v-427caa8a container">
       <view bindtap="handleProxy" wx:key="index" key="{{index}}" class="_li data-v-427caa8a list-item {{[aa ? 'red' : '']}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{categoryList}}" wx:for-index="index" wx:for-item="item" style=" {{('background:' + colorList[parseInt(Math.random() * 10)] + ';')}}">
-        {{index + 1}}. {{item.name}}
+        <image src="{{item.avatar}}" alt class="_img data-v-427caa8a cate_avatar" mode="widthFix"></image>
+        <view class="_div data-v-427caa8a cate_content">
+          <view class="_div data-v-427caa8a cate_content_name">{{item.name}}</view>
+          <view class="_div data-v-427caa8a cate_content_info">{{item.info}}</view>
+          <view class="_div data-v-427caa8a cate_content_other">共{{item.num}}篇文章</view>
+        </view>
       </view>
     </view>
     <view class="_ul data-v-427caa8a container">

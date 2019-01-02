@@ -115,7 +115,8 @@ if (false) {(function () {
       imgKey: 'thumb',
       userInfo: {},
       courseList: [],
-      pageSize: 10
+      pageSize: 10,
+      hasMounted: false
     };
   },
 
@@ -159,6 +160,7 @@ if (false) {(function () {
       var _this2 = this;
 
       this.$http.course.getCourseList(data).then(function (res) {
+        _this2.hasMounted = true;
         if (res.data.length > 0) {
           _this2.courseList = merge ? _this2.courseList.concat(res.data) : res.data;
         } else {
@@ -409,7 +411,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('h1', {
     staticClass: "couse-title"
-  }, [_vm._v("课程推荐")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("课程推荐")]), _vm._v(" "), (_vm.hasMounted) ? _c('div', {
     staticClass: "card-list"
   }, [(_vm.courseList && _vm.courseList.length > 0) ? _c('div', {}, _vm._l((_vm.courseList), function(item, index) {
     return _c('course-card', {
@@ -425,7 +427,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })
   })) : _c('div', {
     staticClass: "none"
-  }, [_vm._v(" — 暂无课程 — ")])])], 1)
+  }, [_vm._v(" — 暂无课程 — ")])]) : _vm._e()], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
