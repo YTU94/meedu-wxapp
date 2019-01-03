@@ -1,4 +1,4 @@
-<template name="5e492cee">
+<template name="451bcd75">
   <swiper class="_swiper data-v-3d0e36df swiper-comp" wx:if="{{swiperList && swiperList.length > 0}}" indicator-dots="{{indicatorDots}}" indicator-active-color="#fff" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}" bindchange="handleProxy" previous-margin="15px" next-margin="15px" data-eventid="{{'1'}}" data-comkey="{{$k}}">
     <block wx:key="index" key="{{index}}" wx:for="{{swiperList}}" wx:for-index="index" wx:for-item="item">
       <swiper-item class="_swiper-item data-v-3d0e36df">

@@ -5,10 +5,11 @@
   flex-direction: column;
   padding: 40rpx;
 }
-.article-info ._p {
+.article-info_title {
   font-size: 32rpx;
+  color: #1A1A1A;
 }
-.article-info .article-info-p {
+.article-info_content {
   font-size: 28rpx;
   color: #777;
 }

@@ -96,6 +96,10 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -132,8 +136,13 @@ if (false) {(function () {
       var _this = this;
 
       this.$http.article.getArticleList(data, id).then(function (res) {
-        _this.articleList = res.data;
+        if (res.data && res.data.length > 0) {
+          _this.articleList = res.data;
+        } else {
+          _this.articleList = [{ title: '文章1', author: '作者', 'createTime': '2018-10-11' }];
+        }
       });
+      this.articleList = [{ title: '文章1', author: '作者', 'createTime': '2018-10-11' }];
     }
   },
 
@@ -174,7 +183,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.goArticleInfo(item)
         }
       }
-    }, [_vm._v("\n      " + _vm._s(index + 1) + ". " + _vm._s(item.title) + "\n    ")])
+    }, [_c('div', {
+      staticClass: "list-item_title"
+    }, [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('div', {
+      staticClass: "list-item_info"
+    }, [_c('span', [_vm._v(_vm._s(item.author))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(item.createTime))])])])
   }))], 1)
 }
 var staticRenderFns = []

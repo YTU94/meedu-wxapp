@@ -1,4 +1,4 @@
-<template name="7cf57e83">
+<template name="a924a1d2">
   <view class="_div data-v-7d784d94">
     <view class="_ul data-v-7d784d94 container log-list" wx:if="{{orderList && orderList.length > 0}}">
       <view wx:key="index" key="{{index}}" class="_li data-v-7d784d94 item-item {{[aa ? 'red' : '']}}" wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item">

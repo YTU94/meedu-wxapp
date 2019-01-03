@@ -1,7 +1,7 @@
 <template>
   <div class="article-info">
-    <p>内容：</p>
-    <p class="article-info-p" v-html="articleInfo.content"></p>
+    <p class="article-info_title">{{article.title || '标题'}}</p>
+    <p class="article-info_content" v-html="articleInfo.content || 'markdown text'"></p>
   </div>
 </template>
 
@@ -34,6 +34,7 @@ export default {
       this.$http.article.getArticleInfo(data, id).then(res => {
         this.articleInfo = res.data
       })
+      this.articleInfo = this.articleInfo ? this.articleInfo : '文章test'
     }
   },
 
@@ -53,11 +54,12 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 40rpx;
-  p{
-    font-size: 16px;
+  &_title {
+    font-size: 32rpx;
+    color: #1A1A1A;
   }
-  .article-info-p{
-    font-size: 14px;
+  &_content{
+    font-size: 28rpx;
     color: #777;
   }
 }

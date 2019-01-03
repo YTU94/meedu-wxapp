@@ -125,6 +125,7 @@ if (false) {(function () {
       this.$http.article.getArticleInfo(data, id).then(function (res) {
         _this.articleInfo = res.data;
       });
+      this.articleInfo = this.articleInfo ? this.articleInfo : '文章test';
     }
   },
 
@@ -148,10 +149,12 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "article-info"
-  }, [_c('p', [_vm._v("内容：")]), _vm._v(" "), _c('p', {
-    staticClass: "article-info-p",
+  }, [_c('p', {
+    staticClass: "article-info_title"
+  }, [_vm._v(_vm._s(_vm.article.title || '标题'))]), _vm._v(" "), _c('p', {
+    staticClass: "article-info_content",
     domProps: {
-      "innerHTML": _vm._s(_vm.articleInfo.content)
+      "innerHTML": _vm._s(_vm.articleInfo.content || 'markdown text')
     }
   })], 1)
 }

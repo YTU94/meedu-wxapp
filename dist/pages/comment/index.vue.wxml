@@ -1,4 +1,4 @@
-<template name="bc374e82">
+<template name="20d83153">
   <view class="_div data-v-12aa9070 comment">
     <view class="_div data-v-12aa9070 comments-list section">
       <view class="_ul data-v-12aa9070 list-container" wx:if="{{curCommentsList && curCommentsList.length > 0}}">

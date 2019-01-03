@@ -28,3 +28,13 @@
   white-space: nowrap;
   border-bottom: 2rpx solid #eee;
 }
+.article-list .article-list-ul .list-item_title {
+  font-size: 28rpx;
+  color: #1A1A1A;
+}
+.article-list .article-list-ul .list-item_info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #808080;
+}

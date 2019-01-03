@@ -1,1 +1,1 @@
-<import src="/pages/tabBar/course/index.vue.wxml" /><template is="e07a744e" data="{{ ...$root['0'], $root }}"/>
+<import src="/pages/tabBar/course/index.vue.wxml" /><template is="b8e24126" data="{{ ...$root['0'], $root }}"/>

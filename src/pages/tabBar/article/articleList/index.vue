@@ -3,7 +3,11 @@
     <p>文章列表</p>
     <ul class="article-list-ul">
       <li class="list-item" v-for="(item, index) in articleList" @click="goArticleInfo(item)" :class="{ red: aa }" :key="index" >
-        {{index + 1}}. {{item.title}}
+        <div class="list-item_title">{{item.title}}</div>
+        <div class="list-item_info">
+          <span>{{item.author}}</span>
+          <span>{{item.createTime}}</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -41,8 +45,13 @@ export default {
     // 获取文章列表
     _getArticleList (data, id) {
       this.$http.article.getArticleList(data, id).then(res => {
-        this.articleList = res.data
+        if (res.data && res.data.length > 0) {
+          this.articleList = res.data
+        } else {
+          this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
+        }
       })
+      this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
     }
   },
 
@@ -79,7 +88,17 @@ export default {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      border-bottom: 1px solid @border-color;            
+      border-bottom: 1px solid @border-color; 
+      &_title{
+        font-size: 28rpx;
+        color: #1A1A1A;
+      }
+      &_info{
+        display: flex;
+        justify-content: space-between;
+        font-size: 24rpx;
+        color: @font-color-gray;
+      }           
     }
   }
 }

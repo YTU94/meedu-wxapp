@@ -1,9 +1,10 @@
-<template name="7b7904ec">
+<template name="30161bd8">
   <view class="_div data-v-532cf4ef article-list">
     <view class="_p data-v-532cf4ef">文章列表</view>
     <view class="_ul data-v-532cf4ef article-list-ul">
       <view class="_li data-v-532cf4ef list-item {{[aa ? 'red' : '']}}" bindtap="handleProxy" wx:key="index" key="{{index}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{articleList}}" wx:for-index="index" wx:for-item="item">
-        {{index + 1}}. {{item.title}}
+        <view class="_div data-v-532cf4ef list-item_title">{{item.title}}</view>
+        <view class="_div data-v-532cf4ef list-item_info"><label class="_span data-v-532cf4ef">{{item.author}}</label> <label class="_span data-v-532cf4ef">{{item.createTime}}</label></view>
       </view>
     </view>
   </view>

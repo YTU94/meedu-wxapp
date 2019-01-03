@@ -1,4 +1,4 @@
-<template name="413c485b">
+<template name="3ab535ef">
   <view class="_div data-v-628ab90c video-info">
     <view class="_div data-v-628ab90c video-box"><video style="width: 100%;" wx:if="{{playUrl && playUrl.length > 0}}" src="{{playUrl[0].url}}" controls objectFit="contain" class="_video data-v-628ab90c"></video>
       <view wx:else class="_div data-v-628ab90c video-box_null">当前视频无法观看</view>
