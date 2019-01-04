@@ -83,8 +83,14 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_index__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_card__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_card__ = __webpack_require__(4);
+
+
 //
 //
 //
@@ -153,7 +159,7 @@ if (false) {(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
-    card: __WEBPACK_IMPORTED_MODULE_1__components_card__["a" /* default */]
+    card: __WEBPACK_IMPORTED_MODULE_3__components_card__["a" /* default */]
   },
 
   data: function data() {
@@ -162,7 +168,7 @@ if (false) {(function () {
       activeIndex: 0,
       courseVideoList: [],
       tabBarList: [{ name: '详情', index: 0, value: 'name' }, { name: '列表', index: 0, value: 'name' }, { name: '评价', index: 0, value: 'name' }],
-      playUrl: [{ url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' }, { url: '' }],
+      playUrl: [],
       // video
       videoId: '',
       videosComments: [],
@@ -195,9 +201,31 @@ if (false) {(function () {
 
   methods: {
     init: function init(videoId) {
-      this._getVideosInfo({}, videoId);
-      // this._getVideosUrl({}, videoId)
-      this._getVideosComments({}, videoId);
+      var _this = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this._getVideosInfo({}, videoId);
+
+              case 2:
+                _context.next = 4;
+                return _this._getVideosComments({}, videoId);
+
+              case 4:
+                _context.next = 6;
+                return _this._getVideosUrl({}, videoId);
+
+              case 6:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }))();
     },
     swiperChange: function swiperChange(e) {
       this.activeIndex = e.mp.detail.current;
@@ -220,26 +248,35 @@ if (false) {(function () {
 
     // 视频详情
     _getVideosInfo: function _getVideosInfo(data, id) {
-      var _this = this;
+      var _this2 = this;
 
       this.$http.video.getVideosInfo(data, id).then(function (res) {
-        _this.videoInfo = res.data;
+        _this2.videoInfo = res.data;
       });
     },
 
     // 视频播放地址
     _getVideosUrl: function _getVideosUrl(data, id) {
-      var _this2 = this;
+      var _this3 = this;
 
+      if (!wx.getStorageSync('access_token')) {
+        wx.showToast({
+          title: '请先登录，再观看视屏',
+          icon: 'none',
+          mask: true
+        });
+        return;
+      }
       this.$http.video.getVideosUrl(data, id).then(function (res) {
         console.log('_getVideosUrl', res);
         if (res && res.length > 0) {
-          _this2.playUrl = res;
+          _this3.playUrl = res;
         } else {
-          _this2.playUrl = [];
+          _this3.playUrl = [{ url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' }];
         }
       }).catch(function (err) {
         console.log('没拿到ur, err', err);
+        _this3.playUrl = [{ url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' }];
         wx.showToast({
           title: '未知错误',
           icon: 'none',
@@ -250,16 +287,16 @@ if (false) {(function () {
 
     // 视频评论提交
     _getVideosComments: function _getVideosComments(data, id, merge) {
-      var _this3 = this;
+      var _this4 = this;
 
       this.$http.video.getVideosComments(data, id).then(function (res) {
         res.data.forEach(function (e) {
-          e.created_format = Object(__WEBPACK_IMPORTED_MODULE_0__utils_index__["a" /* formatTime */])(e.created_at);
+          e.created_format = Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["a" /* formatTime */])(e.created_at);
         });
         if (merge) {
-          _this3.videosComments = _this3.videosComments.concat(res.data);
+          _this4.videosComments = _this4.videosComments.concat(res.data);
         } else {
-          _this3.videosComments = res.data;
+          _this4.videosComments = res.data;
         }
       });
     }
@@ -267,7 +304,7 @@ if (false) {(function () {
   created: function created() {
     var logs = wx.getStorageSync('logs') || [];
     this.logs = logs.map(function (log) {
-      return Object(__WEBPACK_IMPORTED_MODULE_0__utils_index__["a" /* formatTime */])(new Date(log));
+      return Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["a" /* formatTime */])(new Date(log));
     });
   },
   mounted: function mounted() {

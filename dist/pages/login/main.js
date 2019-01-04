@@ -115,8 +115,8 @@ if (false) {(function () {
       isPassword: true,
       logs: [],
       form: {
-        account: '',
-        password: ''
+        account: '18119635019',
+        password: '123123'
       }
     };
   },
