@@ -4,7 +4,7 @@
       <view wx:key="index" key="{{index}}" class="_li data-v-d34b2528 list-item {{[aa ? 'red' : '']}}" wx:for="{{articleList}}" wx:for-index="index" wx:for-item="item">
         <view class="_div data-v-d34b2528 item-name"> {{item.name}}</view>
         <view class="_div data-v-d34b2528 item-content"><label class="_span data-v-d34b2528 item-content__price">
-            {{item.charge}}币 <label class="_span data-v-d34b2528 item-content__date">/ {{item.expire_days}}天</label></label> <button class="_button data-v-d34b2528 item-content__btn" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">订阅</button></view>
+            {{item.charge}}币 <label class="_span data-v-d34b2528 item-content__date">/ {{item.expire_days}}天</label></label></view>
         <view class="_div data-v-d34b2528 item-description">{{item.description[0]}}</view>
       </view>
     </view>

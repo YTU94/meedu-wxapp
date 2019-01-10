@@ -8,7 +8,7 @@
             {{item.charge}}币
             <span class="item-content__date">/ {{item.expire_days}}天</span>
           </span>
-          <button class="item-content__btn" @click="buy(item)">订阅</button>
+          <!-- <button class="item-content__btn" @click="buy(item)">订阅</button> -->
         </div>
         <div class="item-description">{{item.description[0]}}</div>
       </li>

@@ -174,17 +174,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "item-content__price"
     }, [_vm._v("\n          " + _vm._s(item.charge) + "币\n          "), _c('span', {
       staticClass: "item-content__date"
-    }, [_vm._v("/ " + _vm._s(item.expire_days) + "天")])]), _vm._v(" "), _c('button', {
-      staticClass: "item-content__btn",
-      attrs: {
-        "eventid": '0-' + index
-      },
-      on: {
-        "click": function($event) {
-          _vm.buy(item)
-        }
-      }
-    }, [_vm._v("订阅")])], 1), _vm._v(" "), _c('div', {
+    }, [_vm._v("/ " + _vm._s(item.expire_days) + "天")])])]), _vm._v(" "), _c('div', {
       staticClass: "item-description"
     }, [_vm._v(_vm._s(item.description[0]))])])
   })), _vm._v(" "), _c('p', {
