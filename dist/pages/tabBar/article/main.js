@@ -145,7 +145,7 @@ if (false) {(function () {
       var _this = this;
 
       this.$http.article.getCategoryList(data).then(function (res) {
-        if (res.data && res.data.llength > 0) {
+        if (res.data && res.data.length > 0) {
           _this.categoryList = res.data;
         }
         _this.categoryList = [{ name: '分类one', avatar: 'https://pic3.zhimg.com/v2-783e841e0c5290281b6aaf86e055d543_xl.jpg', info: '分类简介-------', num: '56' }];
