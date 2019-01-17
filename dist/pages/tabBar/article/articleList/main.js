@@ -118,7 +118,7 @@ if (false) {(function () {
 
   computed: {
     categoryId: function categoryId() {
-      return this.$mp.query.id;
+      return this.$mp.query.id || '';
     }
   },
   methods: {
@@ -135,14 +135,15 @@ if (false) {(function () {
     _getArticleList: function _getArticleList(data, id) {
       var _this = this;
 
-      this.$http.article.getArticleList(data, id).then(function (res) {
-        if (res.data && res.data.length > 0) {
-          _this.articleList = res.data;
-        } else {
-          _this.articleList = [{ title: '文章1', author: '作者', 'createTime': '2018-10-11' }];
-        }
-      });
-      this.articleList = [{ title: '文章1', author: '作者', 'createTime': '2018-10-11' }];
+      if (data && id) {
+        this.$http.article.getArticleList(data, id).then(function (res) {
+          if (res.data && res.data.length > 0) {
+            _this.articleList = res.data;
+          }
+        });
+      } else {
+        this.articleList = [{ title: '文章1', author: '作者', 'createTime': '2018-10-11' }];
+      }
     }
   },
 

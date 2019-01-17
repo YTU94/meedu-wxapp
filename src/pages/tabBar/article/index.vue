@@ -48,7 +48,7 @@ export default {
     goArticleList (e) {
       console.log('query-------->', e)
       wx.navigateTo({
-        url: `./articleList/main?id=${e.id}`
+        url: `./articleList/main?id=${e.id || ''}`
       })
     },
     // 获取文章分类

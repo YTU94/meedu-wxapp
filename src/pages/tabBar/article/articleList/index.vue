@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     categoryId () {
-      return this.$mp.query.id
+      return this.$mp.query.id || ''
     }
   },
   methods: {
@@ -44,14 +44,15 @@ export default {
     },
     // 获取文章列表
     _getArticleList (data, id) {
-      this.$http.article.getArticleList(data, id).then(res => {
-        if (res.data && res.data.length > 0) {
-          this.articleList = res.data
-        } else {
-          this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
-        }
-      })
-      this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
+      if (data && id) {
+        this.$http.article.getArticleList(data, id).then(res => {
+          if (res.data && res.data.length > 0) {
+            this.articleList = res.data
+          }
+        })
+      } else {
+        this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
+      }
     }
   },
 

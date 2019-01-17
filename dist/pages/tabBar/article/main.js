@@ -136,7 +136,7 @@ if (false) {(function () {
     goArticleList: function goArticleList(e) {
       console.log('query-------->', e);
       wx.navigateTo({
-        url: './articleList/main?id=' + e.id
+        url: './articleList/main?id=' + (e.id || '')
       });
     },
 
