@@ -286,15 +286,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.login
     }
-  }, [_vm._v("登录")]), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-primary",
-    attrs: {
-      "eventid": '3'
-    },
-    on: {
-      "click": _vm.toIndex
-    }
-  }, [_vm._v("游客登录")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("登录")]), _vm._v(" "), _c('p', {
     staticClass: "login-text"
   }, [_vm._v("登陆/注册即视为同意"), _c('span', {
     staticStyle: {

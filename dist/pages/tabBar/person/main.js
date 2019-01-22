@@ -269,15 +269,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "info-item"
   }, [_vm._v("我的会员\n        "), (_vm.usrInfo && _vm.userInfo.role && _vm.userInfo.role.length > 0) ? _c('span', {
     staticClass: "info-item-content"
-  }, [_vm._v(_vm._s(_vm.userInfo.role || ' '))]) : _vm._e(), _vm._v(" "), _c('span', {
-    staticClass: "info-item-content",
-    attrs: {
-      "eventid": '0'
-    },
-    on: {
-      "click": _vm.bugVip
-    }
-  }, [_vm._v("会员列表")])]), _vm._v(" "), _c('li', {
+  }, [_vm._v(_vm._s(_vm.userInfo.role || '普通会员'))]) : _vm._e()]), _vm._v(" "), _c('li', {
     staticClass: "info-item"
   }, [_vm._v("余额"), _c('span', {
     staticClass: "info-item-content"
@@ -288,7 +280,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v(_vm._s(_vm.userInfo.mobile || ' '))])]) : _vm._e(), _vm._v(" "), _c('li', {
     staticClass: "info-item",
     attrs: {
-      "eventid": '1'
+      "eventid": '0'
     },
     on: {
       "click": _vm.toMyCourse
@@ -305,7 +297,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })])]), _vm._v(" "), _c('li', {
     staticClass: "info-item",
     attrs: {
-      "eventid": '2'
+      "eventid": '1'
     },
     on: {
       "click": _vm.goOrderList
@@ -322,7 +314,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })])]), _vm._v(" "), _c('li', {
     staticClass: "info-item",
     attrs: {
-      "eventid": '3'
+      "eventid": '2'
     },
     on: {
       "click": _vm.appreciate
@@ -339,7 +331,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })])])], 1)], 1), _vm._v(" "), _c('button', {
     staticClass: "lagout-btn",
     attrs: {
-      "eventid": '4'
+      "eventid": '3'
     },
     on: {
       "click": _vm.lagout
