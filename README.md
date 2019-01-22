@@ -60,7 +60,7 @@
 - main.js
 
 ## API
-- API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1 (php)
+- API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1 (php:优先)
 - [后端API](https://github.com/YTU94/back-end)：由nodejs使用express框架和mysql的提供的后端服务（开发中）
 
 ## 预览
