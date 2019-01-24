@@ -19,7 +19,8 @@
     </div>
     <div class="user">
       <ul class="info">
-        <li class="info-item">我的会员
+        <li class="info-item">
+          我的会员
           <span class="info-item-content" v-if="usrInfo && userInfo.role && userInfo.role.length > 0">{{userInfo.role || '普通会员'}}</span>
           <!-- <span class="info-item-content" @click="bugVip">会员列表</span> -->
         </li>
@@ -64,12 +65,6 @@ export default {
       rebateOrderTotal: 0,
       showCouponModel: false
     }
-  },
-  created () {
-    console.log('created---------->')
-  },
-  mounted () {
-    console.log('mounted---------->')
   },
   onShow () {
     this.init()

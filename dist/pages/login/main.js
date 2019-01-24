@@ -101,6 +101,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 
 
@@ -122,7 +123,8 @@ if (false) {(function () {
   },
 
   methods: {
-    toIndex: function toIndex() {
+    onGotUserInfo: function onGotUserInfo(e) {
+      wx.setStorageSync('userInfo', e.mp.detail.userInfo);
       wx.switchTab({
         url: '../tabBar/course/main'
       });
@@ -286,13 +288,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.login
     }
-  }, [_vm._v("登录")]), _vm._v(" "), _c('p', {
-    staticClass: "login-text"
-  }, [_vm._v("登陆/注册即视为同意"), _c('span', {
-    staticStyle: {
-      "color": "#8ECEF4"
+  }, [_vm._v("登录")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "open-type": "getUserInfo",
+      "eventid": '3'
+    },
+    on: {
+      "getuserinfo": _vm.onGotUserInfo
     }
-  }, [_vm._v("meEdu协议")])])], 1)
+  }, [_vm._v("微信授权登录")]), _vm._v(" "), _c('p', {
+    staticClass: "login-text"
+  }, [_vm._v("部分功能需要账号登陆才能使用哦")])], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

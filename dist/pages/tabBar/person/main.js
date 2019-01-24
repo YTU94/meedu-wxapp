@@ -130,6 +130,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 // import { formatTime } from '@/utils/index'
 
@@ -149,12 +150,6 @@ if (false) {(function () {
       rebateOrderTotal: 0,
       showCouponModel: false
     };
-  },
-  created: function created() {
-    console.log('created---------->');
-  },
-  mounted: function mounted() {
-    console.log('mounted---------->');
   },
   onShow: function onShow() {
     this.init();
@@ -267,7 +262,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "info"
   }, [_c('li', {
     staticClass: "info-item"
-  }, [_vm._v("我的会员\n        "), (_vm.usrInfo && _vm.userInfo.role && _vm.userInfo.role.length > 0) ? _c('span', {
+  }, [_vm._v("\n        我的会员\n        "), (_vm.usrInfo && _vm.userInfo.role && _vm.userInfo.role.length > 0) ? _c('span', {
     staticClass: "info-item-content"
   }, [_vm._v(_vm._s(_vm.userInfo.role || '普通会员'))]) : _vm._e()]), _vm._v(" "), _c('li', {
     staticClass: "info-item"

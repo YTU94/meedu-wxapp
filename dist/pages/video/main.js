@@ -259,6 +259,7 @@ if (false) {(function () {
     _getVideosUrl: function _getVideosUrl(data, id) {
       var _this3 = this;
 
+      debugger;
       if (!wx.getStorageSync('access_token')) {
         wx.showToast({
           title: '请先登录，再观看视屏',
@@ -275,7 +276,7 @@ if (false) {(function () {
           _this3.playUrl = [{ url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' }];
         }
       }).catch(function (err) {
-        console.log('没拿到ur, err', err);
+        console.log('没拿到url, err', err);
         _this3.playUrl = [{ url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' }];
         wx.showToast({
           title: '未知错误',
@@ -301,16 +302,17 @@ if (false) {(function () {
       });
     }
   },
-  created: function created() {
-    var logs = wx.getStorageSync('logs') || [];
-    this.logs = logs.map(function (log) {
-      return Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["a" /* formatTime */])(new Date(log));
-    });
-  },
-  mounted: function mounted() {
+  onShow: function onShow() {
     this.videoId = this.$mp.query.id;
     this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList);
     this.init(this.videoId);
+    console.log('onshow', this.videoId);
+  },
+  onHide: function onHide() {
+    this.playUrl = [];
+  },
+  onUnload: function onUnload() {
+    this.playUrl = [];
   }
 });
 

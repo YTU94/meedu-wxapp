@@ -8,8 +8,9 @@
       <input type="password" v-model="form.password" placeholder-class="input-holder" :password="isPassword" placeholder="请输入您的密码"/>
     </view>
     <button class="btn" @click="login">登录</button>
-    <!-- <button class="btn btn-primary" @click="toIndex">游客登录</button> -->
-    <p class="login-text">登陆/注册即视为同意<span style="color: #8ECEF4;">meEdu协议</span></p>
+    <button class="btn btn-primary" open-type="getUserInfo" @getuserinfo="onGotUserInfo">微信授权登录</button>
+    <!-- <p class="login-text">登陆即视为同意<span style="color: #8ECEF4;">meEdu协议</span></p> -->
+    <p class="login-text">部分功能需要账号登陆才能使用哦</p>
     <!-- <p class="login-text" @click="goRegister">没有meedu账号？立即注册</p> -->
   </div>
 </template>
@@ -34,7 +35,8 @@ export default {
     }
   },
   methods: {
-    toIndex () {
+    onGotUserInfo (e) {
+      wx.setStorageSync('userInfo', e.mp.detail.userInfo)
       wx.switchTab({
         url: '../tabBar/course/main'
       })

@@ -138,6 +138,7 @@ export default {
     },
     // 视频播放地址
     _getVideosUrl (data, id) {
+      debugger
       if (!wx.getStorageSync('access_token')) {
         wx.showToast({
           title: '请先登录，再观看视屏',
@@ -156,7 +157,7 @@ export default {
           ]
         }
       }).catch((err) => {
-        console.log('没拿到ur, err', err)
+        console.log('没拿到url, err', err)
         this.playUrl = [
           {url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'}
         ]
@@ -181,14 +182,17 @@ export default {
       })
     }
   },
-  created () {
-    const logs = (wx.getStorageSync('logs') || [])
-    this.logs = logs.map(log => formatTime(new Date(log)))
-  },
-  mounted () {
+  onShow () {
     this.videoId = this.$mp.query.id
     this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList)
     this.init(this.videoId)
+    console.log('onshow', this.videoId)
+  },
+  onHide () {
+    this.playUrl = []
+  },
+  onUnload () {
+    this.playUrl = []
   }
 }
 </script>

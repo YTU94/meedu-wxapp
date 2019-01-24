@@ -19,7 +19,7 @@
     </view>
     <view class="_div data-v-845571d2 user">
       <view class="_ul data-v-845571d2 info">
-        <view class="_li data-v-845571d2 info-item">我的会员 <label class="_span data-v-845571d2 info-item-content" wx:if="{{usrInfo && userInfo.role && userInfo.role.length > 0}}">{{userInfo.role || '普通会员'}}</label></view>
+        <view class="_li data-v-845571d2 info-item"> 我的会员 <label class="_span data-v-845571d2 info-item-content" wx:if="{{usrInfo && userInfo.role && userInfo.role.length > 0}}">{{userInfo.role || '普通会员'}}</label></view>
         <view class="_li data-v-845571d2 info-item">余额<label class="_span data-v-845571d2 info-item-content">{{userInformation.name || 0}}币</label></view>
         <view class="_li data-v-845571d2 info-item" wx:if="{{userInfo}}">手机号<label class="_span data-v-845571d2 info-item-content">{{userInfo.mobile || ' '}}</label></view>
         <view class="_li data-v-845571d2 info-item" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 我的课程<label class="_span data-v-845571d2 info-item-content">
