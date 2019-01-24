@@ -1,8 +1,0 @@
-<template name="58c0bf5d">
-  <view class="_div data-v-fed37b0c login" hidden="{{!(isHidden)}}">
-    <view class="_p data-v-fed37b0c login-title">MeEdu Login</view>
-    <view class="_view data-v-fed37b0c section"><input value="{{form.account}}" bindinput="handleProxy" placeholder-class="input-holder" placeholder="请输入您的账号" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-fed37b0c" /></view>
-    <view class="_view data-v-fed37b0c section"><input type="password" value="{{form.password}}" bindinput="handleProxy" placeholder-class="input-holder" password="{{isPassword}}" placeholder="请输入您的密码" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_input data-v-fed37b0c" /></view> <button class="_button data-v-fed37b0c btn" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">登录</button> <button class="_button data-v-fed37b0c btn btn-primary" open-type="getUserInfo" bindgetuserinfo="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">微信授权登录</button>
-    <view class="_p data-v-fed37b0c login-text">部分功能需要账号登陆才能使用哦</view>
-  </view>
-</template>

@@ -1,6 +1,0 @@
-<template name="32e20830">
-  <view class="_div data-v-09a5d4ff article-info">
-    <view class="_p data-v-09a5d4ff article-info_title">{{article.title || '标题'}}</view>
-    <rich-text class="_p data-v-09a5d4ff article-info_content" nodes="{{articleInfo.content || 'markdown text'}}"></rich-text>
-  </view>
-</template>

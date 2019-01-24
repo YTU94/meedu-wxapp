@@ -1,6 +1,0 @@
-<import src="/components/courseCard.vue.wxml" /><template name="7a43a46c">
-  <view class="_div data-v-6d71e867 course-list">
-    <view class="_div data-v-6d71e867" wx:if="{{courseList && courseList.length > 0}}"><template wx:key="index" bindgoVideoList="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0-'+index], $root}}" is="048a3f27" wx:for="{{courseList}}" wx:for-index="index" wx:for-item="item"></template></view>
-    <view wx:else class="_div data-v-6d71e867 none">~暂无课程~</view>
-  </view>
-</template>
