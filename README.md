@@ -89,7 +89,7 @@ client_secret | *** | /config/dev.dnv.js&&prod.env.js | meedue专用
 ``` bash
 git clone https://github.com/YTU94/meedu-wxapp
 
-# 1.微信开发者工具打开meedu-wxapp，填入你自己的小程序appId
+# 1.微信开发者工具打开meedu-wxapp，填入你自己的小程序appId, 然后 `npm run build`
 # 2.然后直接点击微信开发者工具的上传按钮，上传小程序源码（dist文件夹）
 # 3.登陆你的微信小程序后台提交审核（第一次审核有点严格），然后发布
 ```
