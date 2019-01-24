@@ -138,7 +138,6 @@ export default {
     },
     // 视频播放地址
     _getVideosUrl (data, id) {
-      debugger
       if (!wx.getStorageSync('access_token')) {
         wx.showToast({
           title: '请先登录，再观看视屏',
