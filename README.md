@@ -86,6 +86,9 @@ client_secret | *** | /config/dev.dnv.js&&prod.env.js | meedue专用
 >推荐使用yarn (请先安装好node, [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
 
 > 直接使用
+
+源码下载地址：https://github.com/YTU94/meedu-wxapp/releases
+
 ``` bash
 git clone https://github.com/YTU94/meedu-wxapp
 
