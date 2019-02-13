@@ -80,8 +80,7 @@ export default {
     },
     _submitComments (content, id, type) {
       this.$http[type].submitComments({content}, id).then(res => {
-        if (typeof res.data === 'string') {
-          debugger
+        if (typeof res === 'string') {
           wx.showToast({
             title: '请先登录',
             icon: 'none',
@@ -92,8 +91,9 @@ export default {
               url: '/pages/login/main'
             })
           }, 500)
+          return
         }
-        res.data.forEach(e => {
+        res.data && res.data.forEach(e => {
           e.created_format = formatTime(e.created_at, true)
         })
         this.callbackCommentsList = this.callbackCommentsList.concat(res.data)

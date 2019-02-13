@@ -10,7 +10,7 @@
     <button class="btn" @click="login">登录</button>
     <button class="btn btn-primary" open-type="getUserInfo" @getuserinfo="onGotUserInfo">微信授权登录</button>
     <!-- <p class="login-text">登陆即视为同意<span style="color: #8ECEF4;">meEdu协议</span></p> -->
-    <p class="login-text">部分功能需要账号登陆才能使用哦</p>
+    <p class="login-text">部分功能需要账号登录才能使用哦</p>
   </div>
 </template>
 
