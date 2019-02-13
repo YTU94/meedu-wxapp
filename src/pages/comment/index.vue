@@ -84,13 +84,14 @@ export default {
           wx.showToast({
             title: '请先登录',
             icon: 'none',
-            msak: true
+            duration: 1000,
+            mask: true
           })
           setTimeout(() => {
             wx.redirectTo({
               url: '/pages/login/main'
             })
-          }, 500)
+          }, 1000)
           return
         }
         res.data && res.data.forEach(e => {

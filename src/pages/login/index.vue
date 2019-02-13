@@ -46,7 +46,6 @@ export default {
     },
     ckeckLogin () {},
     login () {
-      console.log(process.env)
       const data = {
         scope: '',
         grant_type: 'password',

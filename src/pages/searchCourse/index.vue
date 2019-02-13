@@ -21,6 +21,7 @@
 <script>
 // import { formatTime } from '@/utils/index'
 import courseCard from '@/components/courseCard.vue'
+const staticHots = ['react', 'go', 'vue', '小程序', 'php', 'vue.js', 'python', '人工智能', '区块链', 'larveral', 'mysql']
 
 export default {
   components: {
@@ -69,7 +70,12 @@ export default {
       })
     }
   },
-  created () {},
+  created () {
+    for (let i = 0; i < Math.floor(Math.random() * 10); i++) {
+      staticHots.splice(Math.floor(Math.random() * 10), 1)
+    }
+    this.hots = staticHots
+  },
   mounted () {},
   onHide () {
     this.courseList = []
