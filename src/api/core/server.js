@@ -1,8 +1,7 @@
 
 var Fly = require('flyio/dist/npm/wx')
 var fly = new Fly()
-// const HOST_DEV = 'https://1o1.cc' // eslint-disable-line
-// const HOST_PROD = 'https://xthapi-prod.isagr.com' // eslint-disable-line
+
 fly.config.baseURL = process.env.API
 // fly.config.header['content-type'] = 'application/json'
 // 添加请求拦截器

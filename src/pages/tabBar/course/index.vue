@@ -1,5 +1,5 @@
 <template>
-  <div class="course" @click="clickHandle('test click', $event)">
+  <div class="course">
     <div class="search-input" @click="goSearchCoure">请输入课程名称</div>
     <swiper-banner :swiperList="courseList" :key="imgKey"></swiper-banner>
     <h1 class="couse-title">课程推荐</h1>
@@ -32,14 +32,9 @@ export default {
     }
   },
 
-  computed: {
-    courseType () {
-      return this.$mp.query.type
-    }
-  },
   methods: {
     init () {
-      this._getCourseList({page: 1, pageSize: 10})
+      this.getCourseList({page: 1, pageSize: 10})
     },
     goSearchCoure () {
       wx.navigateTo({ url: '../../searchCourse/main' })
@@ -50,22 +45,13 @@ export default {
         url: `../../videoList/main?id=${course.id}`
       })
     },
-    getUserInfo () {
-      // 调用登录接口
-      wx.login({
-        success: () => {
-          wx.getUserInfo({
-            success: (res) => {
-              this.userInfo = res.userInfo
-            }
-          })
-        }
-      })
-    },
-    clickHandle (msg, ev) {
-      console.log('clickHandle:', msg, ev)
-    },
-    _getCourseList (data, merge) {
+    /**
+     * @description: 获取课程列表
+     * @param {data} 接口入参
+     * @param {merge} 是否合并课程列表
+     * @return: null
+     */
+    getCourseList (data, merge) {
       this.$http.course.getCourseList(data).then(res => {
         this.hasMounted = true
         if (res.data.length > 0) {
@@ -79,7 +65,7 @@ export default {
 
   created () {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    // this.getUserInfo()
   },
   beforeMount () {
   },

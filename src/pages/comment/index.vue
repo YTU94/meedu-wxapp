@@ -80,6 +80,19 @@ export default {
     },
     _submitComments (content, id, type) {
       this.$http[type].submitComments({content}, id).then(res => {
+        if (typeof res.data === 'string') {
+          debugger
+          wx.showToast({
+            title: '请先登录',
+            icon: 'none',
+            msak: true
+          })
+          setTimeout(() => {
+            wx.redirectTo({
+              url: '/pages/login/main'
+            })
+          }, 500)
+        }
         res.data.forEach(e => {
           e.created_format = formatTime(e.created_at, true)
         })
