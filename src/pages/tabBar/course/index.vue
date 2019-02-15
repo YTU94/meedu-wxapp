@@ -1,7 +1,7 @@
 <template>
   <div class="course">
     <div class="search-input" @click="goSearchCoure">请输入课程名称</div>
-    <swiper-banner :swiperList="courseList" :key="imgKey"></swiper-banner>
+    <swiper-banner :swiperList="courseList" :key="imgKey" @navigateTo="goVideoList"></swiper-banner>
     <h1 class="couse-title">课程推荐</h1>
     <div class="card-list" v-if="hasMounted">
       <div class="" v-if="courseList && courseList.length > 0">

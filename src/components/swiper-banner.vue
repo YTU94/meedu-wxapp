@@ -12,7 +12,7 @@
       next-margin	="15px">
       <block v-for="(item, index) in swiperList" :key="index">
         <swiper-item>
-            <div class="for-padding" @click="goToInfo(item.id)">
+            <div class="for-padding" @click="goToInfo(item)">
               <img v-if="item.thumb" :class="{'active': activeIndex === index}"  :src="item.thumb" class="slide-image"/>
               <!-- <span v-if="item.title" class="slide-msg">{{item.title}}</span> :mode="activeIndex === index ? 'widthFix' : ''" -->
             </div>
@@ -48,8 +48,8 @@ export default {
       console.log(e.mp.detail.current)
       this.activeIndex = e.mp.detail.current
     },
-    goToInfo (id) {
-      this.$emit('navigateTo', id)
+    goToInfo (course) {
+      this.$emit('navigateTo', course)
     }
   }
 }

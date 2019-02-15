@@ -15,6 +15,7 @@
       <p class="title">相关课程</p>
       <course-card  v-for="(item, index) in courseList" :key="index" @goVideoList="goVideoList" :course="item"></course-card>
     </div>
+    <div class="course-list" v-if="noneCourse">暂无相关课程</div>
   </div>
 </template>
 
@@ -32,7 +33,8 @@ export default {
     return {
       keywords: '',
       hots: ['react.js', 'go', '小程序', 'php', 'vue.js', 'python', '人工智能', '区块链'],
-      courseList: []
+      courseList: [],
+      noneCourse: false
     }
   },
   computed: {
@@ -67,6 +69,7 @@ export default {
     _getCourseList (data) {
       this.$http.course.getCourseList(data).then(res => {
         this.courseList = res.data
+        this.noneCourse = !(res.data.length > 0)
       })
     }
   },

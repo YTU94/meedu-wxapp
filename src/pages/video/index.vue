@@ -16,9 +16,14 @@
           <div class="introduction">
             <p class="introduction-title">
               <span class="introduction-title__name">{{videoInfo.title}}</span>
-              <span class="introduction-title__num">播放次数：{{videoInfo.view_num || viewNum}}</span>
+              <span class="introduction-title__num">
+                <p>播放次数：{{videoInfo.view_num || viewNum}}</p>
+              </span>
             </p>
-            <p class="introduction-lable c-red">简介</p>
+            <p class="introduction-lable c-red">
+              简介
+              <span class="introduction-title__num" style="float: right;">发布时间：{{videoInfo.published_format}}</span>
+            </p>
             <p class="introduction-description" v-html="videoInfo.short_description"></p>            
             <p class="introduction-lable c-red">详细介绍</p>
             <p class="introduction-description" v-html="videoInfo.description"></p>
@@ -134,6 +139,7 @@ export default {
     _getVideosInfo (data, id) {
       this.$http.video.getVideosInfo(data, id).then(res => {
         this.videoInfo = res.data
+        this.videoInfo.published_format = formatTime(res.data.published_at, true)
       })
     },
     // 视频播放地址
