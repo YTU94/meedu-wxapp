@@ -8,7 +8,8 @@
         {{course.title}}
         <div class="card-info__desc" v-html="course.short_description"></div>
       </div>
-      <div class="card-info__oth" v-if="course.charge">币{{course.charge}}</div>
+      <!-- <div class="card-info__oth" v-if="course.charge">币{{course.charge}}</div> -->
+      <div class="card-info__oth" v-if="course.charge">收费课程</div>
       <div class="card-info__oth" v-else>免费课程</div>
     </div>
   </div>

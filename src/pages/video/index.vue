@@ -146,7 +146,7 @@ export default {
     _getVideosUrl (data, id) {
       if (!wx.getStorageSync('access_token')) {
         wx.showToast({
-          title: '请先登录，再观看视屏',
+          title: '请使用会员账号登录，再观看视屏',
           icon: 'none',
           mask: true
         })
