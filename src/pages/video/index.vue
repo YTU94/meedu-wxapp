@@ -34,12 +34,18 @@
       <swiper-item>
         <scroll-view  scroll-y :style="{'height': swiperHeight * 2 + 'rpx'}">
           <ul class="list-container">
-            <li class="list-item" v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
+            <video-list 
+              v-for="(item, index) in courseVideoList" 
+              :key="index" 
+              :index="index" 
+              :item="item" 
+              @goVideo="goVideo"></video-list>
+            <!-- <li class="list-item" v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
               <div class="video-icon">
                 <img class="video-icon__img" src="../../assets/img/triangle-icon.png" alt="" mode="widthFix">
               </div>
               <div class="video-title">{{(index + 1) + ' . ' + item.title}}</div>
-            </li>
+            </li> -->
           </ul>
         </scroll-view>
       </swiper-item>
@@ -68,10 +74,12 @@
 <script>
 import { formatTime } from '@/utils/index'
 import card from '@/components/card'
+import videoList from '@/components/video-list'
 
 export default {
   components: {
-    card
+    card,
+    videoList
   },
 
   data () {
@@ -285,38 +293,8 @@ export default {
     }
     // 列表
     .list-container{
-      padding: 0 0 0 10px;
+      padding: 0 20px;
       position: relative;
-      .list-item{
-        display: flex;
-        align-items: center;
-        .video-icon{
-          display: flex;
-          flex: 0 0 auto;
-          width: 32rpx;
-          height: 32rpx;
-          border: 1px solid #787878;
-          align-items: center;
-          justify-content: center;
-          border-radius: 32rpx;
-          margin-right: 10px;
-          transform: rotate(-90deg);
-          &__img{
-            flex: 0 0 auto;
-            width: 20rpx;
-            height: auto;
-            position: relative;
-            top: 3rpx;
-          }
-        }
-        .video-title{
-          display: flex;
-          flex: 1;
-          font-size: 13px;
-          line-height: 2.6;
-          border-bottom: 1px solid @border-color;
-        }
-      }
     }
     // 评价
     .comments-list{
