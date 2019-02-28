@@ -15,7 +15,9 @@
     <!-- introduction -->
     <div class="introduction section ">
       <label class="section-label">简介</label>
-      <p class="introduction-text" v-html="courseInfo.description"></p>
+      <div class="introduction-text">
+        <wxParse className="introduction-text" :content="courseInfo.description" :imageProp="imageProp" />
+      </div>
     </div>
     
     <section class="line"></section>
@@ -59,10 +61,12 @@
 <script>
 import { formatTime } from '@/utils/index'
 import card from '@/components/card'
+import wxParse from 'mpvue-wxparse'
 
 export default {
   components: {
-    card
+    card,
+    wxParse
   },
 
   data () {
@@ -71,7 +75,10 @@ export default {
       courseId: '',
       courseInfo: '',
       courseVideoList: [],
-      courseCommentsList: []
+      courseCommentsList: [],
+      imageProp: {
+        mode: 'widthFix'
+      }
     }
   },
   computed: {
@@ -147,7 +154,7 @@ export default {
 
 <style lang="less">
 @import '../../assets/style/variable.less';
-
+@import url("~mpvue-wxparse/src/wxParse.css");
 .line{
   position: relative;
   top: 0;
