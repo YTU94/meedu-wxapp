@@ -7,7 +7,7 @@
       <h1 class="info-title">{{courseInfo.title}}</h1>
       <!-- <card :src="courseInfo.thumb"></card> -->
       <img class="info-img" :src="courseInfo.thumb" alt="" mode="">
-      <p class="info-time">上线时间： {{courseInfo.published_format}} · 观看：{{courseInfo.view_num || viewNum}}</p>
+      <p class="info-time">上线时间： {{courseInfo.published_format}} · 观看：{{courseInfo.view_num || 0}}</p>
     </div>
 
     <section class="line"></section>
@@ -94,11 +94,7 @@ export default {
       }
     }
   },
-  computed: {
-    viewNum () {
-      return parseInt(Math.random(1) * 1000)
-    }
-  },
+
   methods: {
     init () {
       console.log('init this.courseId', this.courseId)
@@ -153,11 +149,7 @@ export default {
       })
     }
   },
-  created () {
-    const logs = (wx.getStorageSync('logs') || [])
-    this.logs = logs.map(log => formatTime(new Date(log)))
-  },
-  mounted () {
+  onShow () {
     this.courseId = this.$mp.query.id
     this.init()
   },
@@ -246,12 +238,31 @@ export default {
   .comments-list{
     .section-submit{
       float: right;
-      font-size: 13px;
-      // border: 1px solid 
-      color: #fff;
-      background: rgb(234, 124, 62);
-      border-radius: 20px;
-      padding: 5px 10px;
+      // font-size: 13px;
+      // color: #fff;
+      // background: rgb(234, 124, 62);
+      // border-radius: 20px;
+      // padding: 5px 10px;
+      background-color:#e54d42;
+      color:#fff;
+      transform:translate(1rpx, 1rpx);
+      border-radius: 5000rpx;
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-sizing:border-box;
+      padding:0 30rpx;
+      font-size:28rpx;
+      height:64rpx;
+      line-height:1;
+      text-align:center;
+      text-decoration:none;
+      overflow:visible;
+      margin-left:initial;
+      transform:translate(0rpx, 0rpx);
+      margin-right:initial;
+
     }
     .list-container{
       margin-top: 10px;
@@ -260,11 +271,12 @@ export default {
         .item-avatar{
           display: flex;
           flex: 0 0 auto;
-          width: 40px;
-          height: auto;
+          width: 96rpx;
+          height: 96rpx;
           border-radius: 20px;
           padding-right: 5px;
           box-sizing: border-box;
+          border-radius: 100rpx;
         }
         .item-content{
           display: flex;
