@@ -117,11 +117,6 @@ yarn build --report
 /* npm run build --report */
 ```
 
-### 💖💖 If you find this project helpful, maybe you can buy me a coffee. 💖💖
-<p>
-  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-30-42.png" width="200" height="200"/>
-  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-31-33.png" width="200" height="200"/>
-</p>
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
