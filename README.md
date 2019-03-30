@@ -26,9 +26,10 @@
 
 ## 规划
 - [ ] 评论优化
-- [ ] 文章模块修改
 - [ ] 项目优化
-
+- [ ] 项目优化配置化
+- [ ] meedu完全移除文章模块，专注视屏（我个人会保留一个分支）
+ 
 ## 结构
 - api
   * core
@@ -86,16 +87,13 @@ client_secret | *** | /config/dev.dnv.js&&prod.env.js | meedue专用
 
 >推荐使用yarn (请先安装好node, [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
 
-> 直接使用
-
-源码下载地址：https://github.com/YTU94/meedu-wxapp/releases
-
 ``` bash
 git clone https://github.com/YTU94/meedu-wxapp
 
-# 1.微信开发者工具打开meedu-wxapp，填入你自己的小程序appId, 然后 `npm run build`
+# 1.微信开发者工具打开meedu-wxapp，填入你自己的小程序appId, 然后 `npm run build` 或者 `yarn build`, 
+    更目录会生成`dist`目录
 # 2.然后直接点击微信开发者工具的上传按钮，上传小程序源码（dist文件夹）
-# 3.登陆你的微信小程序后台提交审核（第一次审核有点严格），然后发布
+# 3.登陆微信公众平台的小程序后台提交审核，然后发布
 ```
 
 > 二开请先熟悉mpvue框架和小程序开发
@@ -117,11 +115,6 @@ yarn build --report
 /* npm run build --report */
 ```
 
-### 💖💖 If you find this project helpful, maybe you can buy me a coffee. 💖💖
-<p>
-  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-30-42.png" width="200" height="200"/>
-  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-31-33.png" width="200" height="200"/>
-</p>
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
