@@ -1,14 +1,11 @@
 {
   "pages": [
-    "pages/login/main",    
+    "pages/login/main",
     "pages/tabBar/course/main",
-    "pages/tabBar/article/main",
-    "pages/tabBar/article/articleList/main",
-    "pages/tabBar/article/articleInfo/main",
     "pages/tabBar/person/main",
     "pages/tabBar/person/orderList/main",
     "pages/tabBar/person/courseList/main",
-    
+
     "pages/video/main",
     "pages/vipList/main",
     "pages/register/main",
@@ -17,7 +14,6 @@
     "pages/videoList/main"
   ],
   "window": {
-    "withShareTicket": true,
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "MeEdu",
