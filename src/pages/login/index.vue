@@ -97,7 +97,6 @@ export default {
     }
   },
   onShow() {
-    debugger;
     console.log("------>login show");
     if (wx.getStorageSync("access_token")) {
       wx.switchTab({

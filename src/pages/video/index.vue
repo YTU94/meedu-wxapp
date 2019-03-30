@@ -196,7 +196,6 @@ export default {
     }
   },
   onShow () {
-    debugger
     this.videoId = this.$mp.query.id
     this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList)
     this.init(this.videoId)
