@@ -73,10 +73,10 @@ module.exports = {
           'babel-loader',
           {
             loader: 'mpvue-loader',
-            options: {
+            options: Object.assign({
               checkMPEntry: true
-            }
-          },
+            }, vueLoaderConfig)
+          }
         ]
       },
       {
