@@ -14,7 +14,7 @@
 
 ## 功能
 - [x] 视频点播板块
-- [x] 文章观看
+- [x] 文章观看(master已删除feature/ytu保留个人版本)
 - [x] 个人信息模块
 - [x] vip模块
 - [x] 课程评论互动
@@ -26,9 +26,9 @@
 
 ## 规划
 - [ ] 评论优化
-- [ ] 文章模块修改
 - [ ] 项目优化
-
+- [ ] 项目优化配置化
+ 
 ## 结构
 - api
   * core
@@ -64,38 +64,29 @@
 - API接口: https://github.com/Qsnh/meedu/tree/master/docs/api/v1 (php:优先)
 - [后端API](https://github.com/YTU94/back-end)：由nodejs使用express框架和mysql的提供的后端服务（开发中）
 
-## 预览
-<p align="center"><img src="gif/1.gif" width="375" height="750"/> &nbsp; <img src="gif/2.gif" width="375" height="750"/></p>  
-
-***
-
-<p align="center"><img src="gif/3.gif" width="375" height="750"/> &nbsp; <img src="gif/4.gif" width="375" height="750"/></p>  
 
 ## 配置
 
 ([meEdu](https://github.com/Qsnh/meedu)需要配置client_id, client_secret)
 
-参数 | 值 | 位置 | 介绍
-------------- | ------------- | ----------- | --------
-API | 接口地址url | /config/dev.dnv.js&&prod.env.js | 接口地址
-zan_path | *** | /config/dev.dnv.js&&prod.env.js | 给赞小程序的路径[给赞关联文档](https://mp.weixin.qq.com/s/3sTlnkHNUoAyDTmOHZ8emQ)
-client_id | *** | /config/dev.dnv.js&&prod.env.js | meedue专用
-client_secret | *** | /config/dev.dnv.js&&prod.env.js | meedue专用
+| 参数          | 值          | 位置                            | 介绍                                                                              |
+| ------------- | ----------- | ------------------------------- | --------------------------------------------------------------------------------- |
+| API           | 接口地址url | /config/dev.dnv.js&&prod.env.js | 接口地址                                                                          |
+| zan_path      | ***         | /config/dev.dnv.js&&prod.env.js | 给赞小程序的路径[给赞关联文档](https://mp.weixin.qq.com/s/3sTlnkHNUoAyDTmOHZ8emQ) |
+| client_id     | ***         | /config/dev.dnv.js&&prod.env.js | meedue专用                                                                        |
+| client_secret | ***         | /config/dev.dnv.js&&prod.env.js | meedue专用                                                                        |
 
 ## 使用
 
 >推荐使用yarn (请先安装好node, [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
 
-> 直接使用
-
-源码下载地址：https://github.com/YTU94/meedu-wxapp/releases
-
 ``` bash
 git clone https://github.com/YTU94/meedu-wxapp
 
-# 1.微信开发者工具打开meedu-wxapp，填入你自己的小程序appId, 然后 `npm run build`
+# 1.微信开发者工具打开meedu-wxapp，填入你自己的小程序appId, 然后 `npm run build` 或者 `yarn build`, 
+    更目录会生成`dist`目录
 # 2.然后直接点击微信开发者工具的上传按钮，上传小程序源码（dist文件夹）
-# 3.登陆你的微信小程序后台提交审核（第一次审核有点严格），然后发布
+# 3.登陆微信公众平台的小程序后台提交审核，然后发布
 ```
 
 > 二开请先熟悉mpvue框架和小程序开发
@@ -117,11 +108,6 @@ yarn build --report
 /* npm run build --report */
 ```
 
-### 💖💖 If you find this project helpful, maybe you can buy me a coffee. 💖💖
-<p>
-  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-30-42.png" width="200" height="200"/>
-  <img src="http://jiankang.juwu168.com/blog/wp-content/uploads/2018/08/Snipaste_2018-08-30_19-31-33.png" width="200" height="200"/>
-</p>
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
