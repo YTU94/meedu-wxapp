@@ -23,13 +23,13 @@
     "color": "#333333",
     "selectedColor": "#d81e06",
     "list": [{
-      "iconPath": "./static/img/course-default.png",
-      "selectedIconPath": "./static/img/course-active.png",
+      "iconPath": "./static/tabs/course-default.png",
+      "selectedIconPath": "./static/tabs/course-active.png",
       "pagePath": "pages/tabBar/course/main",
       "text": "课程"
     }, {
-      "iconPath": "./static/img/personal-default.png",
-      "selectedIconPath": "./static/img/personal-active.png",
+      "iconPath": "./static/tabs/personal-default.png",
+      "selectedIconPath": "./static/tabs/personal-active.png",
       "pagePath": "pages/tabBar/person/main",
       "text": "我的"
     }]
