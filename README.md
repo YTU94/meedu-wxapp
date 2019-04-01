@@ -8,6 +8,8 @@
 > A Mpvue wxApp for meEdu
 -------------
  [meEdu](https://github.com/Qsnh/meedu):基于Laravel开发的在线点播系统
+ 
+ **注：** 此分支文章部分属于我个人的博客部分，使用需注意
 
 ## 简介
 在在校教育火热的年代，meedu在线点播教育系统横空出世，随后为了市场的推动，meEdu同套微信小程序跟风而至，meEdu提供了了在线观看课程视频，提交评论，以及文章的观看，同步meEdu的课程信息和个人信息。
