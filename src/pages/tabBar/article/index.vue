@@ -1,6 +1,6 @@
 <template>
   <div class="article-list">
-    <p>文章列表</p>
+    <p>所有分类</p>
     <ul class="article-list-ul">
       <li
         class="list-item"
@@ -9,10 +9,10 @@
         :class="{ red: aa }"
         :key="index"
       >
-        <div class="list-item_title">{{item.post_title}}</div>
+        <div class="list-item_title">{{item.name}}</div>
         <div class="list-item_info">
-          <span>作者：{{item.display_name}}</span>
-          <span>{{item.post_date}}</span>
+          <span>{{item.description || '暂无描述'}}</span>
+          <span>{{item.count}}篇文章</span>
         </div>
       </li>
     </ul>
@@ -30,7 +30,6 @@ export default {
 
   data() {
     return {
-      a: "12312312",
       logs: [],
       articleList: []
     };
@@ -46,7 +45,7 @@ export default {
     },
     goArticleInfo(e) {
       wx.navigateTo({
-        url: `../articleInfo/main?id=${e.ID}&title=${e.post_title}`
+        url: `../article/articleList/main?id=${e.term_id}`
       });
       wx.setStorageSync("curPostContent", e.post_content);
     },
@@ -63,11 +62,10 @@ export default {
       //   this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
       // }
       wx.request({
-        url: "http://api.ytuj.cn/api/v1/ytu/articles", // 仅为示例，并非真实的接口地址
+        url: "http://api.ytuj.cn/api/v1/ytu/category", // 仅为示例，并非真实的接口地址
         data: {
           page: 1,
-          page_size: 10,
-          category_id: this.categoryId
+          page_size: 10
         },
         method: "GET",
         header: {
@@ -76,9 +74,6 @@ export default {
         success(res) {
           console.log(res.data);
           that.articleList = res.data.data.concat(that.articleList);
-          that.articleList.forEach(e => {
-            e.post_date = e.post_date.slice(0, 10);
-          });
         }
       });
     }
@@ -90,22 +85,12 @@ export default {
   },
   mounted() {
     this.init();
-  },
-  onHide() {
-    this.setData({
-      articleList: []
-    });
-  },
-  onUnload() {
-    this.setData({
-      articleList: []
-    });
   }
 };
 </script>
 
 <style lang="less">
-@import "../../../../assets/style/variable";
+@import "../../../assets/style/variable";
 
 .article-list {
   padding: 0 20px;
@@ -126,6 +111,7 @@ export default {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      padding: 10rpx 0;
       border-bottom: 1px solid @border-color;
       &_title {
         font-size: 28rpx;
