@@ -11,7 +11,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
+@import "./assets/style/variable.less";
+
 .container {
   height: 100%;
   display: flex;
