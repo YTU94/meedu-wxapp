@@ -32,13 +32,9 @@ export default {
     return {
       a: "12312312",
       logs: [],
+      categoryId: "",
       articleList: []
     };
-  },
-  computed: {
-    categoryId() {
-      return this.$mp.query.id || "";
-    }
   },
   methods: {
     init() {
@@ -83,23 +79,17 @@ export default {
       });
     }
   },
-
-  created() {
-    const logs = wx.getStorageSync("logs") || [];
-    this.logs = logs.map(log => formatTime(new Date(log)));
-  },
   mounted() {
     this.init();
   },
+  onShow() {
+    this.categoryId = this.$mp.query.id;
+  },
   onHide() {
-    this.setData({
-      articleList: []
-    });
+    this.articleList = [];
   },
   onUnload() {
-    this.setData({
-      articleList: []
-    });
+    this.articleList = [];
   }
 };
 </script>
