@@ -21,27 +21,18 @@
 
 <script>
 import { formatTime } from "@/utils/index";
-import card from "@/components/card";
 
 export default {
-  components: {
-    card
-  },
+  components: {},
 
   data() {
     return {
-      logs: [],
       articleList: []
     };
   },
-  computed: {
-    categoryId() {
-      return this.$mp.query.id || "";
-    }
-  },
   methods: {
     init() {
-      this._getArticleList({ page_size: 10, page: 1 }, this.categoryId);
+      this._getArticleList({ page_size: 10, page: 1 });
     },
     goArticleInfo(e) {
       wx.navigateTo({
@@ -50,19 +41,10 @@ export default {
       wx.setStorageSync("curPostContent", e.post_content);
     },
     // 获取文章列表
-    _getArticleList(data, id) {
+    _getArticleList(data) {
       const that = this;
-      // if (data && id) {
-      //   this.$http.article.getArticleList(data, id).then(res => {
-      //     if (res.data && res.data.length > 0) {
-      //       this.articleList = res.data
-      //     }
-      //   })
-      // } else {
-      //   this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
-      // }
       wx.request({
-        url: "http://api.ytuj.cn/api/v1/ytu/category", // 仅为示例，并非真实的接口地址
+        url: "http://api.ytuj.cn/api/v1/ytu/category",
         data: {
           page: 1,
           page_size: 10
@@ -72,18 +54,13 @@ export default {
           "content-type": "application/json" // 默认值
         },
         success(res) {
-          console.log(res.data);
-          that.articleList = res.data.data.concat(that.articleList);
+          that.articleList = res.data.data;
         }
       });
     }
   },
-
-  created() {
-    const logs = wx.getStorageSync("logs") || [];
-    this.logs = logs.map(log => formatTime(new Date(log)));
-  },
-  mounted() {
+  mounted() {},
+  onShow() {
     this.init();
   }
 };
