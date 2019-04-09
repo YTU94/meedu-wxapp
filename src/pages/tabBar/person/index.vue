@@ -2,16 +2,17 @@
   <div class="person">
     <div class="header">
       <div class="bg-img">
-        <img src="../../../assets/img/person-bg.png" alt="" mode="center">
+        <img src="../../../assets/img/person-bg.png" alt mode="center">
       </div>
       <div class="user-msg-card">
         <div class="top">
           <div class="organ-name">
             <div v-if="userInfo">{{userInfo.nick_name}}</div>
             <open-data v-else type="userNickName"></open-data>
+            <div v-if="userInfo" class="organ-name_mobile">{{userInfo.mobile || ' '}}</div>
           </div>
           <div class="avatar">
-            <img v-if="userInfo" class="avavtao-img" :src="userInfo.avatar" alt="" mode="widthFix">
+            <img v-if="userInfo" class="avavtao-img" :src="userInfo.avatar" alt mode="widthFix">
             <open-data v-else class="avavtao-img" type="userAvatarUrl"></open-data>
           </div>
         </div>
@@ -20,34 +21,76 @@
     <div class="user">
       <ul class="info">
         <li class="info-item">
-          <text class="icon-favorfill lg text-gray"></text>
-          我的会员
-          <span class="info-item-content" v-if="usrInfo && userInfo.role && userInfo.role.length > 0">{{userInfo.role || '普通会员'}}</span>
+          <div class="info-item_label">
+            <img class="info-item_icon" src="../../../assets/img/person_icon.svg" mode="widthFix">我的会员
+          </div>
+
+          <span
+            class="info-item-content"
+            v-if="usrInfo && userInfo.role && userInfo.role.length > 0"
+          >{{userInfo.role || '普通会员'}}</span>
           <!-- <span class="info-item-content" @click="bugVip">会员列表</span> -->
         </li>
-        <li class="info-item">余额<span class="info-item-content">{{userInformation.name || 0}}币</span></li>
-        <li class="info-item" v-if="userInfo">手机号<span class="info-item-content">{{userInfo.mobile || ' '}}</span></li>
+        <li class="info-item">
+          <div class="info-item_label">
+            <img class="info-item_icon" src="../../../assets/img/wallet_icon.svg" mode="widthFix">余额
+          </div>
+          <span class="info-item-content">{{userInformation.name || 0}}币</span>
+        </li>
+        <!-- <li class="info-item" v-if="userInfo">
+          <div class="info-item_label">
+            <img class="info-item_icon" src="../../../assets/img/mobile_icon.svg" mode="widthFix">手机号
+          </div>
+
+          <span class="info-item-content">{{userInfo.mobile || ' '}}</span>
+        </li>-->
         <li class="info-item" @click="toMyCourse">
-          我的课程<span class="info-item-content">
-            <img class="turn-right-icon" src="../../../assets/img/turn-right-d.png" alt="" mode="widthFix">
+          <div class="info-item_label">
+            <img class="info-item_icon" src="../../../assets/img/course_icon.svg" mode="widthFix">
+            我的课程
+          </div>
+          <span class="info-item-content">
+            <img
+              class="turn-right-icon"
+              src="../../../assets/img/turn-right-d.png"
+              alt
+              mode="widthFix"
+            >
           </span>
         </li>
         <li class="info-item" @click="goOrderList">
-          我的订单<span class="info-item-content">
-            <img class="turn-right-icon" src="../../../assets/img/turn-right-d.png" alt="" mode="widthFix">
+          <div class="info-item_label">
+            <img class="info-item_icon" src="../../../assets/img/order_icon.svg" mode="widthFix">我的订单
+          </div>
+          <span class="info-item-content">
+            <img
+              class="turn-right-icon"
+              src="../../../assets/img/turn-right-d.png"
+              alt
+              mode="widthFix"
+            >
           </span>
           <!-- <span class="info-item-content">{{rebateOrderTotal}}</span> -->
         </li>
-        <li class="info-item" @click="appreciate">赞赏<span class="info-item-content"><img class="turn-right-icon" src="../../../assets/img/turn-right-d.png" alt="" mode="widthFix"></span></li>
-
+        <li class="info-item" @click="appreciate">
+          <div class="info-item_label">
+            <img class="info-item_icon" src="../../../assets/img/star_icon.svg" mode="widthFix">赞赏
+          </div>
+          <span class="info-item-content">
+            <img
+              class="turn-right-icon"
+              src="../../../assets/img/turn-right-d.png"
+              alt
+              mode="widthFix"
+            >
+          </span>
+        </li>
       </ul>
     </div>
     <div style="padding:30rpx;">
-          <button class="lagout-btn" @click="lagout">退出登陆</button>
-
+      <button class="lagout-btn" @click="lagout">退出登陆</button>
     </div>
     <div class="cu-tabbar-height"></div>
-
   </div>
 </template>
 
@@ -56,88 +99,95 @@
 
 export default {
   components: {},
-  data () {
+  data() {
     return {
-      userInfo: '',
+      userInfo: "",
       userInformation: {
-        name: '',
-        idno: '',
-        phone: ''
+        name: "",
+        idno: "",
+        phone: ""
       },
       couponList: [],
       couponListTotal: 0,
       rebateOrderList: [],
       rebateOrderTotal: 0,
       showCouponModel: false
-    }
+    };
   },
-  onShow () {
-    this.init()
-    console.log('Onshow---------->')
+  onShow() {
+    this.init();
+    console.log("Onshow---------->");
     // this._getClientCouponList()
     // this._getUserRebateOrderList()
   },
   methods: {
-    init () {
-      this._getUserInfo()
+    init() {
+      this._getUserInfo();
     },
     // 我的课程
-    toMyCourse () {
+    toMyCourse() {
       // const type = 'my'
       wx.navigateTo({
-        url: './courseList/main'
-      })
+        url: "./courseList/main"
+      });
     },
     // 去购买会员
-    bugVip () {
+    bugVip() {
       wx.navigateTo({
-        url: '../../vipList/main'
-      })
+        url: "../../vipList/main"
+      });
     },
     // 我的订单
-    goOrderList () {
+    goOrderList() {
       wx.navigateTo({
         url: `./orderList/main`
-      })
+      });
     },
     // 退出登录
-    lagout () {
+    lagout() {
       try {
-        wx.clearStorageSync()
+        wx.clearStorageSync();
       } catch (e) {
         // Do something when catch error
-        console.log(e)
+        console.log(e);
       }
       wx.reLaunch({
-        url: '../../login/main'
-      })
+        url: "../../login/main"
+      });
     },
     // 打开给赞小程序
-    appreciate () {
+    appreciate() {
       wx.navigateToMiniProgram({
-        appId: 'wx18a2ac992306a5a4',
+        appId: "wx18a2ac992306a5a4",
         path: process.env.zan_path,
-        envVersion: 'release',
-        success (res) {
+        envVersion: "release",
+        success(res) {
           // 打开成功
         }
-      })
+      });
     },
-    _getUserInfo (data) {
+    _getUserInfo(data) {
       this.$http.user.getUserInfo().then(res => {
-        this.userInfo = res.data
-      })
+        this.userInfo = res.data;
+      });
     }
   }
-}
+};
 </script>
 <style lang="less">
-@import '../../../assets/style/variable.less';
-.person{
-  position: relative;
+@import "../../../assets/style/variable.less";
+.person {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
   background-color: #f1f1f1;
   font-family: Helvetica Neue, Helvetica, sans-serif;
-  .header{
+  .header {
     position: relative;
     top: 0;
     left: 0;
@@ -146,19 +196,19 @@ export default {
     padding: 20px 20px;
     box-sizing: border-box;
     overflow: hidden;
-    .bg-img{
+    .bg-img {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      filter: blur(3px) brightness(90%) opacity(.8);
-      img{
+      // filter: blur(3px) brightness(90%) opacity(0.8);
+      img {
         width: 100%;
         height: 100%;
       }
     }
-    .user-msg-card{
+    .user-msg-card {
       width: 100%;
       height: 121px;
       position: relative;
@@ -166,43 +216,49 @@ export default {
       left: 0;
       padding: 24px 20px 15px;
       box-sizing: border-box;
-      box-shadow:0px 1px 4px 0px rgba(0,0,0,0.1);
-      border-radius: 4px;
-      background: #555060;
-      .top{
+      // box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
+      // border-radius: 4px;
+      // background: #555060;
+      .top {
         display: flex;
         position: relative;
         top: 0;
         left: 0;
         justify-content: space-around;
         align-items: flex-start;
-          
-        .organ-name{
+
+        .organ-name {
           flex: 1 1 auto;
           text-align: left;
-          font-size: 20px!important;
-          font-family:PingFangSC-Medium;
-          color:#fff;
+          font-size: 38rpx !important;
+          font-family: PingFangSC-Medium;
+          color: #fff;
         }
-        .avatar{
-          flex: 0 0 50px;
+        .organ-name_mobile {
+          font-size: 28rpx;
+          color: #eee;
+          padding-top: 10rpx;
+        }
+        .avatar {
+          flex: 0 0 120rpx;
           text-align: right;
-          .avavtao-img{
+          .avavtao-img {
             display: inline-block;
-            width: 50px;
-            height: 50px;
-            border-radius: 4px;
+            width: 120rpx;
+            height: 120rpx;
+            overflow: hidden;
+            border-radius: 10rpx;
           }
         }
       }
     }
   }
 
-  .user{
-    position: relative;;
-    left:0;
-    top:0;
-    box-sizing:border-box;
+  .user {
+    position: relative;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
     padding: 0 30rpx;
     display: flex;
     flex-direction: row;
@@ -216,65 +272,73 @@ export default {
     box-shadow: 0rpx 40rpx 100rpx 0rpx rgba(0, 0, 0, 0.07);
   }
 
-  .lagout-btn{
+  .lagout-btn {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    box-sizing:border-box;
-    padding:0 30rpx;
-    font-size:28rpx;
-    line-height:1;
-    text-align:center;
-    text-decoration:none;
-    overflow:visible;
-    margin-left:initial;
-    transform:translate(0rpx, 0rpx);
-    margin-right:initial;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    overflow: visible;
+    margin-left: initial;
+    transform: translate(0rpx, 0rpx);
+    margin-right: initial;
 
-    font-size:32rpx;
-    height:80rpx;
-    background-color:#e54d42;
-    color:#fff;
-    border-radius:5px;
-    -webkit-tap-highlight-color:transparent;
+    font-size: 32rpx;
+    height: 80rpx;
+    background-color: #e54d42;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: transparent;
 
-    opacity: .9;
-
+    opacity: 0.9;
   }
 }
 
-
-
-
-.info{
+.info {
   width: 100%;
   font-size: 30rpx;
-  .info-item{
+  .info-item {
+    display: flex;
     height: 100rpx;
-    line-height: 100rpx;
     text-align: left;
     font-size: 30rpx;
+    align-items: center;
+    justify-content: space-between;
     // font-family:PingFangSC-Regular;
-    color:#1A1A1A;
-    border-bottom: 2rpx solid #E1E1E1;
-    .info-item-content{
+    color: #1a1a1a;
+    border-bottom: 2rpx solid #e1e1e1;
+    .info-item_label {
+      display: flex;
+      align-items: center;
+    }
+    .info-item-content {
       float: right;
       font-size: 28rpx;
       color: @font-color-gray;
-      .turn-right-icon{
+      .turn-right-icon {
         display: inline-block;
-        width:28rpx;
+        width: 28rpx;
         height: auto;
       }
+    }
+    .info-item_icon {
+      display: inline-block;
+      width: 36rpx;
+      height: auto;
+      padding-right: 12rpx;
     }
     // &:last-child{
     //   border-bottom:0rpx;
     // }
-    &:last-child{
+    &:last-child {
       border-bottom: none;
     }
   }

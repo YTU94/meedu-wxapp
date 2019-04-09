@@ -1,6 +1,9 @@
 <template>
   <div class="login" v-show="isHidden">
-    <p class="login-title">MeEdu Login</p>
+    <p class="login-title">
+      <span class="login-title_left">Me</span>
+      <span class="login-title_right">Edu</span>
+    </p>
     <view class="section">
       <input v-model="form.account" placeholder-class="input-holder" placeholder="请输入您的账号">
     </view>
@@ -139,8 +142,16 @@ export default {
   }
   &-title {
     color: #111111;
-    font-size: 20px;
+    font-size: 36px;
     padding: 40px 0 30px;
+    &_left {
+      padding: 0 15rpx;
+    }
+    &_right {
+      background-color: #f29d38;
+      border-radius: 15rpx;
+      padding: 0 15rpx;
+    }
   }
   .section {
     input {
