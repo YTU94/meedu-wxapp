@@ -102,8 +102,8 @@ export default {
       courseVideoList: [],
       tabBarList: [
         { name: "详情", index: 0, value: "name" },
-        { name: "列表", index: 0, value: "name" },
-        { name: "评价", index: 0, value: "name" }
+        { name: "列表", index: 1, value: "name" },
+        { name: "评价", index: 2, value: "name" }
       ],
       playUrl: [],
       // video
