@@ -175,7 +175,6 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../../../assets/style/variable.less";
 .person {
   position: absolute;
   top: 0;

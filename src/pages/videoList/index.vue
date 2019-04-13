@@ -162,7 +162,6 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/style/variable.less";
 @import url("~mpvue-wxparse/src/wxParse.css");
 .line {
   position: relative;

@@ -91,7 +91,6 @@ export default {
 </script>
 
 <style lang="less" >
-@import "../../../assets/style/variable";
 .course {
   position: relative;
   .search-input {

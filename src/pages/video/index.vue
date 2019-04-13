@@ -236,8 +236,6 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/style/variable.less";
-
 .video-info {
   position: relative;
   top: 0;
