@@ -18,8 +18,7 @@ export default {
     return {
       title: "",
       content: "",
-      articleInfo: {},
-      categoryList: []
+      articleInfo: {}
     };
   },
   computed: {
@@ -29,27 +28,14 @@ export default {
   },
   methods: {
     init() {
-      // this._getArticleInfo({page_size: 10, page: 1}, this.articleId)
       this.title = this.$mp.query.title;
       this.content = wx.getStorageSync("curPostContent");
-      // wx.removeStorage({
-      //   key: "curPostContent,"
-      // });
-    },
-    // 获取文章列表
-    _getArticleInfo(data, id) {
-      this.$http.article.getArticleInfo(data, id).then(res => {
-        this.articleInfo = res.data;
+      wx.removeStorage({
+        key: "curPostContent,"
       });
-      this.articleInfo = this.articleInfo ? this.articleInfo : "文章test";
     }
   },
-
-  created() {
-    const logs = wx.getStorageSync("logs") || [];
-    this.logs = logs.map(log => formatTime(new Date(log)));
-  },
-  mounted() {
+  onShow() {
     this.init();
   }
 };

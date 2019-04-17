@@ -44,7 +44,7 @@ export default {
     _getArticleList(data) {
       const that = this;
       wx.request({
-        url: "http://api.ytuj.cn/api/v1/ytu/category",
+        url: "https://api.ytuj.cn/api/v1/ytu/category",
         data: {
           page: 1,
           page_size: 10

@@ -30,8 +30,6 @@ export default {
 
   data() {
     return {
-      a: "12312312",
-      logs: [],
       categoryId: "",
       articleList: []
     };
@@ -49,17 +47,8 @@ export default {
     // 获取文章列表
     _getArticleList(data, id) {
       const that = this;
-      // if (data && id) {
-      //   this.$http.article.getArticleList(data, id).then(res => {
-      //     if (res.data && res.data.length > 0) {
-      //       this.articleList = res.data
-      //     }
-      //   })
-      // } else {
-      //   this.articleList = [{title: '文章1', author: '作者', 'createTime': '2018-10-11'}]
-      // }
       wx.request({
-        url: "http://api.ytuj.cn/api/v1/ytu/articles", // 仅为示例，并非真实的接口地址
+        url: "https://api.ytuj.cn/api/v1/ytu/articles", // 仅为示例，并非真实的接口地址
         data: {
           page: 1,
           page_size: 10,
@@ -70,7 +59,6 @@ export default {
           "content-type": "application/json" // 默认值
         },
         success(res) {
-          console.log(res.data);
           that.articleList = res.data.data.concat(that.articleList);
           that.articleList.forEach(e => {
             e.post_date = e.post_date.slice(0, 10);
@@ -79,11 +67,10 @@ export default {
       });
     }
   },
-  mounted() {
-    this.init();
-  },
+  mounted() {},
   onShow() {
     this.categoryId = this.$mp.query.id;
+    this.init();
   },
   onHide() {
     this.articleList = [];
