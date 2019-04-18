@@ -1,7 +1,7 @@
 <template>
   <div class="course">
     <div class="search-input" @click="goSearchCoure">请输入课程名称</div>
-    <swiper-banner :swiperList="courseList" :key="imgKey" @navigateTo="goVideoList"></swiper-banner>
+    <swiper-banner :swiperList="swiperList" @navigateTo="goVideoList"></swiper-banner>
     <h1 class="couse-title">课程推荐</h1>
     <div class="card-list" v-if="hasMounted">
       <div class v-if="courseList && courseList.length > 0">
@@ -29,17 +29,28 @@ export default {
   },
   data() {
     return {
-      imgKey: "thumb",
-      userInfo: {},
+      swiperList: [],
       courseList: [],
+      page: 1,
       pageSize: 10,
+      total: 0,
       hasMounted: false
     };
   },
 
   methods: {
-    init() {
-      this.getCourseList({ page: 1, pageSize: 10 });
+    async init() {
+      const res = await this.$http.course.getCourseList({
+        page: 1,
+        pageSize: this.pageSize
+      });
+      this.hasMounted = true;
+      this.courseList = res.data;
+      this.total = res.meta.total;
+      this.swiperList = this.courseList.slice(
+        0,
+        this.courseList.length > 3 ? 3 : this.courseList.length
+      );
     },
     goSearchCoure() {
       wx.navigateTo({ url: "../../searchCourse/main" });
@@ -58,25 +69,11 @@ export default {
      */
     getCourseList(data, merge) {
       this.$http.course.getCourseList(data).then(res => {
-        this.hasMounted = true;
-        if (res.data.length > 0) {
-          this.courseList = merge ? this.courseList.concat(res.data) : res.data;
-        } else {
-          this.noCourse = true;
-        }
+        this.courseList = merge ? this.courseList.concat(res.data) : res.data;
       });
     }
   },
 
-  created() {
-    // 调用应用实例的方法获取全局数据
-    // this.getUserInfo()
-  },
-  beforeMount() {},
-  onShow() {
-    this.init();
-  },
-  mounted() {},
   onShareAppMessage: function(res) {
     if (res.from === "button") {
       // 来自页面内转发按钮
@@ -86,6 +83,21 @@ export default {
       title: "meedu",
       path: "pages/login/main"
     };
+  },
+  onReachBottom() {
+    if (this.total > this.courseList.length) {
+      this.page++;
+      this.getCourseList({ page: this.page, pageSize: this.pageSize }, true);
+    }
+  },
+  onShow() {
+    this.init();
+  },
+  onHide() {
+    this.page = 1;
+  },
+  onUnload() {
+    this.page = 1;
   }
 };
 </script>
