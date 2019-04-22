@@ -5,14 +5,22 @@
 		"es6": false,
 		"postcss": true,
 		"minified": true,
+<<<<<<< HEAD
 		"newFeature": true,
 		"nodeModules": true,
 		"autoAudits": false
+=======
+		"newFeature": true
+>>>>>>> d72460f04c4a007eac81f983b710b6ceba712e8c
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wxb66d7c09f8195be0",
 	"projectname": "meedu-wxapp",
+<<<<<<< HEAD
+=======
+	"libVersion": "2.6.5",
+>>>>>>> d72460f04c4a007eac81f983b710b6ceba712e8c
 	"condition": {
 		"search": {
 			"current": -1,

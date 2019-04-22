@@ -9,9 +9,7 @@
       <img class="info-img" :src="courseInfo.thumb" alt mode>
       <p class="info-time">上线时间： {{courseInfo.published_format}} · 观看：{{viewNum || 0}}</p>
     </div>
-
     <section class="line"></section>
-
     <!-- introduction -->
     <div class="introduction section">
       <label class="section-label">简介</label>
@@ -19,9 +17,7 @@
         <wxParse :content="courseInfo.description" :imageProp="imageProp"/>
       </div>
     </div>
-
     <section class="line"></section>
-
     <!-- video list -->
     <div class="video-list section">
       <label class="section-label">视屏</label>
@@ -33,22 +29,9 @@
           :item="item"
           @goVideo="goVideo"
         ></video-list>
-        <!-- <li class="list-item" v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
-          <div class="video-icon">
-            <img class="video-icon__img" src="../../assets/img/triangle-icon.png" alt="" mode="widthFix">
-          </div>
-          <div class="video-title">
-            <span>{{(index + 1) + ' . ' + item.title}}</span>
-            <span>
-              <img class="video-icon__img" src="../../assets/img/turn-right-d.png" alt="" mode="widthFix">
-            </span>
-          </div>
-        </li>-->
       </ul>
     </div>
-
     <section class="line"></section>
-
     <!-- comments list -->
     <div class="comments-list section">
       <label class="section-label">评论</label>
@@ -75,7 +58,6 @@ export default {
 
   data() {
     return {
-      logs: [],
       courseId: "",
       courseInfo: "",
       courseVideoList: [],
@@ -96,11 +78,11 @@ export default {
   },
   methods: {
     init() {
-      console.log("init this.courseId", this.courseId);
       this._getCourseInfo({}, this.courseId);
       this._getVideosList({}, this.courseId);
       this._getCourseComments({}, this.courseId);
     },
+    // 跳转至视屏页
     goVideo(video) {
       wx.navigateTo({
         url: `../video/main?id=${video.id}&courseVideoList=${JSON.stringify(
@@ -109,13 +91,11 @@ export default {
       });
       console.log("参数", video.id);
     },
+    // 跳转至评论
     goComment(item, redirect) {
-      // TODO: 后续改动mixins
-      // const comment = JSON.stringify(item)
-      // console.log('参数 comment', item, comment)
       if (item) wx.setStorageSync("curCourseComent", item);
       wx.navigateTo({
-        url: `../comment/main?id=${this.courseId}`
+        url: `../comment/main?id=${this.courseId}&type=course`
       });
     },
     // 课程详情
@@ -157,12 +137,16 @@ export default {
     this.courseId = this.$mp.query.id;
     this.init();
   },
-  onHide() {}
+  onHide() {
+    this.courseId = null;
+  },
+  onUnload() {
+    this.courseId = null;
+  }
 };
 </script>
 
 <style lang="less">
-@import "../../assets/style/variable.less";
 @import url("~mpvue-wxparse/src/wxParse.css");
 .line {
   position: relative;

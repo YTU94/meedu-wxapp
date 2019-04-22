@@ -28,6 +28,7 @@
       @change="swiperChange"
       :style="{'height': swiperHeight * 2 + 'rpx'}"
     >
+      <!-- video info -->
       <swiper-item>
         <scroll-view scroll-y :style="{'height': swiperHeight * 2 + 'rpx'}">
           <div class="introduction">
@@ -61,12 +62,6 @@
               :item="item"
               @goVideo="goVideo"
             ></video-list>
-            <!-- <li class="list-item" v-for="(item, index) in courseVideoList" :class="{ red: aa }" :key="index" @click="goVideo(item)" >
-              <div class="video-icon">
-                <img class="video-icon__img" src="../../assets/img/triangle-icon.png" alt="" mode="widthFix">
-              </div>
-              <div class="video-title">{{(index + 1) + ' . ' + item.title}}</div>
-            </li>-->
           </ul>
         </scroll-view>
       </swiper-item>
@@ -77,7 +72,6 @@
         </scroll-view>
         <div class="btn-submit" for @click="goComment('', true)">留言</div>
       </swiper-item>
-      <!-- operation -->
     </swiper>
   </div>
 </template>
@@ -102,8 +96,8 @@ export default {
       courseVideoList: [],
       tabBarList: [
         { name: "详情", index: 0, value: "name" },
-        { name: "列表", index: 0, value: "name" },
-        { name: "评价", index: 0, value: "name" }
+        { name: "列表", index: 1, value: "name" },
+        { name: "评价", index: 2, value: "name" }
       ],
       playUrl: [],
       // video
@@ -150,7 +144,6 @@ export default {
     },
     // 跳去评论
     goComment(item, retirect) {
-      // TODO: 后续改动mixins
       if (item) wx.setStorageSync("curCourseComent", item);
       wx.navigateTo({
         url: `../comment/main?id=${this.courseId}&type=video`
@@ -228,16 +221,16 @@ export default {
   },
   onHide() {
     this.playUrl = [];
+    this.videoId = null;
   },
   onUnload() {
     this.playUrl = [];
+    this.videoId = null;
   }
 };
 </script>
 
 <style lang="less">
-@import "../../assets/style/variable.less";
-
 .video-info {
   position: relative;
   top: 0;
@@ -322,57 +315,6 @@ export default {
       padding: 0 20px;
       position: relative;
     }
-    // 评价
-    // .comments-list {
-    //   padding: 20px;
-    //   box-sizing: border-box;
-    //   .list-item {
-    //     display: flex;
-    //     padding: 10px 0;
-    //     border-bottom: 1px solid @border-color;
-    //     .item-avatar {
-    //       display: flex;
-    //       flex: 0 0 auto;
-    //       width: 30px;
-    //       height: auto;
-    //       border-radius: 20px;
-    //       padding-right: 5px;
-    //       box-sizing: border-box;
-    //     }
-    //     .item-content {
-    //       display: flex;
-    //       flex: 1;
-    //       position: relative;
-    //       flex-direction: column;
-    //       &__name {
-    //         position: relative;
-    //         top: 0;
-    //         left: 0;
-    //         width: 100%;
-    //         height: auto;
-    //         font-size: 14px;
-    //         color: darkslateblue;
-    //       }
-    //       &__time {
-    //         position: relative;
-    //         top: 0;
-    //         right: 0;
-    //         font-size: 10px;
-    //         color: @font-color-gray;
-    //       }
-    //       &__content {
-    //         position: relative;
-    //         top: 0;
-    //         left: 0;
-    //         width: 100%;
-    //         height: auto;
-    //         padding: 5px 0;
-    //         font-size: 12px;
-    //         color: #1a1a1a;
-    //       }
-    //     }
-    //   }
-    // }
   }
   .btn-submit {
     position: absolute;

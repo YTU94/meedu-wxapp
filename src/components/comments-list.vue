@@ -1,7 +1,7 @@
 
 <template>
   <div class="comments-list">
-    <ul class="list-container">
+    <ul class="list-container" v-if="Array.isArray(commentsList) && commentsList.length > 0">
       <li
         class="list-item"
         v-for="(item, index) in commentsList"
@@ -18,6 +18,7 @@
         </div>
       </li>
     </ul>
+    <div class="no-comments-text" v-else>- 暂无评论 -</div>
   </div>
 </template>
 
@@ -35,8 +36,6 @@ export default {
 </script>
 
 <style lang="less">
-@import "../assets/style/variable.less";
-
 /*
   * comments list 
   */
@@ -98,6 +97,12 @@ export default {
         }
       }
     }
+  }
+  .no-comments-text {
+    color: @font-color-gray;
+    font-size: 24rpx;
+    padding: 20rpx 0;
+    text-align: center;
   }
 }
 </style>

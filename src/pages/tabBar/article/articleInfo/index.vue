@@ -2,6 +2,7 @@
   <div class="article-info">
     <p class="article-info_title">{{title || '标题'}}</p>
     <p class="article-info_content" v-html="content || 'markdown text'"></p>
+    <p class="article-note">博客原文：http://ytuj.cn </p>
   </div>
 </template>
 
@@ -53,6 +54,12 @@ export default {
   &_content {
     font-size: 28rpx;
     color: #777;
+  }
+  .article-note{
+    font-size: 28rpx;
+    padding: 40rpx 0;
+    text-align: center;
+    color: @font-color-gray;
   }
 }
 </style>
