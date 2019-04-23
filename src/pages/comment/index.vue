@@ -79,7 +79,6 @@ export default {
     },
     _submitComments(content, id, type) {
       this.$http[type].submitComments({ content }, id).then(res => {
-        debugger
         if (typeof res === "string") {
           wx.showToast({
             title: "请使用账号登录",
@@ -96,12 +95,7 @@ export default {
         } else {
           wx.navigateBack({
             delta: 1
-          });
-          // res.data.forEach(e => {
-          //   e.created_format = formatTime(e.created_at, true);
-          // });
-          // this.callbackCommentsList = this.callbackCommentsList.concat(res.data);
-          
+          });          
         }
       });
     }
