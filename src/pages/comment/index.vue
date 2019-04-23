@@ -67,11 +67,11 @@ export default {
   methods: {
     // 提交评论
     submit() {
-      if (this.commentContent) {
+      if (this.commentContent && this.commentContent.length > 6) {
         this._submitComments(this.commentContent, this.courseId, this.type);
       } else {
         wx.showToast({
-          title: "请输入评论",
+          title: "请输入大于6字评论",
           icon: "none",
           mask: true
         });
@@ -79,6 +79,7 @@ export default {
     },
     _submitComments(content, id, type) {
       this.$http[type].submitComments({ content }, id).then(res => {
+        debugger
         if (typeof res === "string") {
           wx.showToast({
             title: "请使用账号登录",
@@ -92,12 +93,16 @@ export default {
             });
           }, 1000);
           return;
-        }
-        res.data &&
-          res.data.forEach(e => {
-            e.created_format = formatTime(e.created_at, true);
+        } else {
+          wx.navigateBack({
+            delta: 1
           });
-        this.callbackCommentsList = this.callbackCommentsList.concat(res.data);
+          // res.data.forEach(e => {
+          //   e.created_format = formatTime(e.created_at, true);
+          // });
+          // this.callbackCommentsList = this.callbackCommentsList.concat(res.data);
+          
+        }
       });
     }
   },
@@ -110,11 +115,13 @@ export default {
   onHide() {
     this.type = null;
     this.courseId = null;
+    this.commentContent = ''
     wx.removeStorageSync("curCourseComent");
   },
   onUnload() {
     this.type = null;
     this.courseId = null;
+    this.commentContent = ''
     wx.removeStorageSync("curCourseComent");
   }
 };
