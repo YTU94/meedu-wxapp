@@ -81,9 +81,9 @@ export default {
       this.$http[type].submitComments({ content }, id).then(res => {
         if (typeof res === "string") {
           wx.showToast({
-            title: "请先登录",
+            title: "请使用账号登录",
             icon: "none",
-            duration: 1000,
+            duration: 1500,
             mask: true
           });
           setTimeout(() => {
