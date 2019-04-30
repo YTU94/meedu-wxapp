@@ -70,11 +70,11 @@ export default {
   mounted() {},
   onShow() {
     this.categoryId = this.$mp.query.id;
+  },
+  onReady() {
     this.init();
   },
-  onHide() {
-    this.articleList = [];
-  },
+  onHide() {},
   onUnload() {
     this.articleList = [];
   }
