@@ -1,7 +1,7 @@
 
 <template>
   <div class="comments-list">
-    <ul class="list-container" v-if="Array.isArray(commentsList) && commentsList.length > 0">
+    <ul class="list-container" v-if="commentsList.length > 0">
       <li
         class="list-item"
         v-for="(item, index) in commentsList"

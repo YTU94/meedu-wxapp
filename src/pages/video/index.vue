@@ -145,8 +145,9 @@ export default {
     // 跳去评论
     goComment(item, retirect) {
       if (item) wx.setStorageSync("curCourseComent", item);
+
       wx.navigateTo({
-        url: `../comment/main?id=${this.courseId}&type=video`
+        url: `../comment/main?id=${this.videoId}&type=video`
       });
     },
     // 视频详情
