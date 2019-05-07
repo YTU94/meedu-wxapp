@@ -4,8 +4,8 @@
       <img class="video-icon__img" src="../assets/img/triangle-icon.png" alt mode="widthFix">
     </div>
     <div class="video-title">
-      <span>{{(index + 1) + ' . ' + item.title}}</span>
-      <span>
+      <span class="video-title-text">{{(index + 1) + ' . ' + item.title}}</span>
+      <span class="video-title-icon">
         <img class="video-icon__img" src="../assets/img/turn-right-d.png" alt mode="widthFix">
       </span>
     </div>
@@ -59,6 +59,18 @@ export default {
     line-height: 2.6;
     border-bottom: 1px solid @border-color;
     justify-content: space-between;
+    position: relative;
+    &-text{
+      display: inline-block;
+      width: 550rpx;
+      flex: 0 0 auto;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &-icon{
+      flex: 0 0 auto;
+    }
   }
 }
 </style>
