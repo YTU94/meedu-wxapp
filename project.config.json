@@ -12,6 +12,8 @@
 	"appid": "wxb66d7c09f8195be0",
 	"projectname": "meedu-wxapp",
 	"libVersion": "2.6.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
