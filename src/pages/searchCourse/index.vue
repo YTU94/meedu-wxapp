@@ -52,12 +52,10 @@ const staticHots = [
     "larveral",
     "mysql"
 ];
-
 export default {
     components: {
         courseCard
     },
-
     data() {
         return {
             keywords: "",

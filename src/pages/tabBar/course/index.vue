@@ -6,6 +6,10 @@
         </div>
         <swiper-banner :swiperList="swiperList" @navigateTo="goVideoList"></swiper-banner>
         <h1 class="couse-title">课程推荐</h1>
+        <view class="adContainer">
+            <ad unit-id="adunit-3c1797331e31095f"></ad>
+        </view>
+
         <div class="card-list" v-if="hasMounted">
             <div class v-if="courseList && courseList.length > 0">
                 <course-card
@@ -40,7 +44,6 @@ export default {
             hasMounted: false
         };
     },
-
     methods: {
         async init() {
             const res = await this.$http.course.getCourseList({
@@ -78,7 +81,6 @@ export default {
             });
         }
     },
-
     onShareAppMessage: function(res) {
         if (res.from === "button") {
             // 来自页面内转发按钮
@@ -144,6 +146,12 @@ export default {
         padding: 40rpx;
         box-sizing: border-box;
     }
+    .adContainer {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0 55rpx 20rpx;
+    }
     .card-list {
         display: flex;
         padding: 0 20px;
@@ -186,7 +194,6 @@ export default {
         }
     }
 }
-
 .counter {
     display: inline-block;
     margin: 10px auto;

@@ -1,4 +1,3 @@
-
 var Fly = require('flyio/dist/npm/wx')
 var fly = new Fly()
 
@@ -23,14 +22,21 @@ fly.interceptors.request.use((request) => {
 // 添加响应拦截器，响应拦截器会在then/catch处理之前执行
 fly.interceptors.response.use(
   (response) => {
-    console.log('response', response)
     // 只将请求结果的data字段返回
-    if (response.status === 200 || response.status === 201) {
-      return response.data
-    } else if (response.status === 302) {
-      wx.redirectTo({
-        url: '/pages/login/main'
+    if (typeof (response.data) === 'string') {
+      wx.showToast({
+        title: '请使用账号登录',
+        icon: 'none',
+        duration: 1500,
+        success: () => {
+          wx.redirectTo({
+            url: '/pages/login/main'
+          })
+        }
       })
+
+    } else if (response.status === 200 || response.status === 201) {
+      return response.data
     } else {
       wx.hideLoading()
       wx.showToast({
@@ -55,7 +61,7 @@ fly.interceptors.response.use(
   }
 )
 
-export default function flyio (url, params, config) {
+export default function flyio(url, params, config) {
   return new Promise((resolve, reject) => {
     wx.showLoading({
       title: '加载中',
