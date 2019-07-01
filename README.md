@@ -78,7 +78,7 @@
 
 ## 使用
 
->推荐使用yarn (请先安装好node, [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
+>推荐使用yarn (请先申请你的小程序账号[注册地址](https://mp.weixin.qq.com/cgi-bin/wx?token=&lang=zh_CN)，安装好[node](https://nodejs.org/zh-cn/), [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
 
 ``` bash
 git clone https://github.com/YTU94/meedu-wxapp
