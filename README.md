@@ -73,12 +73,12 @@
 | ------------- | ----------- | ------------------------------- | --------------------------------------------------------------------------------- |
 | API           | 接口地址url | /config/dev.dnv.js&&prod.env.js | 接口地址                                                                          |
 | zan_path      | ***         | /config/dev.dnv.js&&prod.env.js | 给赞小程序的路径[给赞关联文档](https://mp.weixin.qq.com/s/3sTlnkHNUoAyDTmOHZ8emQ) |
-| client_id     | ***         | /config/dev.dnv.js&&prod.env.js | meedue专用                                                                        |
-| client_secret | ***         | /config/dev.dnv.js&&prod.env.js | meedue专用                                                                        |
+| client_id     | ***         | /config/dev.dnv.js&&prod.env.js | meedue专用,[参考](https://github.com/Qsnh/meedu/blob/master/docs/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)                                                                        |
+| client_secret | ***         | /config/dev.dnv.js&&prod.env.js | meedue专用,[参考](https://github.com/Qsnh/meedu/blob/master/docs/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)                                                                       |
 
 ## 使用
 
->推荐使用yarn (请先安装好node, [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
+>推荐使用yarn (请先申请你的小程序账号[注册地址](https://mp.weixin.qq.com/cgi-bin/wx?token=&lang=zh_CN)，安装好[node](https://nodejs.org/zh-cn/), [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html))
 
 ``` bash
 git clone https://github.com/YTU94/meedu-wxapp
