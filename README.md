@@ -96,12 +96,12 @@ yarn
 /* npm install */
 
 # serve with hot reload at localhost:8080
-yarn start
-/* npm run dev */
+yarn start:wx
+/* npm run dev:wx */
 
 # build for production with minification
-yarn build
-/* npm run build */
+yarn build:xw
+/* npm run build:wx */
 
 # build for production and view the bundle analyzer report
 yarn build --report
