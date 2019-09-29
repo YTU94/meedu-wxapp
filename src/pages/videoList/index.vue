@@ -1,6 +1,5 @@
 <template>
     <div class="course-info">
-        <official-account></official-account>
         <!-- course-info -->
         <div class="info section">
             <span class="info-tag" v-if="courseInfo.charge">实战课程</span>
