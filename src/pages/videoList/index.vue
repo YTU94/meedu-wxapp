@@ -2,20 +2,20 @@
     <div class="course-info">
         <!-- course-info -->
         <div class="info section">
-            <span class="info-tag" v-if="courseInfo.charge">实战课程</span>
-            <span class="info-tag" v-else>免费课程</span>
+            <span class="info-tag">{{courseInfo.charge ? '实战课程' : '免费课程'}}</span>
             <h1 class="info-title">{{courseInfo.title}}</h1>
-            <!-- <card :src="courseInfo.thumb"></card> -->
             <img class="info-img" :src="courseInfo.thumb" alt mode />
-            <p class="info-time">上线时间： {{courseInfo.published_format}} · 观看：{{viewNum || 0}}</p>
         </div>
         <section class="line"></section>
         <!-- introduction -->
         <div class="introduction section">
             <label class="section-label">简介</label>
-            <div class="introduction-text">
-                <wxParse :content="courseInfo.description" :imageProp="imageProp" />
+            <div class="introduction-line">
+                <div class="info-time">上线时间： {{courseInfo.published_format}}</div>
+                <div class="info-view">观看：{{viewNum || 0}}</div>
             </div>
+
+            <wxParse :content="courseInfo.description" :imageProp="imageProp" />
         </div>
         <section class="line"></section>
         <!-- video list -->
@@ -89,7 +89,6 @@ export default {
                     video.id
                 }&courseVideoList=${JSON.stringify(this.courseVideoList)}`
             });
-            console.log("参数", video.id);
         },
         // 跳转至评论
         goComment(item, redirect) {
@@ -169,7 +168,7 @@ export default {
     background-color: #fff;
     .section {
         position: relative;
-        padding: 20px;
+        padding: 40rpx 40rpx 20rpx;
         box-sizing: border-box;
         &-label {
             font-size: 16px;
@@ -201,10 +200,6 @@ export default {
             box-shadow: 0rpx 4rpx 10rpx rgba(0, 0, 0, 0.1);
             margin: 10rpx 0;
         }
-        &-time {
-            font-size: 12px;
-            color: @font-color-gray;
-        }
     }
     /*
   * introduction 简介
@@ -213,6 +208,16 @@ export default {
         &-text {
             font-size: 12px;
             color: @font-color-gray;
+        }
+        &-line {
+            font-size: 12px;
+            color: @font-color-gray;
+            display: flex;
+            justify-content: space-between;
+            .info-time,
+            .info-view {
+                flex: 0 0 auto;
+            }
         }
     }
     /*
