@@ -6,7 +6,7 @@
             <span class="info-tag" v-else>免费课程</span>
             <h1 class="info-title">{{courseInfo.title}}</h1>
             <!-- <card :src="courseInfo.thumb"></card> -->
-            <img class="info-img" :src="courseInfo.thumb" alt mode>
+            <img class="info-img" :src="courseInfo.thumb" alt mode />
             <p class="info-time">上线时间： {{courseInfo.published_format}} · 观看：{{viewNum || 0}}</p>
         </div>
         <section class="line"></section>
@@ -14,7 +14,7 @@
         <div class="introduction section">
             <label class="section-label">简介</label>
             <div class="introduction-text">
-                <wxParse :content="courseInfo.description" :imageProp="imageProp"/>
+                <wxParse :content="courseInfo.description" :imageProp="imageProp" />
             </div>
         </div>
         <section class="line"></section>
@@ -253,10 +253,13 @@ export default {
             transform: translate(0rpx, 0rpx);
             margin-right: initial;
         }
+<<<<<<< HEAD
         .adContainer {
             position: relative;
             padding: 15rpx;
         }
+=======
+>>>>>>> 00a3b3c3a7fbb86c365bd10d4ed44ee0ec704c72
     }
 }
 </style>

@@ -1,10 +1,14 @@
 <template>
     <div class="course">
         <div class="search-input" @click="goSearchCoure">
-            <img class="search-input-icon" src="../../../assets/img/search.svg" alt>
+            <img class="search-input-icon" src="../../../assets/img/search.svg" alt />
             请输入课程名称
         </div>
         <swiper-banner :swiperList="swiperList" @navigateTo="goVideoList"></swiper-banner>
+        <div class="official-account">
+            <official-account></official-account>
+        </div>
+
         <h1 class="couse-title">课程推荐</h1>
         <view class="adContainer">
             <ad unit-id="adunit-3c1797331e31095f"></ad>
@@ -139,6 +143,9 @@ export default {
             height: 32rpx;
             margin-right: 10rpx;
         }
+    }
+    .official-account {
+        padding: 0 40rpx;
     }
     .couse-title {
         // text-align: center;
