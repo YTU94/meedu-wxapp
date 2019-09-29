@@ -24,6 +24,7 @@
 - [X] 分享功能（微信关闭了分享回调就以转发实现）
 - [X] 赞赏功能（借助给赞小程序）
 - [X] 升级了Mpvue2.0理论支持支付宝，百度，头条小程序
+- [X] 添加公众号关注组件 （配置：[官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/official-account.html)）
 
 ## 规划
 - [ ] 评论优化
