@@ -108,22 +108,6 @@ export default {
             return parseInt(Math.random(1) * 1000);
         }
     },
-    onReady() {
-        // const that = this
-        // this.swiperHeight = wx.getSystemInfoSync().windowHeight - 265
-        // wx.downloadFile({
-        //   url: 'https://img.ccsc.work/test%2F3176f36b9cee7cbdef_10.mp4?OSSAccessKeyId=LTAIfNCN3kQQlBHl&Expires=1630107264&Signature=MpMLkHgtRZ5jzmye4ACSt%2BALejo%3D', // 仅为示例，并非真实的资源
-        //   success (res) {
-        //     that.playUrl[1].url = res.tempFilePath
-        //     // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
-        //     if (res.statusCode === 200) {
-        //       wx.playVoice({
-        //         filePath: res.tempFilePath
-        //       })
-        //     }
-        //   }
-        // })
-    },
     methods: {
         async init(videoId) {
             await this._getVideosInfo({}, videoId);
@@ -169,7 +153,6 @@ export default {
             this.$http.video
                 .getVideosUrl(data, id)
                 .then(res => {
-                    console.log("_getVideosUrl", res);
                     if (res && res.length > 0) {
                         this.playUrl = res;
                     } else {
@@ -182,7 +165,6 @@ export default {
                     }
                 })
                 .catch(err => {
-                    console.log("没拿到url, err", err);
                     this.playUrl = [
                         {
                             url:
@@ -214,7 +196,6 @@ export default {
         this.videoId = this.$mp.query.id;
         this.courseVideoList = JSON.parse(this.$mp.query.courseVideoList);
         this.init(this.videoId);
-        console.log("onshow", this.videoId);
     },
     onHide() {
         this.playUrl = [];
