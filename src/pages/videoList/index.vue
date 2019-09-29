@@ -253,13 +253,10 @@ export default {
             transform: translate(0rpx, 0rpx);
             margin-right: initial;
         }
-<<<<<<< HEAD
         .adContainer {
             position: relative;
             padding: 15rpx;
         }
-=======
->>>>>>> 00a3b3c3a7fbb86c365bd10d4ed44ee0ec704c72
     }
 }
 </style>
