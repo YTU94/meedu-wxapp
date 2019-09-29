@@ -137,9 +137,6 @@ export default {
     },
     onShow() {
         this.init();
-        console.log("Onshow---------->");
-        // this._getClientCouponList()
-        // this._getUserRebateOrderList()
     },
     methods: {
         init() {
@@ -147,7 +144,6 @@ export default {
         },
         // 我的课程
         toMyCourse() {
-            // const type = 'my'
             wx.navigateTo({
                 url: "./courseList/main"
             });
