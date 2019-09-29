@@ -62,7 +62,6 @@ export default {
             wx.navigateTo({ url: "../../searchCourse/main" });
         },
         goVideoList(course) {
-            console.log("query--------->course.id", course.id);
             wx.navigateTo({
                 url: `../../videoList/main?id=${course.id}`
             });
@@ -79,13 +78,13 @@ export default {
                     ? this.courseList.concat(res.data)
                     : res.data;
             });
+        },
+        reset() {
+            this.page = 1;
+            this.total = 0;
         }
     },
     onShareAppMessage: function(res) {
-        if (res.from === "button") {
-            // 来自页面内转发按钮
-            console.log(res.target);
-        }
         return {
             title: "meedu",
             path: "pages/login/main"
@@ -98,16 +97,23 @@ export default {
                 { page: this.page, pageSize: this.pageSize },
                 true
             );
+        } else {
+            wx.showToast({
+                title: "没有更多了",
+                icon: "none",
+                duration: 1000,
+                success: () => {}
+            });
         }
     },
     onShow() {
         this.init();
     },
     onHide() {
-        this.page = 1;
+        this.reset();
     },
     onUnload() {
-        this.page = 1;
+        this.reset();
     }
 };
 </script>
