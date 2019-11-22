@@ -1,7 +1,7 @@
 <template>
     <div class="course-card" @click="goVideoList(course)">
         <div class="card-img">
-            <img :src="course.thumb" alt mode />
+            <img :src="course.thumb" alt mode="aspectFill" />
             <div v-if="isNew" class="card-img-icon">new</div>
         </div>
         <div class="card-info">

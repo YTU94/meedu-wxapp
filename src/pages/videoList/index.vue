@@ -4,7 +4,7 @@
         <div class="info section">
             <span class="info-tag">{{courseInfo.charge ? '实战课程' : '免费课程'}}</span>
             <h1 class="info-title">{{courseInfo.title}}</h1>
-            <img class="info-img" :src="courseInfo.thumb" alt mode />
+            <img class="info-img" :src="courseInfo.thumb" alt mode="scaleToFill" />
         </div>
         <section class="line"></section>
         <!-- introduction -->
