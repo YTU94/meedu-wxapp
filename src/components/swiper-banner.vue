@@ -20,6 +20,7 @@
             :class="{'active': activeIndex === index}"
             :src="item.thumb"
             class="slide-image"
+            mode="aspectFit"
           >
         </div>
       </swiper-item>

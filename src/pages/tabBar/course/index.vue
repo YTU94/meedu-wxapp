@@ -1,9 +1,12 @@
 <template>
     <div class="course">
-        <div class="search-input" @click="goSearchCoure">
-            <img class="search-input-icon" src="../../../assets/img/search.svg" alt />
-            请输入课程名称
-        </div>
+        <section class="search-moudle">
+            <div class="search-input" @click="goSearchCoure">
+                <img class="search-input-icon" src="../../../assets/img/search.svg" alt />
+                请输入课程名称
+            </div>
+        </section>
+
         <swiper-banner :swiperList="swiperList" @navigateTo="goVideoList"></swiper-banner>
         <div class="official-account">
             <official-account></official-account>
@@ -125,31 +128,42 @@ export default {
 <style lang="less" >
 .course {
     position: relative;
-    .search-input {
-        position: relative;
-        width: auto;
-        height: 70rpx;
-        line-height: 70rpx;
+    padding-top: 70px;
+    .search-moudle {
+        position: fixed;
         top: 0;
         left: 0;
-        padding: 0 20rpx;
-        margin: 20rpx 40rpx;
-        box-sizing: border-box;
-        border-radius: 35rpx;
-        border: 1px solid #ccc;
-        font-size: 26rpx;
-        text-align: center;
-        color: #808080;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &-icon {
-            display: inline-block;
-            width: 32rpx;
-            height: 32rpx;
-            margin-right: 10rpx;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        background-color: #fff;
+        .search-input {
+            position: relative;
+            width: auto;
+            height: 70rpx;
+            line-height: 70rpx;
+            top: 0;
+            left: 0;
+            padding: 0 20rpx;
+            margin: 20rpx 40rpx;
+            box-sizing: border-box;
+            border-radius: 35rpx;
+            border: 1px solid #ccc;
+            font-size: 26rpx;
+            text-align: center;
+            color: #808080;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &-icon {
+                display: inline-block;
+                width: 32rpx;
+                height: 32rpx;
+                margin-right: 10rpx;
+            }
         }
     }
+
     .official-account {
         padding: 0 40rpx;
     }
